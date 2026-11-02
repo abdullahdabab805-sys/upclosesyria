@@ -1,31 +1,33 @@
 # MEDIA-AUDIT — الصور والفيديو
 
-> `npm run media:audit -- http://localhost:3100` · 2026-11-02 · 9 صفحات · هاتف 412×823 بكثافة 1.75
+> `npm run media:audit -- http://localhost:3100` · 2026-11-02 · 11 صفحات · هاتف 412×823 بكثافة 1.75
 
 ## الخلاصة
 
-- صور في HTML الأولي: **162** (منها 21 زخرفية `alt=""`)
+- صور في HTML الأولي: **172** (منها 23 زخرفية `alt=""`)
 - بلا alt: **0** · alt ضعيف (اسم ملف، عام، طويل): **0** · بغير لغة الصفحة: **0**
-- alt مكرّر لصور مختلفة في الصفحة نفسها: **11**
+- alt مكرّر لصور مختلفة في الصفحة نفسها: **5**
 - بلا أبعاد (تسبب CLS): **0** · صورة LCP بـ lazy: **0**
-- صور تُنزَّل بأكبر من 1.5× ما تحتاجه الشاشة: **9**
-- أسماء ملفات غير وصفية: **15**
+- صور تُنزَّل بأكبر من 1.5× ما تحتاجه الشاشة: **11**
+- أسماء ملفات غير وصفية: **19**
 - iframe فيديو في HTML الأولي: **0** · VideoObject ناقص: **0**
-- صور خارجية لم تُفحص من هذه البيئة: 67
+- صور خارجية لم تُفحص من هذه البيئة: 75
 
 ## لكل صفحة
 
 | الصفحة | صور | بلا alt / ضعيف / لغة | عنصر LCP (هاتف) | مشكلات التحميل | OG | صور JSON-LD | صور الـ sitemap | iframe | JS (KB) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `/` | 8 | 0 / 0 / 0 | h1 · 604ms | — | ✅ | — | — | 0 | 162 |
-| `/en` | 8 | 0 / 0 / 0 | p · 148ms | — | ✅ | — | — | 0 | 162 |
-| `/cities/damascus` | 44 | 0 / 0 / 0 | img `/guide/u-damascus-new-0.webp` · 192ms | — | ✅ | — | 29/37 | 0 | 203 |
-| `/en/cities/damascus` | 42 | 0 / 0 / 0 | img `/guide/u-damascus-new-0.webp` · 140ms | — | ✅ | — | 29/37 | 0 | 203 |
-| `/cities/aleppo` | 41 | 0 / 0 / 0 | img `/guide/gallery-aleppo-0.webp` · 292ms | — | ✅ | — | 6/8 | 0 | 203 |
-| `/inside/bloudan` | 11 | 0 / 0 / 0 | img `/guide/gallery-bloudan-0.webp` · 156ms | — | ✅ | — | 4/4 | 0 | 201 |
-| `/blog/damascus-from-qasioun` | 6 | 0 / 0 / 0 | img `/guide/u-damascus-8.webp` · 116ms | — | ✅ | — | 5/5 | 0 | 147 |
-| `/videos` | 1 | 0 / 0 / 0 | p · 164ms | — | ✅ | — | — | 0 | 149 |
-| `/en/videos` | 1 | 0 / 0 / 0 | p · 124ms | — | ✅ | — | — | 0 | 149 |
+| `/` | 10 | 0 / 0 / 0 | h1 · 716ms | — | ✅ | — | — | 0 | 162 |
+| `/en` | 10 | 0 / 0 / 0 | p · 212ms | — | ✅ | — | — | 0 | 162 |
+| `/cities/damascus` | 45 | 0 / 0 / 0 | img `/guide/u-damascus-new-0.webp` · 212ms | — | ✅ | — | 23/31 | 0 | 206 |
+| `/en/cities/damascus` | 43 | 0 / 0 / 0 | img `/guide/u-damascus-new-0.webp` · 212ms | — | ✅ | — | 23/31 | 0 | 205 |
+| `/cities/aleppo` | 41 | 0 / 0 / 0 | img `/guide/gallery-aleppo-0.webp` · 336ms | — | ✅ | — | 6/8 | 0 | 203 |
+| `/inside/bloudan` | 11 | 0 / 0 / 0 | img `/guide/gallery-bloudan-0.webp` · 184ms | — | ✅ | — | 4/4 | 0 | 201 |
+| `/seasons/damascus-2026-12-01` | 1 | 0 / 0 / 0 | p · 120ms | — | ✅ | — | — | 0 | 158 |
+| `/blog/damascus-from-qasioun` | 6 | 0 / 0 / 0 | img `/guide/u-damascus-8.webp` · 168ms | — | ✅ | — | 5/5 | 0 | 147 |
+| `/guides/e2e-guide-1793609190494-fr` | 1 | 0 / 0 / 0 | h1 · 148ms | — | ✅ | — | — | 0 | 160 |
+| `/videos` | 2 | 0 / 0 / 0 | p · 160ms | — | ✅ | — | — | 0 | 149 |
+| `/en/videos` | 2 | 0 / 0 / 0 | p · 136ms | — | ✅ | — | — | 0 | 149 |
 
 ## الصور الأثقل من حاجتها
 
@@ -37,7 +39,9 @@
 | `/en/cities/damascus` | `/brand/ahleen-green.svg` | 1077 | 96 | 12 KB |
 | `/cities/aleppo` | `/brand/ahleen-green.svg` | 1077 | 96 | 12 KB |
 | `/inside/bloudan` | `/brand/ahleen-green.svg` | 1077 | 96 | 12 KB |
+| `/seasons/damascus-2026-12-01` | `/brand/ahleen-green.svg` | 1077 | 96 | 12 KB |
 | `/blog/damascus-from-qasioun` | `/brand/ahleen-green.svg` | 1077 | 96 | 12 KB |
+| `/guides/e2e-guide-1793609190494-fr` | `/brand/ahleen-green.svg` | 1077 | 96 | 12 KB |
 | `/videos` | `/brand/ahleen-green.svg` | 1077 | 96 | 12 KB |
 | `/en/videos` | `/brand/ahleen-green.svg` | 1077 | 96 | 12 KB |
 
@@ -48,11 +52,10 @@
 
 ## alt مكرّر في الصفحة نفسها
 
-- `/cities/damascus`: «سوق الحميدية»، «الجامع الأموي»، «صورة من دمشق»
-- `/en/cities/damascus`: «Souq al-Hamidiyah»، «Umayyad Mosque»، «A photo of Damascus»
-- `/cities/aleppo`: «أسواق المدينة»، «قلعة حلب»، «صورة من حلب»
+- `/cities/damascus`: «صورة من دمشق»
+- `/en/cities/damascus`: «A photo of Damascus»
+- `/cities/aleppo`: «قلعة حلب»، «صورة من حلب»
 - `/inside/bloudan`: «صورة من بلودان»
-- `/blog/damascus-from-qasioun`: «دمشق من فوق: مدينة تمتد حتى الضباب»
 
 ## الفيديو
 
@@ -61,5 +64,5 @@
 
 ## صور الـ sitemap غير الظاهرة في الصفحة
 
-- `/cities/damascus`: /fee7e71c-721e-4ee6-8edd-4619d12e3237.webp، /8aa3b9c8-78c5-4df8-96be-fcfb02b890ba.webp، /76d7dc57-82f9-4c2d-a2c1-3b1909c466ab.webp، /338d8a6b-da08-4bb2-8f31-8e0668f95050.webp، /1c725628-874a-4607-af70-23219735b643.webp، /guide/u-damascus-0.webp، /guide/u-damascus-1.webp، /guide/u-damascus-2.webp، /guide/u-damascus-3.webp، /guide/u-damascus-4.webp، /guide/u-damascus-5.webp، /guide/u-damascus-6.webp، /guide/u-damascus-7.webp
-- `/en/cities/damascus`: /fee7e71c-721e-4ee6-8edd-4619d12e3237.webp، /8aa3b9c8-78c5-4df8-96be-fcfb02b890ba.webp، /76d7dc57-82f9-4c2d-a2c1-3b1909c466ab.webp، /338d8a6b-da08-4bb2-8f31-8e0668f95050.webp، /1c725628-874a-4607-af70-23219735b643.webp، /guide/u-damascus-0.webp، /guide/u-damascus-1.webp، /guide/u-damascus-2.webp، /guide/u-damascus-3.webp، /guide/u-damascus-4.webp، /guide/u-damascus-5.webp، /guide/u-damascus-6.webp، /guide/u-damascus-7.webp
+- `/cities/damascus`: /8aa3b9c8-78c5-4df8-96be-fcfb02b890ba.webp، /76d7dc57-82f9-4c2d-a2c1-3b1909c466ab.webp، /338d8a6b-da08-4bb2-8f31-8e0668f95050.webp، /1c725628-874a-4607-af70-23219735b643.webp، /guide/u-damascus-0.webp، /guide/u-damascus-4.webp، /guide/u-damascus-6.webp
+- `/en/cities/damascus`: /8aa3b9c8-78c5-4df8-96be-fcfb02b890ba.webp، /76d7dc57-82f9-4c2d-a2c1-3b1909c466ab.webp، /338d8a6b-da08-4bb2-8f31-8e0668f95050.webp، /1c725628-874a-4607-af70-23219735b643.webp، /guide/u-damascus-0.webp، /guide/u-damascus-4.webp، /guide/u-damascus-6.webp

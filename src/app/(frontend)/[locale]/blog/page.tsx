@@ -119,7 +119,7 @@ export default async function BlogPage({ params }: Props) {
           <section className="wrap" style={{ paddingBlock: 24 }}>
             <Link className="feature" href={top.href}>
               <span className="art">
-                <Photo media={top.media} shot={top.shot} size="hero" priority fallback={top.fallback} />
+                <Photo locale={locale} media={top.media} shot={top.shot} size="hero" priority fallback={top.fallback} />
               </span>
               <span className="txt">
                 <span className="eyebrow">
@@ -145,7 +145,7 @@ export default async function BlogPage({ params }: Props) {
                   node: (
                     <Link className="pcard lift" href={p.href}>
                       <span className="media" style={{ height: 210 }}>
-                        <Photo media={p.media} shot={p.shot} fallback={p.fallback} />
+                        <Photo locale={locale} media={p.media} shot={p.shot} fallback={p.fallback} />
                       </span>
                       <span className="body">
                         <span className="meta">{label(p)}</span>

@@ -133,6 +133,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="wrap detail-row">
           <div className="pic lift">
             <Photo
+              locale={locale}
               media={detail?.photo}
               shot={(detail && (text(detail.place, locale) ?? text(detail.sentence, locale))) || T('صورة قريبة من حارة سورية', 'A close-up from a Syrian street')}
               tall
@@ -226,7 +227,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 return (
                   <Link key={r.id} className="pcard lift" href={localePath(locale, `/seasons/${r.slug}`)}>
                     <span className="media">
-                      <Photo media={r.photos?.[0]} shot="صورة من المراسل" fallback={GUIDE[asDoc(r.city)?.slug ?? '']?.gallery[1]} />
+                      <Photo locale={locale} media={r.photos?.[0]} shot={T('صورة من المراسل', 'A correspondent’s photo')} fallback={GUIDE[asDoc(r.city)?.slug ?? '']?.gallery[1]} />
                     </span>
                     <span className="body">
                       <span className="meta">
@@ -290,7 +291,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             {stories.length
               ? stories.slice(0, 3).map((s) => (
                   <Link key={s.id} className="lift" href={localePath(locale, `/blog/${s.slug}`)}>
-                    {asMedia(s.photos?.[0]) && <Photo media={s.photos?.[0]} shot="" />}
+                    {asMedia(s.photos?.[0]) && <Photo locale={locale} media={s.photos?.[0]} shot="" />}
                     <small>{CAT[s.category ?? 'story']}</small>
                     <b>
                       <Loc v={s.title} locale={locale} />
@@ -299,7 +300,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 ))
               : STORIES.slice(0, 3).map((g) => (
                   <Link key={g.slug} className="lift" href={localePath(locale, `/blog/${g.slug}`)}>
-                    <Photo shot="" fallback={g.photos[0]} />
+                    <Photo locale={locale} shot="" fallback={g.photos[0]} />
                     <small>{CAT[g.category]}</small>
                     <b>{g.title[locale]}</b>
                   </Link>

@@ -94,7 +94,7 @@ export default async function StoryPage({ params }: Props) {
               </span>
             )}
           </div>
-          {photos[0] && <Photo media={photos[0]} shot={text(story.title, locale) ?? ''} size="hero" priority />}
+          {photos[0] && <Photo locale={locale} media={photos[0]} shot={text(story.title, locale) ?? ''} size="hero" priority />}
           {body && (
             <div className="prose" lang={body.lang} dir={body.lang === 'ar' ? 'rtl' : 'ltr'}>
               <RichText data={body.value} />
@@ -103,7 +103,7 @@ export default async function StoryPage({ params }: Props) {
           {photos.length > 1 && (
             <div className="grid g3">
               {photos.slice(1).map((m) => (
-                <Photo key={m.id} media={m} shot={text(story.title, locale) ?? ''} />
+                <Photo locale={locale} key={m.id} media={m} shot={text(story.title, locale) ?? ''} />
               ))}
             </div>
           )}
@@ -129,7 +129,7 @@ function GuideStoryPage({ story, locale }: { story: GuideStory; locale: Locale }
               <time dateTime={story.date}>{formatDate(new Date(story.date), locale)}</time>
             </span>
           </div>
-          <Photo shot={title} size="hero" priority fallback={story.photos[0]} />
+          <Photo locale={locale} shot={title} size="hero" priority fallback={story.photos[0]} />
           <div className="prose">
             {story.body.map((b, i) => (
               <p key={i}>{b[locale]}</p>
@@ -137,7 +137,7 @@ function GuideStoryPage({ story, locale }: { story: GuideStory; locale: Locale }
           </div>
           <div className="grid g3 essay">
             {story.photos.slice(1).map((key) => (
-              <Photo key={key} shot={title} fallback={key} />
+              <Photo locale={locale} key={key} shot={title} fallback={key} />
             ))}
           </div>
         </div>
