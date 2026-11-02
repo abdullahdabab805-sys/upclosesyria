@@ -94,12 +94,13 @@ async function jsonLd(page: Page) {
   return JSON.parse(raw ?? 'null') as Record<string, unknown>
 }
 
-async function ogImageIsPng(page: Page, request: import('@playwright/test').APIRequestContext) {
+async function ogImageIsImage(page: Page, request: import('@playwright/test').APIRequestContext) {
   const src = await page.locator('meta[property="og:image"]').first().getAttribute('content')
   expect(src).toBeTruthy()
   const res = await request.get(src!)
   expect(res.status()).toBe(200)
-  expect(res.headers()['content-type']).toContain('image/png')
+  // PNG for the text cards, JPEG for photo cards (SEO day 6).
+  expect(res.headers()['content-type']).toMatch(/^image\/(png|jpeg)/)
   expect((await res.body()).length).toBeGreaterThan(10_000)
   // Rendered on request, so the CDN (Vercel's edge) must be allowed to keep it.
   expect(res.headers()['cache-control']).toMatch(/s-maxage=\d+/)
@@ -115,7 +116,7 @@ test('city page: WebPage + TouristDestination JSON-LD and a branded social image
       { '@type': 'TouristDestination', '@id': abs('/en/cities/aleppo#destination'), name: 'Aleppo', url: abs('/en/cities/aleppo') },
     ],
   })
-  await ogImageIsPng(page, request)
+  await ogImageIsImage(page, request)
   // Its own card, not the default one.
   await expect(page.locator('meta[property="og:image"]')).toHaveCount(1)
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /\/cities\/aleppo\/opengraph-image/)
@@ -144,7 +145,7 @@ test('published season report: Article JSON-LD with author and dates, and its ow
     // SEO day 5: the publisher is the home page's Organization, by @id.
     publisher: { '@id': abs('/#org') },
   })
-  await ogImageIsPng(page, request)
+  await ogImageIsImage(page, request)
   // Publishing refreshes the sitemap too (hooks/revalidate).
   await expect(async () => {
     expect(await (await request.get('/sitemaps/seasons.xml')).text()).toContain(abs(`/seasons/${slug}`))
@@ -154,7 +155,7 @@ test('published season report: Article JSON-LD with author and dates, and its ow
 test('every other page gets the default social image', async ({ page, request }) => {
   await page.goto('/about')
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', abs('/og'))
-  await ogImageIsPng(page, request)
+  await ogImageIsImage(page, request)
   await page.goto('/en/outside')
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', abs('/en/og'))
 })

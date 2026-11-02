@@ -1,24 +1,37 @@
 import { notFound } from 'next/navigation'
 import { text } from '@/lib/localized'
-import { asDoc, getTrip } from '@/data/queries'
-import { parseTripKey } from '@/lib/rural'
-import { OG_CACHE, OG_SIZE, renderOg } from '@/og/render'
+import { asDoc, getTrip, type CityDoc } from '@/data/queries'
+import { parseTripKey, tripPhotoKeys } from '@/lib/rural'
+import { GUIDE } from '@/content/guide'
+import { ogAlt, ogCard, pickCover } from '@/og/cover'
+import { OG_CACHE, OG_SIZE } from '@/og/render'
 
-export const size = OG_SIZE
-export const contentType = 'image/png'
-export const alt = 'سوريا عن قرب'
+type Params = { locale: string; slug: string }
 
-/** A countryside page's card: its name, its city's countryside, its one-line description. */
-export default async function Image({ params }: { params: Promise<{ locale: string; slug: string }> }) {
-  const { slug } = await params
+async function load({ slug }: Params) {
   const key = parseTripKey(slug)
   const trip = key ? await getTrip(key) : null
-  if (!trip) notFound()
-  const from = asDoc(trip.fromCity)
-  const png = await renderOg({
+  if (!trip) return null
+  const place: CityDoc | null = asDoc(trip.place) ?? null
+  // Same order as the page's top photo (inside/[slug]/page): the place's cover, its guide photo, the trip's photos.
+  return { trip, cover: pickCover(place?.coverImage, [place ? GUIDE[place.slug]?.gallery[0] : null, ...tripPhotoKeys(trip)], 'ar') }
+}
+
+/** One card per page; its alt is what the photo shows (SEO day 6). */
+export async function generateImageMetadata({ params }: { params: Params }) {
+  const d = await load(params)
+  return [{ id: 'card', size: OG_SIZE, contentType: 'image/jpeg', alt: d ? ogAlt(d.cover, d.trip.title) : 'سوريا عن قرب' }]
+}
+
+/** A countryside page's card: its photo, or its name, its city's countryside and one-line description. */
+export default async function Image({ params }: { params: Promise<Params> }) {
+  const d = await load(await params)
+  if (!d) notFound()
+  const from = asDoc(d.trip.fromCity)
+  const img = await ogCard(d.cover, {
     kicker: from ? `ريف ${text(from.name, 'ar') ?? from.slug}` : 'جوّا سوريا',
-    title: trip.title,
-    subtitle: trip.description ?? undefined,
+    title: d.trip.title,
+    subtitle: d.trip.description ?? undefined,
   })
-  return new Response(new Uint8Array(png), { headers: { 'Content-Type': contentType, 'Cache-Control': OG_CACHE } })
+  return new Response(new Uint8Array(img), { headers: { 'Content-Type': 'image/jpeg', 'Cache-Control': OG_CACHE } })
 }

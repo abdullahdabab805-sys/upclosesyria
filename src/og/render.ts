@@ -118,6 +118,40 @@ async function renderCard({ kicker, title, subtitle }: OgCard): Promise<Buffer> 
   return sharp({ create: { width: W, height: H, channels: 3, background: C.bg } }).composite(parts).png().toBuffer()
 }
 
+/**
+ * The share card for a page with a photo (SEO day 6, owner approved 2026-11-02): the cover photo across
+ * the card and a sand band with the logo and wordmark. No other text over the photo; the page title
+ * travels in og:title. JPEG, so a city card is ~140KB instead of a 1.5MB PNG (messaging apps skip heavy ones).
+ */
+export function renderPhotoOg(photo: Buffer): Promise<Buffer> {
+  const run = queue.then(() => renderPhotoCard(photo))
+  queue = run.catch(() => undefined)
+  return run
+}
+
+const BAND = 104
+
+async function renderPhotoCard(photo: Buffer): Promise<Buffer> {
+  const img = await sharp(photo).resize(W, H - BAND, { fit: 'cover', position: 'attention' }).toBuffer()
+  const ar = await textImage('سوريا عن قرب', { size: 40, color: C.ink, width: 400, bold: true, maxLines: 1 })
+  const en = await textImage('SYRIA UP CLOSE', { size: 20, color: C.ink, width: 400, bold: true, maxLines: 1 })
+  const band = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${BAND}"><rect width="${W}" height="${BAND}" fill="${C.sand}"/><rect width="${W}" height="6" fill="${C.mark}"/></svg>`
+  const m = 84
+  const right = W - 40
+  const top = H - BAND + 6
+  const textTop = top + Math.round((BAND - 6 - ar.height - en.height) / 2)
+  return sharp({ create: { width: W, height: H, channels: 3, background: C.sand } })
+    .composite([
+      { input: img, left: 0, top: 0 },
+      { input: Buffer.from(band), left: 0, top: H - BAND },
+      { input: Buffer.from(markSvg(m)), left: right - m, top: top + Math.round((BAND - 6 - m) / 2) },
+      { input: ar.input, left: right - m - 16 - ar.width, top: textTop },
+      { input: en.input, left: right - m - 16 - en.width, top: textTop + ar.height },
+    ])
+    .jpeg({ quality: 82, mozjpeg: true })
+    .toBuffer()
+}
+
 export const OG_SIZE = { width: W, height: H }
 
 /**
