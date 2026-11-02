@@ -10,6 +10,7 @@ import { GUIDE, STORIES } from '@/content/guide'
 import { CityMap } from '@/components/client/CityMap'
 import { Shawarma } from '@/components/client/Shawarma'
 import Image from 'next/image'
+import { resizable } from '@/lib/guideImages'
 import { PatternDefs, PatternFill, PatternBand, SyrianFill, Ablaq } from '@/components/Patterns'
 import { cityTheme } from '@/lib/cityTheme'
 import { staticPhoto } from '@/content/photos'
@@ -132,6 +133,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="wrap detail-row">
           <div className="pic lift">
             <Photo
+              locale={locale}
               media={detail?.photo}
               shot={(detail && (text(detail.place, locale) ?? text(detail.sentence, locale))) || T('صورة قريبة من حارة سورية', 'A close-up from a Syrian street')}
               tall
@@ -198,7 +200,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                     </span>
                     {ruralOf(c.id).length > 0 && <span className="rural">{T('ريفها: ', 'Around it: ')}{ruralOf(c.id).join(' · ')}</span>}
                   </span>
-                  {thumb && <Image className="thumb" src={thumb.src} alt="" width={64} height={64} sizes="64px" unoptimized={thumb.src.startsWith('https://')} />}
+                  {thumb && <Image className="thumb" src={thumb.src} alt="" width={64} height={64} sizes="64px" unoptimized={!resizable(thumb.src)} />}
                 </Link>
               )
             })}
@@ -225,7 +227,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 return (
                   <Link key={r.id} className="pcard lift" href={localePath(locale, `/seasons/${r.slug}`)}>
                     <span className="media">
-                      <Photo media={r.photos?.[0]} shot="صورة من المراسل" fallback={GUIDE[asDoc(r.city)?.slug ?? '']?.gallery[1]} />
+                      <Photo locale={locale} media={r.photos?.[0]} shot={T('صورة من المراسل', 'A correspondent’s photo')} fallback={GUIDE[asDoc(r.city)?.slug ?? '']?.gallery[1]} />
                     </span>
                     <span className="body">
                       <span className="meta">
@@ -289,7 +291,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             {stories.length
               ? stories.slice(0, 3).map((s) => (
                   <Link key={s.id} className="lift" href={localePath(locale, `/blog/${s.slug}`)}>
-                    {asMedia(s.photos?.[0]) && <Photo media={s.photos?.[0]} shot="" />}
+                    {asMedia(s.photos?.[0]) && <Photo locale={locale} media={s.photos?.[0]} shot="" />}
                     <small>{CAT[s.category ?? 'story']}</small>
                     <b>
                       <Loc v={s.title} locale={locale} />
@@ -298,7 +300,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 ))
               : STORIES.slice(0, 3).map((g) => (
                   <Link key={g.slug} className="lift" href={localePath(locale, `/blog/${g.slug}`)}>
-                    <Photo shot="" fallback={g.photos[0]} />
+                    <Photo locale={locale} shot="" fallback={g.photos[0]} />
                     <small>{CAT[g.category]}</small>
                     <b>{g.title[locale]}</b>
                   </Link>

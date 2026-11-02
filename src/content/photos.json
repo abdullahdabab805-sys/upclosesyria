@@ -4,161 +4,253 @@
   "w": 1028,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "قبة الجامع الأموي الرصاصية وهلال نحاسي من خلال نافذة حجرية ضيقة",
+   "en": "The Umayyad Mosque lead dome and a brass crescent through a narrow stone window"
+  }
  },
  "u-damascus-1": {
   "src": "/guide/u-damascus-1.webp",
   "w": 1049,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "واجهة الجامع الأموي بفسيفساء ذهبية تحت قبة رصاصية",
+   "en": "The Umayyad Mosque façade with gold mosaics under a lead dome"
+  }
  },
  "u-damascus-2": {
   "src": "/guide/u-damascus-2.webp",
   "w": 774,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "قنطرة سوق الحميدية المعتمة تنفتح على قبة الخزنة الذهبية",
+   "en": "The dark arch of Souq al-Hamidiyah opening onto the golden Treasury Dome"
+  }
  },
  "u-damascus-3": {
   "src": "/guide/u-damascus-3.webp",
   "w": 964,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "مدخل الجامع الأموي بأعمدة رخامية وزجاج ملوّن، ومصلّون يعبرون الصحن",
+   "en": "The Umayyad Mosque entrance with marble columns and stained glass, worshippers crossing the courtyard"
+  }
  },
  "u-damascus-4": {
   "src": "/guide/u-damascus-4.webp",
   "w": 793,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "دمشق وجبل قاسيون من خلال فتحة حجرية",
+   "en": "Damascus and Mount Qasioun through a stone opening"
+  }
  },
  "u-damascus-5": {
   "src": "/guide/u-damascus-5.webp",
   "w": 972,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "ساحة الأمويين بنافورتها ونصبها الملوّن، وشارع تحفّه النخيل",
+   "en": "Umayyad Square with its fountain and colourful monument, a palm-lined street beyond"
+  }
  },
  "u-damascus-6": {
   "src": "/guide/u-damascus-6.webp",
   "w": 1032,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "فناء بيت دمشقي ببحرة ونباتات وعرائش زهر",
+   "en": "A Damascene courtyard with a fountain, plants and flowering vines"
+  }
  },
  "u-damascus-7": {
   "src": "/guide/u-damascus-7.webp",
   "w": 919,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "قوس حجري مزخرف وشبّاك حديد، وأغصان نارنج فوقه",
+   "en": "A carved stone arch and iron window, with bitter-orange branches above"
+  }
  },
  "u-damascus-8": {
   "src": "/guide/u-damascus-8.webp",
   "w": 957,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "دمشق في ضباب العصر، وبرج أبيض بين الأبنية",
+   "en": "Damascus in afternoon haze, a white tower among the buildings"
+  }
  },
  "u-damascus-9": {
   "src": "/guide/u-damascus-9.webp",
   "w": 966,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "أبنية دمشق تمتد حتى الأفق في يوم ضبابي",
+   "en": "Damascus buildings stretching to the horizon on a hazy day"
+  }
  },
  "u-damascus-10": {
   "src": "/guide/u-damascus-10.webp",
   "w": 965,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "صورة جوية لشوارع تتفرع من دوّار كالنجمة",
+   "en": "Aerial view of streets branching from a star-shaped roundabout"
+  }
  },
  "u-damascus-11": {
   "src": "/guide/u-damascus-11.webp",
   "w": 970,
   "h": 1280,
   "credit": "Abd Najjar · صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "صورة جوية لتقاطع شوارع وأبنية دمشق",
+   "en": "Aerial view of Damascus streets and blocks"
+  }
  },
  "u-damascus-12": {
   "src": "/guide/u-damascus-12.webp",
   "w": 854,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "ثلج على فانوس شارع ونخيل ودوّار في دمشق",
+   "en": "Snow on a street lamp, palms and a roundabout in Damascus"
+  }
  },
  "u-damascus-13": {
   "src": "/guide/u-damascus-13.webp",
   "w": 965,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "دمشق ليلاً من الجبل: ساحة مضيئة بين البيوت",
+   "en": "Damascus at night from the mountain: a lit square among the houses"
+  }
  },
  "u-damascus-14": {
   "src": "/guide/u-damascus-14.webp",
   "w": 1038,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "واجهة بيت قديم بأبواب خشبية خضراء وحجر ملوّن",
+   "en": "An old house front with green wooden doors and coloured stone"
+  }
  },
  "u-damascus-15": {
   "src": "/guide/u-damascus-15.webp",
   "w": 972,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "علم سوري فوق حديقة خضراء ودوّار",
+   "en": "A Syrian flag over a green park and a roundabout"
+  }
  },
  "u-house-0": {
   "src": "/guide/u-house-0.webp",
   "w": 1030,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "قاعة بيت دمشقي بجدران زرقاء مزخرفة وأرائك حمراء",
+   "en": "A Damascene house hall with ornate blue walls and red sofas"
+  }
  },
  "u-house-1": {
   "src": "/guide/u-house-1.webp",
   "w": 961,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "إيوان بيت دمشقي بقوس أبلق ونجفة، وأغصان ليمون في المقدمة",
+   "en": "A Damascene house iwan with a striped arch and chandelier, lemon branches in front"
+  }
  },
  "u-house-2": {
   "src": "/guide/u-house-2.webp",
   "w": 963,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "رواق بأعمدة رخامية وأقواس أمام باب خشبي",
+   "en": "A colonnade of marble columns and arches before a wooden door"
+  }
  },
  "u-house-3": {
   "src": "/guide/u-house-3.webp",
   "w": 961,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "ثلاثة شبابيك حديد مشغول تحت إفريز حجري منحوت",
+   "en": "Three wrought-iron windows under a carved stone frieze"
+  }
  },
  "u-house-4": {
   "src": "/guide/u-house-4.webp",
   "w": 963,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "زخارف حجرية ملوّنة على جدار بيت دمشقي",
+   "en": "Coloured carved stone patterns on a Damascene house wall"
+  }
  },
  "u-house-5": {
   "src": "/guide/u-house-5.webp",
   "w": 967,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "باب خشبي داخل قوس رخامي منحوت بزخارف نباتية",
+   "en": "A wooden door framed by a marble arch carved with leaves"
+  }
  },
  "u-house-6": {
   "src": "/guide/u-house-6.webp",
   "w": 961,
   "h": 1280,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "ثمار كبّاد صفراء على غصنها",
+   "en": "Yellow citron fruit on the branch"
+  }
  },
  "u-hauran-0": {
   "src": "/guide/u-hauran-0.webp",
@@ -480,35 +572,55 @@
   "w": 1280,
   "h": 852,
   "credit": "Amaiursancho5 · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Kibbeh_Bil_Sanieh.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Kibbeh_Bil_Sanieh.jpg",
+  "alt": {
+   "ar": "صينية كبة مقطّعة معيّنات",
+   "en": "A tray of baked kibbeh cut into diamonds"
+  }
  },
  "food-bloudan-0": {
   "src": "/guide/food-bloudan-0.webp",
   "w": 960,
   "h": 1280,
   "credit": "Laithmahfouz · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Bloudan_1.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Bloudan_1.jpg",
+  "alt": {
+   "ar": "شجرة عارية وأبنية بلودان تحت سماء زرقاء",
+   "en": "A bare tree and Bloudan buildings under a blue sky"
+  }
  },
  "food-damascus-1": {
   "src": "/guide/food-damascus-1.webp",
   "w": 1280,
   "h": 960,
   "credit": "Sheam k · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:%D9%85%D9%82%D9%87%D9%89_%D8%A7%D9%84%D9%86%D9%88%D9%81%D8%B1%D8%A9.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:%D9%85%D9%82%D9%87%D9%89_%D8%A7%D9%84%D9%86%D9%88%D9%81%D8%B1%D8%A9.jpg",
+  "alt": {
+   "ar": "مقهى النوفرة بعريشة نبات وطاولات في دمشق القديمة",
+   "en": "Al-Nawfara café under a vine trellis with tables in Old Damascus"
+  }
  },
  "food-damascus-2": {
   "src": "/guide/food-damascus-2.webp",
   "w": 960,
   "h": 1280,
   "credit": "Abdallah Khader · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:%D8%A7%D9%84%D9%83%D9%86%D8%A7%D9%81%D8%A9_%D8%A7%D9%84%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86%D9%8A%D8%A9.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:%D8%A7%D9%84%D9%83%D9%86%D8%A7%D9%81%D8%A9_%D8%A7%D9%84%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86%D9%8A%D8%A9.jpg",
+  "alt": {
+   "ar": "بائع بطربوش أحمر يحضّر صواني كنافة",
+   "en": "A vendor in a red fez preparing trays of knafeh"
+  }
  },
  "food-damascus-4": {
   "src": "/guide/food-damascus-4.webp",
   "w": 1280,
   "h": 1003,
   "credit": "El Mono Español · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:%D8%AD%D9%85%D8%B5_%D8%A8%D8%A7%D9%84%D9%84%D8%AD%D9%85_(%E1%B8%A4ummu%E1%B9%A3_bil-la%E1%B8%A5m).jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:%D8%AD%D9%85%D8%B5_%D8%A8%D8%A7%D9%84%D9%84%D8%AD%D9%85_(%E1%B8%A4ummu%E1%B9%A3_bil-la%E1%B8%A5m).jpg",
+  "alt": {
+   "ar": "صحن حمص باللحم المفروم وزيت الزيتون",
+   "en": "A plate of hummus topped with minced meat and olive oil"
+  }
  },
  "food-daraa-0": {
   "src": "/guide/food-daraa-0.webp",
@@ -571,63 +683,99 @@
   "w": 1280,
   "h": 938,
   "credit": "Bernard Gagnon · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Aleppo_Citadel_13_-_Great_Mosque.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Aleppo_Citadel_13_-_Great_Mosque.jpg",
+  "alt": {
+   "ar": "الجامع الكبير داخل قلعة حلب: قبة صغيرة ومئذنة مربعة",
+   "en": "The Great Mosque inside the Citadel of Aleppo: a small dome and a square minaret"
+  }
  },
  "gallery-aleppo-1": {
   "src": "/guide/gallery-aleppo-1.webp",
   "w": 1280,
   "h": 1050,
   "credit": "Bernard Gagnon · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Aleppo_Citadel_05_-_Inner_gate.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Aleppo_Citadel_05_-_Inner_gate.jpg",
+  "alt": {
+   "ar": "مدخل قلعة حلب: بوابة حجرية ضخمة بأبراج يصلها جسر بأقواس",
+   "en": "The Citadel of Aleppo entrance: a massive stone gateway reached by an arched bridge"
+  }
  },
  "gallery-aleppo-2": {
   "src": "/guide/gallery-aleppo-2.webp",
   "w": 1280,
   "h": 960,
   "credit": "Bernard Gagnon · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Aleppo_04.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Aleppo_04.jpg",
+  "alt": {
+   "ar": "جامع بقباب خضراء ومئذنتين أمام أبنية حلب",
+   "en": "A mosque with green domes and two minarets before Aleppo's buildings"
+  }
  },
  "gallery-aleppo-3": {
   "src": "/guide/gallery-aleppo-3.webp",
   "w": 1280,
   "h": 325,
   "credit": "Bernard Gagnon · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Aleppo_Citadel_25.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Aleppo_Citadel_25.jpg",
+  "alt": {
+   "ar": "منظر عريض لأطلال حجرية داخل قلعة حلب",
+   "en": "A wide view of stone ruins inside the Citadel of Aleppo"
+  }
  },
  "gallery-aleppo-4": {
   "src": "/guide/gallery-aleppo-4.webp",
   "w": 1280,
   "h": 960,
   "credit": "Bernard Gagnon · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Aleppo_Citadel_10_-_Mosque_of_Abraham.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Aleppo_Citadel_10_-_Mosque_of_Abraham.jpg",
+  "alt": {
+   "ar": "أطلال وقبة حجرية بين العشب داخل قلعة حلب",
+   "en": "Stone ruins and a dome among grass inside the Citadel of Aleppo"
+  }
  },
  "gallery-aleppo-5": {
   "src": "/guide/gallery-aleppo-5.webp",
   "w": 1280,
   "h": 626,
   "credit": "Memorino · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Citadel_of_Aleppo.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Citadel_of_Aleppo.jpg",
+  "alt": {
+   "ar": "قلعة حلب على تلتها والساحة الواسعة أمامها",
+   "en": "The Citadel of Aleppo on its hill and the wide square before it"
+  }
  },
  "gallery-bloudan-0": {
   "src": "/guide/gallery-bloudan-0.webp",
   "w": 960,
   "h": 1280,
   "credit": "Laithmahfouz · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Bloudan.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Bloudan.jpg",
+  "alt": {
+   "ar": "سرو وأشجار على منحدر بلودان تحت غيوم بيضاء",
+   "en": "Cypresses and trees on a Bloudan slope under white clouds"
+  }
  },
  "gallery-bloudan-1": {
   "src": "/guide/gallery-bloudan-1.webp",
   "w": 1280,
   "h": 960,
   "credit": "Laithmahfouz · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:%D8%B3%D9%87%D9%84_%D8%A7%D9%84%D8%B2%D8%A8%D8%AF%D8%A7%D9%86%D9%8A.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:%D8%B3%D9%87%D9%84_%D8%A7%D9%84%D8%B2%D8%A8%D8%AF%D8%A7%D9%86%D9%8A.jpg",
+  "alt": {
+   "ar": "بلودان وبيوتها بالأسطح الحمراء تحت الجبل",
+   "en": "Bloudan's red-roofed houses below the mountain"
+  }
  },
  "gallery-bloudan-2": {
   "src": "/guide/gallery-bloudan-2.webp",
   "w": 960,
   "h": 1280,
   "credit": "Laithmahfouz · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:2Bloudan.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:2Bloudan.jpg",
+  "alt": {
+   "ar": "غيوم فوق تلة مشجّرة في بلودان",
+   "en": "Clouds over a wooded hill in Bloudan"
+  }
  },
  "gallery-deir-ez-zor-0": {
   "src": "/guide/gallery-deir-ez-zor-0.webp",
@@ -1005,21 +1153,33 @@
   "w": 960,
   "h": 1280,
   "credit": "Abdul Rahman Abdul Kudus · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:The_Baklava_utensils_for_Emine_%C5%9Ferife_Han%C4%B1m.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:The_Baklava_utensils_for_Emine_%C5%9Ferife_Han%C4%B1m.jpg",
+  "alt": {
+   "ar": "صواني نحاس مكدّسة على حامل",
+   "en": "Stacked brass trays on a stand"
+  }
  },
  "food-bloudan-2": {
   "src": "/guide/food-bloudan-2.webp",
   "w": 1280,
   "h": 720,
   "credit": "Paul Lowry · CC BY 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Lamb_Shish_Kebab_-_Istanbul_Grill,_Metairie,_Louisiana_23_March_2026.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Lamb_Shish_Kebab_-_Istanbul_Grill,_Metairie,_Louisiana_23_March_2026.jpg",
+  "alt": {
+   "ar": "صحن شيش لحم مع رز وسلطة وخبز",
+   "en": "A plate of lamb kebab with rice, salad and bread"
+  }
  },
  "food-damascus-3": {
   "src": "/guide/food-damascus-3.webp",
   "w": 1280,
   "h": 854,
   "credit": "Abdellah zou · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Local_bakery_bread.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Local_bakery_bread.jpg",
+  "alt": {
+   "ar": "خبز بالسمسم على رفوف مخبز",
+   "en": "Sesame bread loaves on bakery shelves"
+  }
  },
  "trip-قلعة الحصن": {
   "src": "/guide/gallery-tartous-4.webp",
@@ -1264,7 +1424,11 @@
   "w": 1280,
   "h": 719,
   "credit": "High Resolution  Photography highresolutionphotography · CC0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Bloudan,_Syria_(Unsplash).jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Bloudan,_Syria_(Unsplash).jpg",
+  "alt": {
+   "ar": "ثلج على بساتين بلودان وغيوم منخفضة",
+   "en": "Snow on Bloudan's orchards under low cloud"
+  }
  },
  "gallery3-mashta-al-helu-1": {
   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/From_St._George%27s_Monastery.jpg/960px-From_St._George%27s_Monastery.jpg",
@@ -7470,146 +7634,230 @@
   "w": 1205,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "دمشق القديمة من فوق: الجامع الأموي بقبته الرصاصية ومآذنه بين أسطح البيوت",
+   "en": "Old Damascus from above: the Umayyad Mosque, its lead dome and minarets among the rooftops"
+  }
  },
  "u-damascus-new-1": {
   "src": "/guide/u-damascus-new-1.webp",
   "w": 967,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "قنطرة سوق الحميدية المعتمة تنفتح على قبة الخزنة الذهبية",
+   "en": "The dark arch of Souq al-Hamidiyah opening onto the golden Treasury Dome"
+  }
  },
  "u-damascus-new-2": {
   "src": "/guide/u-damascus-new-2.webp",
   "w": 1205,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "مدخل الجامع الأموي بأعمدة رخامية وزجاج ملوّن، ومصلّون يعبرون الصحن",
+   "en": "The Umayyad Mosque entrance with marble columns and stained glass, worshippers crossing the courtyard"
+  }
  },
  "u-damascus-new-3": {
   "src": "/guide/u-damascus-new-3.webp",
   "w": 1284,
   "h": 1567,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "واجهة الجامع الأموي بفسيفساء ذهبية تحت قبة رصاصية",
+   "en": "The Umayyad Mosque façade with gold mosaics under a lead dome"
+  }
  },
  "u-damascus-new-4": {
   "src": "/guide/u-damascus-new-4.webp",
   "w": 1284,
   "h": 1595,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "قاعة بيت دمشقي بجدران زرقاء مزخرفة وأرائك حمراء",
+   "en": "A Damascene house hall with ornate blue walls and red sofas"
+  }
  },
  "u-damascus-new-5": {
   "src": "/guide/u-damascus-new-5.webp",
   "w": 1208,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "باب خشبي داخل قوس رخامي منحوت بزخارف نباتية",
+   "en": "A wooden door framed by a marble arch carved with leaves"
+  }
  },
  "u-damascus-new-6": {
   "src": "/guide/u-damascus-new-6.webp",
   "w": 1149,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "قوس حجري مزخرف وشبّاك حديد، وأغصان نارنج فوقه",
+   "en": "A carved stone arch and iron window, with bitter-orange branches above"
+  }
  },
  "u-damascus-new-7": {
   "src": "/guide/u-damascus-new-7.webp",
   "w": 1204,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "زخارف حجرية ملوّنة على جدار بيت دمشقي",
+   "en": "Coloured carved stone patterns on a Damascene house wall"
+  }
  },
  "u-damascus-new-8": {
   "src": "/guide/u-damascus-new-8.webp",
   "w": 1201,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "ثلاثة شبابيك حديد مشغول تحت إفريز حجري منحوت",
+   "en": "Three wrought-iron windows under a carved stone frieze"
+  }
  },
  "u-damascus-new-9": {
   "src": "/guide/u-damascus-new-9.webp",
   "w": 1201,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "إيوان بيت دمشقي بقوس أبلق ونجفة، وأغصان ليمون في المقدمة",
+   "en": "A Damascene house iwan with a striped arch and chandelier, lemon branches in front"
+  }
  },
  "u-damascus-new-10": {
   "src": "/guide/u-damascus-new-10.webp",
   "w": 1201,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "ثمار كبّاد صفراء على غصنها",
+   "en": "Yellow citron fruit on the branch"
+  }
  },
  "u-damascus-new-11": {
   "src": "/guide/u-damascus-new-11.webp",
   "w": 1216,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "ساحة الأمويين بنافورتها ونصبها الملوّن، وشارع تحفّه النخيل",
+   "en": "Umayyad Square with its fountain and colourful monument, a palm-lined street beyond"
+  }
  },
  "u-damascus-new-12": {
   "src": "/guide/u-damascus-new-12.webp",
   "w": 1217,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "علم سوري كبير فوق حديقة ودوّار أخضر",
+   "en": "A large Syrian flag over a park and a green roundabout"
+  }
  },
  "u-damascus-new-13": {
   "src": "/guide/u-damascus-new-13.webp",
   "w": 1199,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "أحياء دمشق المزدحمة بالأبنية من الأعلى",
+   "en": "Dense Damascus neighbourhoods seen from above"
+  }
  },
  "u-damascus-new-14": {
   "src": "/guide/u-damascus-new-14.webp",
   "w": 1206,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "دمشق ليلاً من الجبل: ساحة مضيئة بين البيوت",
+   "en": "Damascus at night from the mountain: a lit square among the houses"
+  }
  },
  "u-damascus-new-15": {
   "src": "/guide/u-damascus-new-15.webp",
   "w": 1206,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "صورة جوية لشوارع تتفرع من دوّار كالنجمة",
+   "en": "Aerial view of streets branching from a star-shaped roundabout"
+  }
  },
  "u-damascus-new-16": {
   "src": "/guide/u-damascus-new-16.webp",
   "w": 1212,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "صورة جوية لتقاطع شوارع وأبنية دمشق",
+   "en": "Aerial view of Damascus streets and blocks"
+  }
  },
  "u-damascus-new-17": {
   "src": "/guide/u-damascus-new-17.webp",
   "w": 1199,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "أحياء دمشق المزدحمة بالأبنية من الأعلى",
+   "en": "Dense Damascus neighbourhoods seen from above"
+  }
  },
  "u-damascus-new-18": {
   "src": "/guide/u-damascus-new-18.webp",
   "w": 1216,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "علم سوري فوق حديقة، ودوّار تمر حوله السيارات",
+   "en": "A Syrian flag above a park, cars circling a roundabout"
+  }
  },
  "u-damascus-new-19": {
   "src": "/guide/u-damascus-new-19.webp",
   "w": 1196,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "دمشق في ضباب العصر، وبرج أبيض بين الأبنية",
+   "en": "Damascus in afternoon haze, a white tower among the buildings"
+  }
  },
  "u-damascus-new-20": {
   "src": "/guide/u-damascus-new-20.webp",
   "w": 1208,
   "h": 1600,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "امتداد دمشق تحت سماء مغبرّة",
+   "en": "Damascus spreading under a dusty sky"
+  }
  }
 }

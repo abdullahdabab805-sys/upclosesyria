@@ -23,7 +23,7 @@ import { VideoGallery } from '@/components/client/VideoGallery'
 import { videoCards, videoText } from '@/lib/videoCards'
 import { formatDate } from '@/components/Stamp'
 import { GUIDE, GUIDE_CHECKED, type GuideKind, type GuideVenue } from '@/content/guide'
-import { archiveLabel, staticPhoto } from '@/content/photos'
+import { archiveLabel, photoAlt, staticPhoto } from '@/content/photos'
 import { localePath } from '@/lib/routing'
 import { mark } from '@/lib/timing'
 import { LiveMap, type MapPoint } from '@/components/client/LiveMap'
@@ -206,7 +206,7 @@ export default async function CityPage({ params }: Props) {
   const loreItems = lore.length ? lore : (guide?.lore.map((g, i) => ({ id: -1 - i, kind: g.kind, text: g.text, meaning: g.meaning ?? null, tellerName: g.teller })) ?? [])
   const guideGallery = (guide?.gallery ?? []).flatMap((key, i) => {
     const sp = staticPhoto(key)
-    const caption = T(`صورة من ${name}`, `A photo of ${name}`)
+    const caption = photoAlt(sp, locale) ?? T(`صورة من ${name}`, `A photo of ${name}`)
     return sp ? [{ id: -1 - i, src: sp.src, ...(sp.full && sp.full !== sp.src ? { full: sp.full } : {}), alt: caption, meta: [archiveLabel(sp, locale), sp.credit].filter(Boolean).join(' · ') }] : []
   })
   const g0 = guide?.gallery[0]

@@ -8,7 +8,8 @@ import { breadcrumbLd, serializeLd, siteBase } from '@/lib/jsonld'
 import { pick, text } from '@/lib/localized'
 import { asDoc, asMedia, type CityDoc, type L, type ReportDoc, type SettingsDoc, type StatusDoc, type StayDoc } from '@/data/queries'
 import { localePath } from '@/lib/routing'
-import { archiveLabel, staticPhoto } from '@/content/photos'
+import { archiveLabel, photoAlt, staticPhoto } from '@/content/photos'
+import { resizable } from '@/lib/guideImages'
 import { GUIDE } from '@/content/guide'
 import { splitStays } from '@/lib/stays'
 import { ShowMore } from '@/components/client/ShowMore'
@@ -50,8 +51,9 @@ export function Photo({ media, shot, tall, size = 'card', priority, layer, fallb
     const sizes = layer ? heroSizes(layer, sp.w / sp.h) : CARD_SIZES
     return (
       <div className={tall ? 'photo tall' : 'photo'}>
-        {/* Commons thumbnails load straight from Wikimedia (already sized), the rest go through the optimizer. */}
-        <Image src={sp.src} alt={shot} fill sizes={sizes} {...(priority ? LCP : {})} unoptimized={sp.src.startsWith('https://')} />
+        {/* Our own photos get the 560px copy when that is enough (lib/imageLoader); Commons and Blob files are already sized.
+            The alt describes this photo, not the place the slot was meant for: a stand-in photo is not that place. */}
+        <Image src={sp.src} alt={photoAlt(sp, locale) ?? shot} fill sizes={sizes} {...(priority ? LCP : {})} unoptimized={!resizable(sp.src)} />
         {archiveLabel(sp, locale) && <span className="archive-tag">{archiveLabel(sp, locale)}</span>}
         <span className="credit" lang="en">
           {sp.credit}
@@ -59,13 +61,14 @@ export function Photo({ media, shot, tall, size = 'card', priority, layer, fallb
       </div>
     )
   }
-  const alt = text(m.alt, 'ar') ?? shot
+  // The page's language (Arabic when there is no English yet).
+  const alt = text(m.alt, locale) ?? shot
   const w = file?.url ? file.width : m.width
   const h = file?.url ? file.height : m.height
   const sizes = layer ? heroSizes(layer, w && h ? w / h : null) : CARD_SIZES
   return (
     <div className={tall ? 'photo tall' : 'photo'}>
-      <Image src={src} alt={alt} fill sizes={sizes} {...(priority ? LCP : {})} />
+      <Image src={src} alt={alt} fill sizes={sizes} {...(priority ? LCP : {})} unoptimized />
     </div>
   )
 }
@@ -76,7 +79,7 @@ export function CityCards({ cities, locale }: { cities: CityDoc[]; locale: Local
       {cities.map((c, i) => (
         <Link key={c.id} className="pcard lift" href={localePath(locale, `/cities/${c.slug}`)}>
           <span className="media">
-            <Photo media={c.coverImage} shot={text(c.coverShotNote, locale) ?? ''} fallback={GUIDE[c.slug]?.gallery[0]} />
+            <Photo locale={locale} media={c.coverImage} shot={text(c.coverShotNote, locale) ?? ''} fallback={GUIDE[c.slug]?.gallery[0]} />
             <span className="num">{String(i + 1).padStart(2, '0')}</span>
           </span>
           <span className="body">
@@ -201,7 +204,7 @@ export function Stays({ stays, settings, cityName, locale, fallback, citySlug }:
   const aboutHref = localePath(locale, '/about')
   const t = HOTEL_TEXT[locale]
   if (hotels.length === 0) {
-    return <StayCard locale={locale} rel={settings.partnerLinkRel} disclosure={disclosure} aboutHref={aboutHref} cityName={cityName} href={cityPage} media={fallback ? <Photo shot={cityName} fallback={fallback} /> : undefined} />
+    return <StayCard locale={locale} rel={settings.partnerLinkRel} disclosure={disclosure} aboutHref={aboutHref} cityName={cityName} href={cityPage} media={fallback ? <Photo locale={locale} shot={cityName} fallback={fallback} /> : undefined} />
   }
   return (
     <div className="stack" style={{ gap: 18 }}>
@@ -209,7 +212,7 @@ export function Stays({ stays, settings, cityName, locale, fallback, citySlug }:
         {[...hotels].sort((x, y) => Number(!!y.ahleenUrl) - Number(!!x.ahleenUrl) || Number(x.id) - Number(y.id)).map((h) => (
           <div key={h.id} className={h.ahleenUrl ? 'hotel lift' : 'hotel off'}>
             {/* A hotel listed only for information has no photo of its own: no stand-in city photo repeated on every card. */}
-            {(h.image || h.ahleenUrl) && <Photo media={h.image} shot={text(h.title, locale) ?? ''} fallback={fallback} />}
+            {(h.image || h.ahleenUrl) && <Photo locale={locale} media={h.image} shot={text(h.title, locale) ?? ''} fallback={fallback} />}
             <span className={h.ahleenUrl ? 'tag' : 'tag muted'}>{h.ahleenUrl ? t.on : t.off}</span>
             <h3 className="title">
               <Loc v={h.title} locale={locale} />

@@ -10,7 +10,7 @@ import { siteBase, videoObjectsLd } from '@/lib/jsonld'
 import { localePath } from '@/lib/routing'
 import { pageMetadata } from '@/lib/seo'
 import { describe, SITE_LINE } from '@/lib/seoText'
-import { embedUrl, isoDuration, originalUrl, videoAnchor } from '@/lib/video'
+import { embedUrl, isoDuration, videoAnchor } from '@/lib/video'
 import { videoCards, videoText } from '@/lib/videoCards'
 
 export const revalidate = 3600
@@ -43,29 +43,23 @@ export default async function VideosPage({ params }: Props) {
   const docs = await getVideos()
   const cards = videoCards(docs, locale)
   const path = localePath(locale, '/videos')
+  const videoLd = videoObjectsLd({
+    base: siteBase(),
+    path,
+    videos: cards.map((v) => ({
+      anchor: videoAnchor(v.id),
+      name: v.title,
+      author: v.author,
+      thumbnail: v.thumbnail,
+      embedUrl: embedUrl({ platform: v.platform, id: v.videoId }),
+      // The original's own date only (Payload "تاريخ نشر المقطع الأصلي"); without it, no VideoObject.
+      uploadDate: docs.find((x) => x.id === v.id)?.publishedOn,
+      duration: isoDuration(v.duration),
+    })),
+  })
   return (
     <Page locale={locale} path="/videos">
-      {cards.length > 0 && (
-        <JsonLd
-          data={videoObjectsLd({
-            base: siteBase(),
-            path,
-            videos: cards.map((v) => {
-              const d = docs.find((x) => x.id === v.id)
-              return {
-                anchor: videoAnchor(v.id),
-                name: v.title,
-                author: v.author,
-                thumbnail: v.thumbnail ?? undefined,
-                embedUrl: embedUrl({ platform: v.platform, id: v.videoId }),
-                contentUrl: originalUrl({ platform: v.platform, id: v.videoId }),
-                uploadDate: d?.publishedOn ?? d?.updatedAt,
-                duration: isoDuration(v.duration),
-              }
-            }),
-          })}
-        />
-      )}
+      {videoLd && <JsonLd data={videoLd} />}
       <section className="dark band2 vid-hero">
         <SyrianFill id="vine" opacity={0.12} />
         <div className="wrap">

@@ -13,7 +13,7 @@ import { formatDate } from '@/components/Stamp'
 import { Gallery } from '@/components/client/Gallery'
 import { LiveMap, type MapKind, type MapPoint } from '@/components/client/LiveMap'
 import { GUIDE, type GuideVenue } from '@/content/guide'
-import { staticPhoto } from '@/content/photos'
+import { photoAlt, staticPhoto } from '@/content/photos'
 import { asDoc, asMedia, getCityPhotos, getDayTrips, getLatestReports, getPlaces, getSettings, getStays, getTrip, getVenues, type CityDoc, type DayTripDoc, type TripSpot } from '@/data/queries'
 import { citations, faqLd, siteBase, touristDestinationLd } from '@/lib/jsonld'
 import { CITY_COORDS } from '@/lib/geo'
@@ -190,7 +190,7 @@ export default async function TripPage({ params }: Props) {
   const galleryKeys = guide?.gallery.length ? guide.gallery : tripKeys
   const guideGallery = galleryKeys.flatMap((key, i) => {
     const sp = staticPhoto(key)
-    return sp ? [{ id: -1 - i, src: sp.src, alt: `صورة من ${trip.title}`, meta: sp.credit }] : []
+    return sp ? [{ id: -1 - i, src: sp.src, alt: photoAlt(sp, 'ar') ?? `صورة من ${trip.title}`, meta: sp.credit }] : []
   })
   const pics = gallery.length ? gallery : guideGallery
   const sources = sourceLines(trip.sources)

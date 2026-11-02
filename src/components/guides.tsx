@@ -24,7 +24,7 @@ export function GuideAvatar({ g, size = 72, name }: { g: GuideDoc; size?: number
   return (
     <span className="avatar" style={{ width: size, height: size }}>
       {src ? (
-        <Image src={src} alt={name} fill sizes={`${size}px`} />
+        <Image src={src} alt={name} fill sizes={`${size}px`} unoptimized />
       ) : (
         <svg viewBox="0 0 72 72" aria-hidden="true" focusable="false">
           <rect width="72" height="72" fill="#E8DCC8" />
