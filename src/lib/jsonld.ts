@@ -163,23 +163,30 @@ export function serializeLd(data: unknown): string {
 
 export const siteBase = () => siteUrl()
 
-export type VideoLd = { anchor: string; name: string; author: string; thumbnail?: string; embedUrl: string; contentUrl: string; uploadDate?: string; duration?: string }
+export type VideoLd = { anchor: string; name: string; author: string; thumbnail?: string | null; embedUrl: string; uploadDate?: string | null; duration?: string }
 
-/** "عدسات": one VideoObject per video (batch 4), each with its own anchor on the page. */
+/**
+ * "عدسات": one VideoObject per video (batch 4), each with its own anchor on the page. Only videos with
+ * what Google requires from us (name, thumbnailUrl, uploadDate = the original's first publication, from
+ * Payload's publishedOn; never our own edit date). No contentUrl: it must be the video file itself, not
+ * the platform page, and we only embed. Source: developers.google.com/search/docs/appearance/structured-data/video
+ * (checked 2026-11-02). Null when no video qualifies, so the page prints no empty graph.
+ */
 export function videoObjectsLd(o: { base: string; path: string; videos: VideoLd[] }) {
   const url = abs(o.base, o.path)
+  const ready = o.videos.filter((v) => v.name && v.thumbnail && v.uploadDate)
+  if (!ready.length) return null
   return {
     '@context': 'https://schema.org',
-    '@graph': o.videos.map((v) => ({
+    '@graph': ready.map((v) => ({
       '@type': 'VideoObject',
       '@id': `${url}#${v.anchor}`,
       url: `${url}#${v.anchor}`,
       name: v.name,
-      ...(v.thumbnail ? { thumbnailUrl: abs(o.base, v.thumbnail) } : {}),
-      ...(v.uploadDate ? { uploadDate: v.uploadDate } : {}),
+      thumbnailUrl: abs(o.base, v.thumbnail!),
+      uploadDate: v.uploadDate,
       ...(v.duration ? { duration: v.duration } : {}),
       embedUrl: v.embedUrl,
-      contentUrl: v.contentUrl,
       creator: { '@type': 'Person', name: v.author },
     })),
   }
