@@ -5,9 +5,15 @@ import manifest from './photos.json'
  * Wikimedia Commons / Flickr loaded straight from its host. `full` is the larger size for the
  * lightbox, `year` the year it was taken when the source says so (older shots are marked archival).
  */
-export type StaticPhoto = { src: string; w: number; h: number; credit: string; href: string | null; full?: string; year?: number | null }
+export type StaticPhoto = { src: string; w: number; h: number; credit: string; href: string | null; full?: string; year?: number | null; alt?: { ar: string; en: string } }
 
 const PHOTOS = manifest as Record<string, StaticPhoto>
+
+/**
+ * What the photo shows, in the page's language (SEO day 6, written from the photo itself and approved by
+ * the owner in ALT-TEXT.md). null until a photo has one: callers then keep their own neutral caption.
+ */
+export const photoAlt = (p: Pick<StaticPhoto, 'alt'> | null | undefined, locale: 'ar' | 'en'): string | null => p?.alt?.[locale]?.trim() || null
 
 export const staticPhoto = (key: string | undefined): StaticPhoto | null => (key ? (PHOTOS[key] ?? null) : null)
 

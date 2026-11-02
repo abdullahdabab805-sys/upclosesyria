@@ -10,6 +10,7 @@ import { GUIDE, STORIES } from '@/content/guide'
 import { CityMap } from '@/components/client/CityMap'
 import { Shawarma } from '@/components/client/Shawarma'
 import Image from 'next/image'
+import { resizable } from '@/lib/guideImages'
 import { PatternDefs, PatternFill, PatternBand, SyrianFill, Ablaq } from '@/components/Patterns'
 import { cityTheme } from '@/lib/cityTheme'
 import { staticPhoto } from '@/content/photos'
@@ -198,7 +199,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                     </span>
                     {ruralOf(c.id).length > 0 && <span className="rural">{T('ريفها: ', 'Around it: ')}{ruralOf(c.id).join(' · ')}</span>}
                   </span>
-                  {thumb && <Image className="thumb" src={thumb.src} alt="" width={64} height={64} sizes="64px" unoptimized={thumb.src.startsWith('https://')} />}
+                  {thumb && <Image className="thumb" src={thumb.src} alt="" width={64} height={64} sizes="64px" unoptimized={!resizable(thumb.src)} />}
                 </Link>
               )
             })}

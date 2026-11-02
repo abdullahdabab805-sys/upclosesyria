@@ -8,7 +8,8 @@ import { breadcrumbLd, serializeLd, siteBase } from '@/lib/jsonld'
 import { pick, text } from '@/lib/localized'
 import { asDoc, asMedia, type CityDoc, type L, type ReportDoc, type SettingsDoc, type StatusDoc, type StayDoc } from '@/data/queries'
 import { localePath } from '@/lib/routing'
-import { archiveLabel, staticPhoto } from '@/content/photos'
+import { archiveLabel, photoAlt, staticPhoto } from '@/content/photos'
+import { resizable } from '@/lib/guideImages'
 import { GUIDE } from '@/content/guide'
 import { splitStays } from '@/lib/stays'
 import { ShowMore } from '@/components/client/ShowMore'
@@ -50,8 +51,9 @@ export function Photo({ media, shot, tall, size = 'card', priority, layer, fallb
     const sizes = layer ? heroSizes(layer, sp.w / sp.h) : CARD_SIZES
     return (
       <div className={tall ? 'photo tall' : 'photo'}>
-        {/* Commons thumbnails load straight from Wikimedia (already sized), the rest go through the optimizer. */}
-        <Image src={sp.src} alt={shot} fill sizes={sizes} {...(priority ? LCP : {})} unoptimized={sp.src.startsWith('https://')} />
+        {/* Our own photos get the 560px copy when that is enough (lib/imageLoader); Commons and Blob files are already sized.
+            The alt describes this photo, not the place the slot was meant for: a stand-in photo is not that place. */}
+        <Image src={sp.src} alt={photoAlt(sp, locale) ?? shot} fill sizes={sizes} {...(priority ? LCP : {})} unoptimized={!resizable(sp.src)} />
         {archiveLabel(sp, locale) && <span className="archive-tag">{archiveLabel(sp, locale)}</span>}
         <span className="credit" lang="en">
           {sp.credit}
@@ -59,13 +61,14 @@ export function Photo({ media, shot, tall, size = 'card', priority, layer, fallb
       </div>
     )
   }
-  const alt = text(m.alt, 'ar') ?? shot
+  // The page's language (Arabic when there is no English yet).
+  const alt = text(m.alt, locale) ?? shot
   const w = file?.url ? file.width : m.width
   const h = file?.url ? file.height : m.height
   const sizes = layer ? heroSizes(layer, w && h ? w / h : null) : CARD_SIZES
   return (
     <div className={tall ? 'photo tall' : 'photo'}>
-      <Image src={src} alt={alt} fill sizes={sizes} {...(priority ? LCP : {})} />
+      <Image src={src} alt={alt} fill sizes={sizes} {...(priority ? LCP : {})} unoptimized />
     </div>
   )
 }

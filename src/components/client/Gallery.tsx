@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
+import { resizable } from '@/lib/guideImages'
 
 /**
  * Everything here is sent to the browser for every photo, so nothing is repeated: `alt` is also the
@@ -9,8 +10,6 @@ import { useEffect, useRef, useState } from 'react'
  */
 export type GalleryPhoto = { id: number; src: string; full?: string; alt: string; meta: string }
 
-// Free-licensed photos load straight from Wikimedia/Flickr, already sized; the rest go through the optimizer.
-const EXTERNAL = /^https:\/\/((upload|thumb)\.wikimedia\.org|live\.staticflickr\.com|farm\d+\.staticflickr\.com)\//
 
 // Repeating mosaic: a big square, then two tall and wide tiles, so a short gallery still has rhythm.
 const SHAPE = ['wide tall', '', '', 'tall', 'wide', '', '', 'wide']
@@ -34,8 +33,9 @@ export function Gallery({ photos, close, more, first = 24 }: { photos: GalleryPh
     <>
       <div className="gallery">
         {shown.map((p, i) => (
-          <button key={p.id} type="button" className={SHAPE[i % SHAPE.length]} onClick={() => setShot(i)} aria-label={p.alt}>
-            <Image src={p.src} alt="" fill sizes="(max-width: 560px) 50vw, 25vw" unoptimized={EXTERNAL.test(p.src)} />
+          // The photo's alt names the button (no aria-label), so search engines read it on the image too.
+          <button key={p.id} type="button" className={SHAPE[i % SHAPE.length]} onClick={() => setShot(i)}>
+            <Image src={p.src} alt={p.alt} fill sizes="(max-width: 560px) 50vw, 25vw" unoptimized={!resizable(p.src)} />
           </button>
         ))}
       </div>
@@ -47,7 +47,7 @@ export function Gallery({ photos, close, more, first = 24 }: { photos: GalleryPh
       {current && (
         <div className="lightbox" role="dialog" aria-modal="true" aria-label={current.alt} onClick={(e) => e.target === e.currentTarget && setShot(null)}>
           <figure>
-            <Image src={currentFull} alt={current.alt} width={1600} height={1200} style={{ width: '100%', height: 'auto' }} unoptimized={EXTERNAL.test(currentFull)} />
+            <Image src={currentFull} alt={current.alt} width={1600} height={1200} style={{ width: '100%', height: 'auto' }} unoptimized />
             <figcaption className="row-x">
               <span>
                 {current.alt}

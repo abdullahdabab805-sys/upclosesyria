@@ -8,9 +8,11 @@ const nextConfig: NextConfig = {
   output: process.env.VERCEL ? undefined : 'standalone',
   poweredByHeader: false,
   // Media URLs from Vercel Blob (production) or the R2 public domain; local media is same-origin.
-  // Optimizer off everywhere (owner decision 2026-10-29): the Vercel plan's image quota ran out and new
-  // images returned 402. Media already stores WebP sizes (thumb 400, card 800, hero 1600) to serve directly.
-  images: { remotePatterns: imageRemotePatterns(), unoptimized: true },
+  // Vercel's optimizer stays off (owner decision 2026-10-29): the plan's image quota ran out and new
+  // images returned 402. The custom loader never calls it: it picks the 560px copy of a guide photo made
+  // ahead of time (public/guide/sm), so srcset offers two real files. Media already stores WebP sizes
+  // (thumb 400, card 800, hero 1600) and is drawn `unoptimized`. Two widths only: one per file we have.
+  images: { remotePatterns: imageRemotePatterns(), loader: 'custom', loaderFile: './src/lib/imageLoader.ts', deviceSizes: [560, 1280], imageSizes: [] },
   reactStrictMode: true,
   headers: async () => [
     // Anti-framing and basic security headers on every response (lib/security-headers).
