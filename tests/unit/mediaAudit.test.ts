@@ -189,3 +189,22 @@ describe('videoObjectsLd', () => {
     expect(videoObjectsLd({ base: 'https://x.org', path: '/videos', videos: [{ ...v, uploadDate: undefined }] })).toBeNull()
   })
 })
+
+describe('archiveLabel', () => {
+  it('dates an old photo, marks an undated one that shows what no longer stands, and leaves the rest', async () => {
+    const { archiveLabel } = await import('@/content/photos')
+    expect(archiveLabel({ year: 2010 }, 'ar')).toBe('صورة أرشيفية · 2010')
+    expect(archiveLabel({ year: 2010, archive: true }, 'en')).toBe('Archive photo · 2010')
+    expect(archiveLabel({ archive: true }, 'ar')).toBe('صورة أرشيفية')
+    expect(archiveLabel({ year: 2023 }, 'ar')).toBeNull()
+    expect(archiveLabel({}, 'en')).toBeNull()
+    expect(archiveLabel(null, 'ar')).toBeNull()
+  })
+
+  it('marks the photos of what was destroyed or changed after they were taken (sources in ALT-TEXT.md)', async () => {
+    const { archiveLabel, staticPhoto } = await import('@/content/photos')
+    for (const key of ['gallery-palmyra-0', 'gallery-palmyra-3', 'gallery-palmyra-5', 'park-deir-ez-zor-0', 'gallery-deir-ez-zor-1', 'food-hama-2', 'gallery2-raqqa-4']) {
+      expect(archiveLabel(staticPhoto(key), 'ar'), key).toMatch(/^صورة أرشيفية/)
+    }
+  })
+})

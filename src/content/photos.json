@@ -833,7 +833,8 @@
   "alt": {
    "ar": "ناعورة خشبية كبيرة على نهر العاصي في حماة",
    "en": "A large wooden waterwheel on the Orontes in Hama"
-  }
+  },
+  "year": 1980
  },
  "food-homs-0": {
   "src": "/guide/food-homs-0.webp",
@@ -1009,7 +1010,8 @@
   "alt": {
    "ar": "مجموعة صور من دير الزور: الجسر المعلّق والفرات وكنيسة",
    "en": "A collage of Deir ez-Zor: the suspension bridge, the Euphrates and a church"
-  }
+  },
+  "archive": true
  },
  "gallery-deir-ez-zor-3": {
   "src": "/guide/gallery-deir-ez-zor-3.webp",
@@ -1284,7 +1286,8 @@
   "alt": {
    "ar": "معبد بل في تدمر من بعيد وجمال ترعى أمامه",
    "en": "The Temple of Bel at Palmyra in the distance, camels grazing before it"
-  }
+  },
+  "year": 2010
  },
  "gallery-palmyra-1": {
   "src": "/guide/gallery-palmyra-1.webp",
@@ -1317,7 +1320,8 @@
   "alt": {
    "ar": "معبد بعلشمين في تدمر بأعمدته الأمامية",
    "en": "The Temple of Baalshamin at Palmyra with its front columns"
-  }
+  },
+  "year": 2010
  },
  "gallery-palmyra-4": {
   "src": "/guide/gallery-palmyra-4.webp",
@@ -1339,7 +1343,8 @@
   "alt": {
    "ar": "المسرح الروماني في تدمر، منظر عريض",
    "en": "The Roman theatre at Palmyra, a wide view"
-  }
+  },
+  "archive": true
  },
  "gallery-quneitra-0": {
   "src": "/guide/gallery-quneitra-0.webp",
@@ -1449,7 +1454,8 @@
   "alt": {
    "ar": "جزء من الجسر المعلّق فوق نهر الفرات في دير الزور",
    "en": "Part of the suspension bridge over the Euphrates in Deir ez-Zor"
-  }
+  },
+  "archive": true
  },
  "park-hama-1": {
   "src": "/guide/park-hama-1.webp",
@@ -1669,7 +1675,8 @@
   "alt": {
    "ar": "معبد بل في تدمر من بعيد وجمال ترعى أمامه",
    "en": "The Temple of Bel at Palmyra in the distance, camels grazing before it"
-  }
+  },
+  "year": 2010
  },
  "trip-جبل الشيخ": {
   "src": "/guide/park-quneitra-0.webp",
@@ -1977,7 +1984,8 @@
   "alt": {
    "ar": "شارع تجاري مزدحم في وسط الرقة بسيارات أجرة صفراء",
    "en": "A busy shopping street in central Raqqa with yellow taxis"
-  }
+  },
+  "year": 2009
  },
  "gallery2-bloudan-3": {
   "src": "/guide/gallery2-bloudan-3.webp",
