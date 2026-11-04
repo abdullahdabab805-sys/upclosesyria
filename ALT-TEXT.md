@@ -139,3 +139,17 @@
 ## ما بقي
 
 52 صورة @syrvisual على Vercel Blob و657 صورة من Commons/Flickr تُحمَّل من مواقعها مباشرة. لم أستطع فتحها من بيئة العمل.
+
+## ما طُبّق للصور القديمة (2026-11-04، بموافقة صاحب الموقع)
+
+| الصورة | ما أُضيف | المصدر |
+| --- | --- | --- |
+| gallery-palmyra-0 (معبد بل، ومعه trip-بساتين النخيل) | `year: 2010` | صفحة الملف: Bernard Gagnon، 7 نيسان 2010 ([نسخة](https://download.osmand.net/wiki/File:Palmyra_03.jpg)) |
+| gallery-palmyra-3 (معبد بعلشمين) | `year: 2010` | صفحة الملف: Bernard Gagnon، 7 نيسان 2010 ([نسخة](https://c.enwp.org/wiki/File:Temple_of_Baal-Shamin,_Palmyra.jpg)) |
+| gallery2-raqqa-4 (وسط الرقة) | `year: 2009` | صفحة الملف: Bertramz، تشرين الأول 2009 ([نسخة](https://fr.vikidia.org/wiki/Fichier:Raqqa,center2.jpg)) |
+| food-hama-2 (ناعورة حماة) | `year: 1980` | عنوان الملف نفسه (Noria_hama_1980) |
+| gallery-palmyra-5 (مسرح تدمر) | `archive: true` | الصورة تُظهر واجهة المسرح سليمة، وقد تضرّرت عام 2017. لم أصل إلى تاريخ الصورة |
+| park-deir-ez-zor-0، gallery-deir-ez-zor-1 (الجسر المعلّق) | `archive: true` | الصورة تُظهر الجسر قائماً، وقد انهار عام 2013. لم أصل إلى تاريخ الصورة |
+
+`archive: true` يُظهر "صورة أرشيفية" بلا سنة. **gallery-raqqa-5** (شارع ومئذنة في الرقة) بقيت بلا علامة: لم أجد تاريخها، ولا شيء في الصورة يثبت أنها قبل الحرب.
+الصور في غير مكانها (بساتين النخيل، منسف درعا، صور المناظر تحت الأكل) بقيت كما هي: تحتاج صوراً بديلة.
