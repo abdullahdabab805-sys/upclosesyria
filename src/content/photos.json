@@ -257,315 +257,495 @@
   "w": 420,
   "h": 525,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "واجهة شاحنة قديمة مزيّنة بالأزرق وعليها عبارة مكتوبة على الصدّام",
+   "en": "The front of an old truck painted blue, with an Arabic slogan on its bumper"
+  }
  },
  "u-hauran-1": {
   "src": "/guide/u-hauran-1.webp",
   "w": 420,
   "h": 525,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "كرسيان وطاولة من الخشب المطعّم بالصدف والمخمل الأزرق",
+   "en": "Two chairs and a table of inlaid wood with blue velvet"
+  }
  },
  "u-hauran-2": {
   "src": "/guide/u-hauran-2.webp",
   "w": 420,
   "h": 525,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "جدار أزرق مقشّر وعليه صور قديمة في براويز",
+   "en": "A peeling blue wall hung with old framed photos"
+  }
  },
  "u-hauran-3": {
   "src": "/guide/u-hauran-3.webp",
   "w": 420,
   "h": 526,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "سقف خشبي مزخرف بالأزرق والذهبي فوق قوس",
+   "en": "A carved wooden ceiling in blue and gold above an arch"
+  }
  },
  "u-hauran-4": {
   "src": "/guide/u-hauran-4.webp",
   "w": 420,
   "h": 526,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "باب خشبي أزرق مفتوح في جدار من الحجر البازلتي الأسود والأبيض",
+   "en": "An open blue wooden door in a wall of black basalt and white stone"
+  }
  },
  "u-hauran-5": {
   "src": "/guide/u-hauran-5.webp",
   "w": 420,
   "h": 526,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "جرّار زراعي أزرق قديم أمام جدار من حجر البازلت",
+   "en": "An old blue tractor before a basalt stone wall"
+  }
  },
  "u-hauran-6": {
   "src": "/guide/u-hauran-6.webp",
   "w": 420,
   "h": 525,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "صحن لاقط أزرق على الأرض قرب جدار حجري",
+   "en": "A blue satellite dish on the ground by a stone wall"
+  }
  },
  "u-hauran-7": {
   "src": "/guide/u-hauran-7.webp",
   "w": 420,
   "h": 525,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "بحرة سداسية زرقاء بين بلاط ملوّن، من فوق",
+   "en": "A blue hexagonal fountain among mosaic tiles, seen from above"
+  }
  },
  "u-hauran-8": {
   "src": "/guide/u-hauran-8.webp",
   "w": 420,
   "h": 525,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "بلاط بنقوش زرقاء وبيضاء متكرّرة",
+   "en": "Tiles with a repeating blue and white pattern"
+  }
  },
  "u-green-0": {
   "src": "/guide/u-green-0.webp",
   "w": 420,
   "h": 527,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "أعمدة وجدران معبد أثري بين العشب الأخضر",
+   "en": "Columns and walls of an ancient temple among green grass"
+  }
  },
  "u-green-1": {
   "src": "/guide/u-green-1.webp",
   "w": 420,
   "h": 527,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "دكان بباب حديد أخضر وشبابيك خضراء في جدار حجري",
+   "en": "A shop with a green iron door and green windows in a stone wall"
+  }
  },
  "u-green-2": {
   "src": "/guide/u-green-2.webp",
   "w": 420,
   "h": 527,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "ثلاثة رجال يمشون بين أشجار الزيتون والعشب، من فوق",
+   "en": "Three men walking among olive trees and grass, seen from above"
+  }
  },
  "u-green-3": {
   "src": "/guide/u-green-3.webp",
   "w": 420,
   "h": 527,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "باب خشبي أخضر قديم داخل إطار حجري منحوت",
+   "en": "An old green wooden door in a carved stone frame"
+  }
  },
  "u-green-4": {
   "src": "/guide/u-green-4.webp",
   "w": 420,
   "h": 527,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "زيتون أخضر وأسود مفروش للقطاف",
+   "en": "Green and black olives spread out after picking"
+  }
  },
  "u-green-5": {
   "src": "/guide/u-green-5.webp",
   "w": 420,
   "h": 527,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "عمودان أثريان بتيجان منحوتة بين الأشجار",
+   "en": "Two ancient columns with carved capitals among the trees"
+  }
  },
  "u-green-6": {
   "src": "/guide/u-green-6.webp",
   "w": 420,
   "h": 527,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "شجرة بلوط وحيدة بين حجارة بازلتية متناثرة",
+   "en": "A lone oak among scattered basalt stones"
+  }
  },
  "u-green-7": {
   "src": "/guide/u-green-7.webp",
   "w": 420,
   "h": 527,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "رجل أمام دكان بقالية بباب أخضر",
+   "en": "A man outside a grocery shop with a green door"
+  }
  },
  "u-green-8": {
   "src": "/guide/u-green-8.webp",
   "w": 420,
   "h": 527,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "صحن لوز أخضر على صينية معدنية",
+   "en": "A bowl of green almonds on a metal tray"
+  }
  },
  "u-pink-0": {
   "src": "/guide/u-pink-0.webp",
   "w": 420,
   "h": 519,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "شرفة حجرية منحوتة بأعمدة على واجهة وردية",
+   "en": "A carved stone balcony with columns on a pink façade"
+  }
  },
  "u-pink-1": {
   "src": "/guide/u-pink-1.webp",
   "w": 420,
   "h": 519,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "غيوم وردية في سماء الغروب",
+   "en": "Pink clouds in the sunset sky"
+  }
  },
  "u-pink-2": {
   "src": "/guide/u-pink-2.webp",
   "w": 420,
   "h": 519,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "شباكان بدرفات خشبية في واجهة حجرية وردية",
+   "en": "Two shuttered windows in a pink stone façade"
+  }
  },
  "u-pink-3": {
   "src": "/guide/u-pink-3.webp",
   "w": 420,
   "h": 520,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "تماثيل برونزية نحيلة أمام جدار وردي",
+   "en": "Slender bronze statues before a pink wall"
+  }
  },
  "u-pink-4": {
   "src": "/guide/u-pink-4.webp",
   "w": 420,
   "h": 520,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "توت أبيض ووردي مكوّم",
+   "en": "A heap of white and pink mulberries"
+  }
  },
  "u-pink-5": {
   "src": "/guide/u-pink-5.webp",
   "w": 420,
   "h": 520,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "شباك بدرفات رمادية في جدار وردي",
+   "en": "A window with grey shutters in a pink wall"
+  }
  },
  "u-pink-6": {
   "src": "/guide/u-pink-6.webp",
   "w": 420,
   "h": 519,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "برج حجري وردي بقبة وشبابيك مقوّسة",
+   "en": "A pink stone tower with a dome and arched windows"
+  }
  },
  "u-pink-7": {
   "src": "/guide/u-pink-7.webp",
   "w": 420,
   "h": 519,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "حارة ضيقة ببيوت وردية وشبابيك حمراء وأسلاك",
+   "en": "A narrow lane of pink houses, red window frames and wires"
+  }
  },
  "u-pink-8": {
   "src": "/guide/u-pink-8.webp",
   "w": 420,
   "h": 519,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "فرش ومخدّات بقماش مورّد وردي",
+   "en": "Mattresses and cushions in pink floral fabric"
+  }
  },
  "u-yellow-0": {
   "src": "/guide/u-yellow-0.webp",
   "w": 420,
   "h": 514,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "سيارة قديمة رمادية على طريق بين عشب أصفر",
+   "en": "An old grey car on a road beside yellow grass"
+  }
  },
  "u-yellow-1": {
   "src": "/guide/u-yellow-1.webp",
   "w": 420,
   "h": 514,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "مدخل منحوت بزخارف حجرية تحت قوس",
+   "en": "A carved stone entrance under an arch"
+  }
  },
  "u-yellow-2": {
   "src": "/guide/u-yellow-2.webp",
   "w": 420,
   "h": 514,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "زخرفة ملوّنة في وسط سقف أصفر",
+   "en": "A coloured ornament in the middle of a yellow ceiling"
+  }
  },
  "u-yellow-3": {
   "src": "/guide/u-yellow-3.webp",
   "w": 420,
   "h": 515,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "بيت أصفر بطابقين وشرفة خشبية",
+   "en": "A two-storey yellow house with a wooden balcony"
+  }
  },
  "u-yellow-4": {
   "src": "/guide/u-yellow-4.webp",
   "w": 420,
   "h": 515,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "رأس مئذنة حجرية منحوتة على خلفية صفراء",
+   "en": "The carved stone top of a minaret against a yellow background"
+  }
  },
  "u-yellow-5": {
   "src": "/guide/u-yellow-5.webp",
   "w": 420,
   "h": 515,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "كراسٍ بلاستيكية صفراء في مدخل بيت قديم",
+   "en": "Yellow plastic chairs in the doorway of an old house"
+  }
  },
  "u-yellow-6": {
   "src": "/guide/u-yellow-6.webp",
   "w": 420,
   "h": 514,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "أرضية رخام بنجوم ودوائر",
+   "en": "A marble floor of stars and circles"
+  }
  },
  "u-yellow-7": {
   "src": "/guide/u-yellow-7.webp",
   "w": 420,
   "h": 514,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "واجهة حجرية أبلق بشبابيك حديد ومدخل",
+   "en": "A striped stone façade with iron windows and an entrance"
+  }
  },
  "u-yellow-8": {
   "src": "/guide/u-yellow-8.webp",
   "w": 420,
   "h": 514,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "عجلة سيارة قديمة بلون كريمي",
+   "en": "The wheel of an old cream-coloured car"
+  }
  },
  "u-brown-0": {
   "src": "/guide/u-brown-0.webp",
   "w": 420,
   "h": 514,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "قاعة بسقف خشبي مزخرف وثريا معلّقة",
+   "en": "A hall with a carved wooden ceiling and a hanging chandelier"
+  }
  },
  "u-brown-1": {
   "src": "/guide/u-brown-1.webp",
   "w": 420,
   "h": 514,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "مقاعد وطاولات خشبية مطعّمة في قاعة قديمة",
+   "en": "Inlaid wooden seats and tables in an old hall"
+  }
  },
  "u-brown-2": {
   "src": "/guide/u-brown-2.webp",
   "w": 420,
   "h": 514,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "صوبيا حديد وكنبة في غرفة ببلاط ملوّن",
+   "en": "An iron stove and a sofa in a room with patterned tiles"
+  }
  },
  "u-brown-3": {
   "src": "/guide/u-brown-3.webp",
   "w": 420,
   "h": 515,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "سقف خشبي مرسوم بزخارف بنية وذهبية",
+   "en": "A painted wooden ceiling in brown and gold"
+  }
  },
  "u-brown-4": {
   "src": "/guide/u-brown-4.webp",
   "w": 420,
   "h": 515,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "قبة من الداخل بحجر أبلق وفتحات ضوء",
+   "en": "The inside of a dome in striped stone with small windows"
+  }
  },
  "u-brown-5": {
   "src": "/guide/u-brown-5.webp",
   "w": 420,
   "h": 515,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "مقاعد خشبية تحت شبابيك عالية في قاعة معتمة",
+   "en": "Wooden benches beneath tall windows in a dim hall"
+  }
  },
  "u-brown-6": {
   "src": "/guide/u-brown-6.webp",
   "w": 420,
   "h": 514,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "سقف خشبي منحوت فوق شبابيك مضيئة",
+   "en": "A carved wooden ceiling above bright windows"
+  }
  },
  "u-brown-7": {
   "src": "/guide/u-brown-7.webp",
   "w": 420,
   "h": 514,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "مدخل حجري متهدّم في جدار قديم",
+   "en": "A crumbling stone doorway in an old wall"
+  }
  },
  "u-brown-8": {
   "src": "/guide/u-brown-8.webp",
   "w": 420,
   "h": 514,
   "credit": "صورة من مجموعة سوريا عن قرب",
-  "href": null
+  "href": null,
+  "alt": {
+   "ar": "قنديل معلّق قرب قوس مزخرف وشباك",
+   "en": "A hanging lamp by a carved arch and a window"
+  }
  },
  "food-aleppo-1": {
   "src": "/guide/food-aleppo-1.webp",
@@ -627,56 +807,88 @@
   "w": 1280,
   "h": 853,
   "credit": "Bahnfrend · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Jordanian_Traditional_Mansaf,_Petra_Restaurant,_2026_(01).jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Jordanian_Traditional_Mansaf,_Petra_Restaurant,_2026_(01).jpg",
+  "alt": {
+   "ar": "صحن رز أصفر عليه لحم وبصل",
+   "en": "A plate of yellow rice topped with meat and onion"
+  }
  },
  "food-deir-ez-zor-1": {
   "src": "/guide/food-deir-ez-zor-1.webp",
   "w": 1280,
   "h": 852,
   "credit": "Dosseman · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Deir_Ez-Zor_Euphrates_9937.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Deir_Ez-Zor_Euphrates_9937.jpg",
+  "alt": {
+   "ar": "نهر الفرات عند الغروب في دير الزور",
+   "en": "The Euphrates at dusk in Deir ez-Zor"
+  }
  },
  "food-hama-2": {
   "src": "/guide/food-hama-2.webp",
   "w": 1280,
   "h": 814,
   "credit": "The original uploader was Mbenoist at French Wikipedia. · CC BY 2.5 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Noria_hama_1980.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Noria_hama_1980.jpg",
+  "alt": {
+   "ar": "ناعورة خشبية كبيرة على نهر العاصي في حماة",
+   "en": "A large wooden waterwheel on the Orontes in Hama"
+  }
  },
  "food-homs-0": {
   "src": "/guide/food-homs-0.webp",
   "w": 1280,
   "h": 731,
   "credit": "白と赤茶 · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Halawet_el_Jibn_with_attar.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Halawet_el_Jibn_with_attar.jpg",
+  "alt": {
+   "ar": "قطعتا حلاوة الجبن بالقشطة والفستق وعليها قطر",
+   "en": "Two pieces of halawet el-jibn with cream, pistachio and syrup"
+  }
  },
  "food-homs-2": {
   "src": "/guide/food-homs-2.webp",
   "w": 1280,
   "h": 852,
   "credit": "Dosseman · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Homs_street_view1273.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Homs_street_view1273.jpg",
+  "alt": {
+   "ar": "بناء في حمص بحجر أبيض وأسود ومحلات مغلقة",
+   "en": "A Homs building in black and white stone above closed shops"
+  }
  },
  "food-idlib-0": {
   "src": "/guide/food-idlib-0.webp",
   "w": 782,
   "h": 1280,
   "credit": "Daderot · CC0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Storage_jar_for_shipping_oil_or_spices,_with_stylized_calligraphy,_Syria,_Raqqa,_12th-13th_century_AD,_composite_body_with_turquoise_glaze_-_Huntington_Museum_of_Art_-_DSC05006.JPG"
+  "href": "https://commons.wikimedia.org/wiki/File:Storage_jar_for_shipping_oil_or_spices,_with_stylized_calligraphy,_Syria,_Raqqa,_12th-13th_century_AD,_composite_body_with_turquoise_glaze_-_Huntington_Museum_of_Art_-_DSC05006.JPG",
+  "alt": {
+   "ar": "جرّة خزفية خضراء مزخرفة بالكتابة في متحف",
+   "en": "A green glazed jar with calligraphy in a museum"
+  }
  },
  "food-mashquita-0": {
   "src": "/guide/food-mashquita-0.webp",
   "w": 1280,
   "h": 720,
   "credit": "Abd Alsattar Ardati · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Panoramic_View_of_Mashqita_Lake_in_Latakia_Governorate,_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Panoramic_View_of_Mashqita_Lake_in_Latakia_Governorate,_Syria.jpg",
+  "alt": {
+   "ar": "بحيرة مشقيتا بين تلال مكسوة بالصنوبر",
+   "en": "Mashqita Lake among pine-covered hills"
+  }
  },
  "food-suwayda-0": {
   "src": "/guide/food-suwayda-0.webp",
   "w": 1280,
   "h": 1055,
   "credit": "Fjmustak · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:%D8%B7%D8%A8%D9%82_%D9%85%D9%86%D8%B3%D9%81.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:%D8%B7%D8%A8%D9%82_%D9%85%D9%86%D8%B3%D9%81.jpg",
+  "alt": {
+   "ar": "صحن منسف: رز ولحم ولبن ولوز",
+   "en": "A plate of mansaf: rice, meat, yoghurt and almonds"
+  }
  },
  "gallery-aleppo-0": {
   "src": "/guide/gallery-aleppo-0.webp",
@@ -782,371 +994,583 @@
   "w": 1280,
   "h": 1226,
   "credit": "Dosseman · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Deir_Ez-Zor_museum_9890.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Deir_Ez-Zor_museum_9890.jpg",
+  "alt": {
+   "ar": "تمثال لامرأة تطحن الحبوب في متحف دير الزور",
+   "en": "A figure of a woman grinding grain in the Deir ez-Zor Museum"
+  }
  },
  "gallery-deir-ez-zor-1": {
   "src": "/guide/gallery-deir-ez-zor-1.webp",
   "w": 1216,
   "h": 1280,
   "credit": "See each photo for its author and license. · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Deir_ez-Zor_collection.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Deir_ez-Zor_collection.jpg",
+  "alt": {
+   "ar": "مجموعة صور من دير الزور: الجسر المعلّق والفرات وكنيسة",
+   "en": "A collage of Deir ez-Zor: the suspension bridge, the Euphrates and a church"
+  }
  },
  "gallery-deir-ez-zor-3": {
   "src": "/guide/gallery-deir-ez-zor-3.webp",
   "w": 1280,
   "h": 859,
   "credit": "Frank Kidner · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Deir_ez-Zor_(%D8%AF%D9%8E%D9%8A%D9%92%D8%B1%D9%8F_%D9%B1%D9%84%D8%B2%D9%8F%D9%91%D9%88%D8%B1%D9%90),_Syria_-_Unidentified_archaeological_excavation_near_Deir_ez-Zor%3F_-_PHBZ024_2016_0838_-_Dumbarton_Oaks.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Deir_ez-Zor_(%D8%AF%D9%8E%D9%8A%D9%92%D8%B1%D9%8F_%D9%B1%D9%84%D8%B2%D9%8F%D9%91%D9%88%D8%B1%D9%90),_Syria_-_Unidentified_archaeological_excavation_near_Deir_ez-Zor%3F_-_PHBZ024_2016_0838_-_Dumbarton_Oaks.jpg",
+  "alt": {
+   "ar": "رجل يعمل في موقع تنقيب أثري قرب دير الزور",
+   "en": "A man at work on an archaeological dig near Deir ez-Zor"
+  }
  },
  "gallery-deir-ez-zor-4": {
   "src": "/guide/gallery-deir-ez-zor-4.webp",
   "w": 857,
   "h": 1280,
   "credit": "Frank Kidner · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Deir_ez-Zor_(%D8%AF%D9%8E%D9%8A%D9%92%D8%B1%D9%8F_%D9%B1%D9%84%D8%B2%D9%8F%D9%91%D9%88%D8%B1%D9%90),_Syria_-_Unidentified_archaeological_excavation_near_Deir_ez-Zor%3F_-_PHBZ024_2016_0831_-_Dumbarton_Oaks.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Deir_ez-Zor_(%D8%AF%D9%8E%D9%8A%D9%92%D8%B1%D9%8F_%D9%B1%D9%84%D8%B2%D9%8F%D9%91%D9%88%D8%B1%D9%90),_Syria_-_Unidentified_archaeological_excavation_near_Deir_ez-Zor%3F_-_PHBZ024_2016_0831_-_Dumbarton_Oaks.jpg",
+  "alt": {
+   "ar": "جدران من اللبن في موقع تنقيب أثري",
+   "en": "Mud-brick walls at an archaeological dig"
+  }
  },
  "gallery-deir-ez-zor-5": {
   "src": "/guide/gallery-deir-ez-zor-5.webp",
   "w": 1280,
   "h": 857,
   "credit": "Frank Kidner · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Deir_ez-Zor_(%D8%AF%D9%8E%D9%8A%D9%92%D8%B1%D9%8F_%D9%B1%D9%84%D8%B2%D9%8F%D9%91%D9%88%D8%B1%D9%90),_Syria_-_Unidentified_archaeological_excavation_near_Deir_ez-Zor%3F_-_PHBZ024_2016_0843_-_Dumbarton_Oaks.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Deir_ez-Zor_(%D8%AF%D9%8E%D9%8A%D9%92%D8%B1%D9%8F_%D9%B1%D9%84%D8%B2%D9%8F%D9%91%D9%88%D8%B1%D9%90),_Syria_-_Unidentified_archaeological_excavation_near_Deir_ez-Zor%3F_-_PHBZ024_2016_0843_-_Dumbarton_Oaks.jpg",
+  "alt": {
+   "ar": "مظلّة فوق موقع تنقيب أثري في البادية",
+   "en": "A shelter over an archaeological dig in the steppe"
+  }
  },
  "gallery-hama-0": {
   "src": "/guide/gallery-hama-0.webp",
   "w": 1280,
   "h": 960,
   "credit": "Bernard Gagnon · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Hama,_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Hama,_Syria.jpg",
+  "alt": {
+   "ar": "نواعير حماة على العاصي وأمامها المدينة",
+   "en": "The norias of Hama on the Orontes, the city behind them"
+  }
  },
  "gallery-hama-1": {
   "src": "/guide/gallery-hama-1.webp",
   "w": 1280,
   "h": 960,
   "credit": "Vyacheslav Argenberg · CC BY 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Noria_of_Hama,_Hama,_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Noria_of_Hama,_Hama,_Syria.jpg",
+  "alt": {
+   "ar": "ناعورة من نواعير حماة قرب جسر حجري",
+   "en": "One of the norias of Hama beside a stone bridge"
+  }
  },
  "gallery-hama-2": {
   "src": "/guide/gallery-hama-2.webp",
   "w": 1280,
   "h": 719,
   "credit": "Vyacheslav Argenberg · CC BY 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Hama,_Cityscape,_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Hama,_Cityscape,_Syria.jpg",
+  "alt": {
+   "ar": "مدينة حماة من فوق: جوامع ومآذن وأحياء",
+   "en": "Hama from above: mosques, minarets and neighbourhoods"
+  }
  },
  "gallery-hama-3": {
   "src": "/guide/gallery-hama-3.webp",
   "w": 1280,
   "h": 719,
   "credit": "Vyacheslav Argenberg · CC BY 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Hama,_Panoramic_view,_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Hama,_Panoramic_view,_Syria.jpg",
+  "alt": {
+   "ar": "منظر عريض لأحياء حماة والتلال خلفها",
+   "en": "A wide view of Hama and the hills beyond"
+  }
  },
  "gallery-hama-4": {
   "src": "/guide/gallery-hama-4.webp",
   "w": 1280,
   "h": 960,
   "credit": "Vyacheslav Argenberg · CC BY 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Norias_of_Hama_2,_Orontes_River,_Hama,_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Norias_of_Hama_2,_Orontes_River,_Hama,_Syria.jpg",
+  "alt": {
+   "ar": "ناعورة على نهر العاصي في حماة، وقناة حجرية بأقواس",
+   "en": "A noria on the Orontes in Hama and an arched stone aqueduct"
+  }
  },
  "gallery-hama-5": {
   "src": "/guide/gallery-hama-5.webp",
   "w": 1280,
   "h": 719,
   "credit": "Vyacheslav Argenberg · CC BY 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Hama,_Cityscape_2,_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Hama,_Cityscape_2,_Syria.jpg",
+  "alt": {
+   "ar": "أسطح حماة وكنيسة بقبة بين الأبنية",
+   "en": "The rooftops of Hama and a domed church among the buildings"
+  }
  },
  "gallery-hasakah-2": {
   "src": "/guide/gallery-hasakah-2.webp",
   "w": 1280,
   "h": 866,
   "credit": "Bertramz · CC BY 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Chaldean_Catholic_Church,_Al-Hasakah,_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Chaldean_Catholic_Church,_Al-Hasakah,_Syria.jpg",
+  "alt": {
+   "ar": "كنيسة الكلدان الكاثوليك في الحسكة بسور حديد ونخلة",
+   "en": "The Chaldean Catholic church in Hasakah behind an iron gate and a palm"
+  }
  },
  "gallery-hasakah-3": {
   "src": "/guide/gallery-hasakah-3.webp",
   "w": 1280,
   "h": 857,
   "credit": "Bertramz · CC BY 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Hasakah,citadel.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Hasakah,citadel.jpg",
+  "alt": {
+   "ar": "أطلال حجرية على تلة القلعة في الحسكة",
+   "en": "Stone ruins on the citadel mound in Hasakah"
+  }
  },
  "gallery-hasakah-4": {
   "src": "/guide/gallery-hasakah-4.webp",
   "w": 1280,
   "h": 857,
   "credit": "Bertramz · CC BY 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Assyrian_Church_of_the_East_parish_in_al-Hasakah.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Assyrian_Church_of_the_East_parish_in_al-Hasakah.jpg",
+  "alt": {
+   "ar": "كنيسة آشورية بقبة على ساحة دوّار في الحسكة",
+   "en": "An Assyrian church with a dome on a roundabout in Hasakah"
+  }
  },
  "gallery-kasab-1": {
   "src": "/guide/gallery-kasab-1.webp",
   "w": 1280,
   "h": 960,
   "credit": "Preacher lad · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Kessab,_Syria-Turkey_border.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Kessab,_Syria-Turkey_border.jpg",
+  "alt": {
+   "ar": "شاطئ حصى تحت جبل غائم قرب كسب، وناس يمشون",
+   "en": "A pebble beach below a cloudy mountain near Kessab, people walking"
+  }
  },
  "gallery-kasab-2": {
   "src": "/guide/gallery-kasab-2.webp",
   "w": 1280,
   "h": 960,
   "credit": "Preacher lad · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Pinus_brutia,_Kessab,_Syria_1718.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Pinus_brutia,_Kessab,_Syria_1718.jpg",
+  "alt": {
+   "ar": "صنوبر على تلال كسب تحت الغيوم",
+   "en": "Pine trees on the hills of Kessab under cloud"
+  }
  },
  "gallery-kasab-3": {
   "src": "/guide/gallery-kasab-3.webp",
   "w": 1280,
   "h": 708,
   "credit": "Preacher lad · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Pinus_brutia,_Kessab,_Syria_1720.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Pinus_brutia,_Kessab,_Syria_1720.jpg",
+  "alt": {
+   "ar": "غابة صنوبر في وادٍ قرب كسب",
+   "en": "A pine forest in a valley near Kessab"
+  }
  },
  "gallery-kasab-4": {
   "src": "/guide/gallery-kasab-4.webp",
   "w": 1280,
   "h": 960,
   "credit": "Preacher lad · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Pinus_brutia,_Kessab,_Syria_1723.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Pinus_brutia,_Kessab,_Syria_1723.jpg",
+  "alt": {
+   "ar": "أشجار صنوبر وجبال كسب في يوم غائم",
+   "en": "Pine trees and the Kessab mountains on a cloudy day"
+  }
  },
  "gallery-kasab-5": {
   "src": "/guide/gallery-kasab-5.webp",
   "w": 1280,
   "h": 960,
   "credit": "Preacher lad · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Pinus_brutia,_Kessab,_Syria_1753.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Pinus_brutia,_Kessab,_Syria_1753.jpg",
+  "alt": {
+   "ar": "أغصان صنوبر على خلفية السماء",
+   "en": "Pine branches against the sky"
+  }
  },
  "gallery-mashquita-0": {
   "src": "/guide/gallery-mashquita-0.webp",
   "w": 720,
   "h": 1280,
   "credit": "Abd Alsattar Ardati · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Traditional_Stone_Mill_near_Mashqita_Lake,_Latakia_Governorate,_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Traditional_Stone_Mill_near_Mashqita_Lake,_Latakia_Governorate,_Syria.jpg",
+  "alt": {
+   "ar": "حجر رحى قديم قرب بحيرة مشقيتا",
+   "en": "An old millstone near Mashqita Lake"
+  }
  },
  "gallery-mashquita-1": {
   "src": "/guide/gallery-mashquita-1.webp",
   "w": 720,
   "h": 1280,
   "credit": "Abd Alsattar Ardati · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Sunlight_Through_Pine_Trees_near_Mashqita_Lake,_Latakia_Governorate,_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Sunlight_Through_Pine_Trees_near_Mashqita_Lake,_Latakia_Governorate,_Syria.jpg",
+  "alt": {
+   "ar": "شمس تتسلل بين أشجار الصنوبر قرب بحيرة مشقيتا",
+   "en": "Sunlight through pine trees near Mashqita Lake"
+  }
  },
  "gallery-mashquita-2": {
   "src": "/guide/gallery-mashquita-2.webp",
   "w": 1280,
   "h": 850,
   "credit": "Abd Alsattar Ardati · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Salmans_Hut_near_Mashqita_Lake_Latakia_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Salmans_Hut_near_Mashqita_Lake_Latakia_Syria.jpg",
+  "alt": {
+   "ar": "كوخ خشبي بين الأشجار قرب بحيرة مشقيتا",
+   "en": "A wooden hut among the trees near Mashqita Lake"
+  }
  },
  "gallery-mashquita-3": {
   "src": "/guide/gallery-mashquita-3.webp",
   "w": 1280,
   "h": 850,
   "credit": "Abd Alsattar Ardati · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Campers_near_Salman%E2%80%99s_Hut_at_Mashqita_Lake,_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Campers_near_Salman%E2%80%99s_Hut_at_Mashqita_Lake,_Syria.jpg",
+  "alt": {
+   "ar": "خيم ومخيّمون على مرج قرب بحيرة مشقيتا",
+   "en": "Tents and campers on a meadow near Mashqita Lake"
+  }
  },
  "gallery-mashquita-4": {
   "src": "/guide/gallery-mashquita-4.webp",
   "w": 1280,
   "h": 850,
   "credit": "Abd Alsattar Ardati · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Lakeside_huts_and_tents_at_Mashqita_Lake,_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Lakeside_huts_and_tents_at_Mashqita_Lake,_Syria.jpg",
+  "alt": {
+   "ar": "أكواخ وخيم على ضفة بحيرة مشقيتا",
+   "en": "Huts and tents on the shore of Mashqita Lake"
+  }
  },
  "gallery-mashquita-5": {
   "src": "/guide/gallery-mashquita-5.webp",
   "w": 1280,
   "h": 850,
   "credit": "Abd Alsattar Ardati · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Tour_boat_on_Mashqita_Lake_in_Latakia_Governorate,_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Tour_boat_on_Mashqita_Lake_in_Latakia_Governorate,_Syria.jpg",
+  "alt": {
+   "ar": "قارب نزهة على ضفة بحيرة مشقيتا",
+   "en": "A tour boat on the shore of Mashqita Lake"
+  }
  },
  "gallery-mashta-al-helu-0": {
   "src": "/guide/gallery-mashta-al-helu-0.webp",
   "w": 960,
   "h": 1280,
   "credit": "أفرام · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Nature_mashta_al_helo.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Nature_mashta_al_helo.jpg",
+  "alt": {
+   "ar": "شجرة صنوبر فوق وادٍ أخضر في مشتى الحلو",
+   "en": "A pine above a green valley in Mashta al-Helu"
+  }
  },
  "gallery-palmyra-0": {
   "src": "/guide/gallery-palmyra-0.webp",
   "w": 1280,
   "h": 864,
   "credit": "Bernard Gagnon · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Palmyra_03.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Palmyra_03.jpg",
+  "alt": {
+   "ar": "معبد بل في تدمر من بعيد وجمال ترعى أمامه",
+   "en": "The Temple of Bel at Palmyra in the distance, camels grazing before it"
+  }
  },
  "gallery-palmyra-1": {
   "src": "/guide/gallery-palmyra-1.webp",
   "w": 1280,
   "h": 955,
   "credit": "Bernard Gagnon · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Palmyra_01.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Palmyra_01.jpg",
+  "alt": {
+   "ar": "شارع الأعمدة الطويل في تدمر",
+   "en": "The long colonnaded street at Palmyra"
+  }
  },
  "gallery-palmyra-2": {
   "src": "/guide/gallery-palmyra-2.webp",
   "w": 1280,
   "h": 891,
   "credit": "Bernard Gagnon · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Palmyra_-_Decumanus_Maximus.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Palmyra_-_Decumanus_Maximus.jpg",
+  "alt": {
+   "ar": "الشارع المستقيم بين أعمدة تدمر والتلال خلفه",
+   "en": "The main colonnaded street of Palmyra with hills behind"
+  }
  },
  "gallery-palmyra-3": {
   "src": "/guide/gallery-palmyra-3.webp",
   "w": 1280,
   "h": 885,
   "credit": "Bernard Gagnon · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Temple_of_Baal-Shamin,_Palmyra.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Temple_of_Baal-Shamin,_Palmyra.jpg",
+  "alt": {
+   "ar": "معبد بعلشمين في تدمر بأعمدته الأمامية",
+   "en": "The Temple of Baalshamin at Palmyra with its front columns"
+  }
  },
  "gallery-palmyra-4": {
   "src": "/guide/gallery-palmyra-4.webp",
   "w": 1280,
   "h": 871,
   "credit": "Bernard Gagnon · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Road_sign_Palmyra_Irak.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Road_sign_Palmyra_Irak.jpg",
+  "alt": {
+   "ar": "لوحة طريق إلى تدمر ودير الزور وحمص والعراق في البادية",
+   "en": "A desert road sign to Palmyra, Deir ez-Zor, Homs and Iraq"
+  }
  },
  "gallery-palmyra-5": {
   "src": "/guide/gallery-palmyra-5.webp",
   "w": 1280,
   "h": 282,
   "credit": "Eusebius · CC BY 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Palmyre_-_th%C3%A9%C3%A2tre_pano.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Palmyre_-_th%C3%A9%C3%A2tre_pano.jpg",
+  "alt": {
+   "ar": "المسرح الروماني في تدمر، منظر عريض",
+   "en": "The Roman theatre at Palmyra, a wide view"
+  }
  },
  "gallery-quneitra-0": {
   "src": "/guide/gallery-quneitra-0.webp",
   "w": 1280,
   "h": 960,
   "credit": "Benjamín Núñez González · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Syrian_headquarters_building_in_Quneitra,_Golan_Heights,_2017_03.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Syrian_headquarters_building_in_Quneitra,_Golan_Heights,_2017_03.jpg",
+  "alt": {
+   "ar": "مبنى مهجور بجدران عليها كتابات في القنيطرة",
+   "en": "An abandoned building with graffiti in Quneitra"
+  }
  },
  "gallery-quneitra-4": {
   "src": "/guide/gallery-quneitra-4.webp",
   "w": 1280,
   "h": 853,
   "credit": "Ed Brambley from Cambridge, UK · CC BY-SA 2.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Al_Quneitra_-_Flickr_-_edbrambley.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Al_Quneitra_-_Flickr_-_edbrambley.jpg",
+  "alt": {
+   "ar": "علم ممزّق فوق سطح بناء في القنيطرة، والتلال خلفه",
+   "en": "A torn flag on a rooftop in Quneitra, hills behind"
+  }
  },
  "gallery-quneitra-5": {
   "src": "/guide/gallery-quneitra-5.webp",
   "w": 1280,
   "h": 960,
   "credit": "Marketiello · Public domain · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Quneitra_citt%C3%A0.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Quneitra_citt%C3%A0.jpg",
+  "alt": {
+   "ar": "أشجار وبيوت متهدّمة في القنيطرة تحت التلال",
+   "en": "Trees and ruined houses in Quneitra below the hills"
+  }
  },
  "gallery-raqqa-0": {
   "src": "/guide/gallery-raqqa-0.webp",
   "w": 1280,
   "h": 607,
   "credit": "Osama Shukir Muhammed Amin FRCP(Glasg) · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Capitals_from_ar-Raqqa,_Syria,_9th_century_CE._Islamic_Art_Museum_(Museum_f%C3%BCr_Islamische_Kunst),_Berlin.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Capitals_from_ar-Raqqa,_Syria,_9th_century_CE._Islamic_Art_Museum_(Museum_f%C3%BCr_Islamische_Kunst),_Berlin.jpg",
+  "alt": {
+   "ar": "ثلاثة تيجان أعمدة منحوتة من الرقة في متحف",
+   "en": "Three carved column capitals from Raqqa in a museum"
+  }
  },
  "gallery-raqqa-5": {
   "src": "/guide/gallery-raqqa-5.webp",
   "w": 1280,
   "h": 857,
   "credit": "Bertramz · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Raqqa,center3.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Raqqa,center3.jpg",
+  "alt": {
+   "ar": "شارع في الرقة ومئذنة ودراجة نارية",
+   "en": "A street in Raqqa with a minaret and a motorbike"
+  }
  },
  "gallery-tartous-1": {
   "src": "/guide/gallery-tartous-1.webp",
   "w": 1280,
   "h": 960,
   "credit": "Emir Ghazi · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Mediterranean_sea_at_Tartus.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Mediterranean_sea_at_Tartus.jpg",
+  "alt": {
+   "ar": "بحر طرطوس وشاطئها تحت غيوم بيضاء",
+   "en": "The sea and shore at Tartus under white clouds"
+  }
  },
  "gallery-tartous-2": {
   "src": "/guide/gallery-tartous-2.webp",
   "w": 1280,
   "h": 960,
   "credit": "Hayan Alhasan · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Sunset_over_the_sea_in_Tartus_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Sunset_over_the_sea_in_Tartus_Syria.jpg",
+  "alt": {
+   "ar": "غروب فوق بحر طرطوس",
+   "en": "Sunset over the sea at Tartus"
+  }
  },
  "gallery-tartous-3": {
   "src": "/guide/gallery-tartous-3.webp",
   "w": 1280,
   "h": 852,
   "credit": "Dosseman · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Tartus_Al_Basel_Park_0632.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Tartus_Al_Basel_Park_0632.jpg",
+  "alt": {
+   "ar": "برج ساعة وأعلام عند حديقة في طرطوس",
+   "en": "A clock tower and flags by a park in Tartus"
+  }
  },
  "gallery-zabadani-5": {
   "src": "/guide/gallery-zabadani-5.webp",
   "w": 1280,
   "h": 960,
   "credit": "Wesamt · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:06242009585_Zabadani_Valley.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:06242009585_Zabadani_Valley.jpg",
+  "alt": {
+   "ar": "بساتين وادي الزبداني وبيوت على السفح",
+   "en": "Orchards in the Zabadani valley and houses on the slope"
+  }
  },
  "park-deir-ez-zor-0": {
   "src": "/guide/park-deir-ez-zor-0.webp",
   "w": 1280,
   "h": 852,
   "credit": "Dosseman · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Deir_Ez-Zor_suspension_bridge9907.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Deir_Ez-Zor_suspension_bridge9907.jpg",
+  "alt": {
+   "ar": "جزء من الجسر المعلّق فوق نهر الفرات في دير الزور",
+   "en": "Part of the suspension bridge over the Euphrates in Deir ez-Zor"
+  }
  },
  "park-hama-1": {
   "src": "/guide/park-hama-1.webp",
   "w": 1280,
   "h": 853,
   "credit": "Bernard Gagnon · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Noria_in_Hama_01.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Noria_in_Hama_01.jpg",
+  "alt": {
+   "ar": "ناعورة على نهر العاصي في حماة بين الأشجار",
+   "en": "A noria on the Orontes in Hama among the trees"
+  }
  },
  "park-hasakah-0": {
   "src": "/guide/park-hasakah-0.webp",
   "w": 1280,
   "h": 853,
   "credit": "Khoshhat · CC BY 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Khabur_04.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Khabur_04.jpg",
+  "alt": {
+   "ar": "نهر الخابور يمرّ في الحسكة",
+   "en": "The Khabur river through Hasakah"
+  }
  },
  "park-idlib-1": {
   "src": "/guide/park-idlib-1.webp",
   "w": 1280,
   "h": 188,
   "credit": "Erik Albers · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Serjilla_overview.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Serjilla_overview.jpg",
+  "alt": {
+   "ar": "أطلال قرية سرجيلا الحجرية، منظر عريض",
+   "en": "The stone ruins of Serjilla, a wide view"
+  }
  },
  "park-kasab-1": {
   "src": "/guide/park-kasab-1.webp",
   "w": 1280,
   "h": 960,
   "credit": "Kevorkmail (talk) · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Karadouran_village,_Syria-Turkey_boarderline,_Kessab.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Karadouran_village,_Syria-Turkey_boarderline,_Kessab.jpg",
+  "alt": {
+   "ar": "جبل أخضر ينحدر إلى البحر قرب كسب",
+   "en": "A green mountain sloping to the sea near Kessab"
+  }
  },
  "park-latakia-1": {
   "src": "/guide/park-latakia-1.webp",
   "w": 1280,
   "h": 721,
   "credit": "Abd Alsattar Ardati · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Fshifish_Beach_on_the_Latakia_Corniche,_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Fshifish_Beach_on_the_Latakia_Corniche,_Syria.jpg",
+  "alt": {
+   "ar": "شاطئ الفشفيش في اللاذقية بقوارب ومظلات قش",
+   "en": "Fshifish beach in Latakia with boats and straw parasols"
+  }
  },
  "park-palmyra-0": {
   "src": "/guide/park-palmyra-0.webp",
   "w": 960,
   "h": 1280,
   "credit": "James Gordon from Los Angeles, California, USA · CC BY 2.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Palmyra,_Syria_-_4.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Palmyra,_Syria_-_4.jpg",
+  "alt": {
+   "ar": "قوس أثري في تدمر وشارع الأعمدة خلفه",
+   "en": "An ancient arch at Palmyra with the colonnade beyond"
+  }
  },
  "park-palmyra-1": {
   "src": "/guide/park-palmyra-1.webp",
   "w": 1280,
   "h": 852,
   "credit": "Dosseman · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Palmyra_Valley_of_the_tombs_0037.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Palmyra_Valley_of_the_tombs_0037.jpg",
+  "alt": {
+   "ar": "مدافن برجية في وادي القبور بتدمر",
+   "en": "Tower tombs in the Valley of the Tombs at Palmyra"
+  }
  },
  "park-quneitra-0": {
   "src": "/guide/park-quneitra-0.webp",
   "w": 1280,
   "h": 960,
   "credit": "Nunusandio · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Mount_Hermon_Qalaat_al-Jandal_snow_landscape.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Mount_Hermon_Qalaat_al-Jandal_snow_landscape.jpg",
+  "alt": {
+   "ar": "ثلج على سفوح جبل الشيخ تحت شمس ساطعة",
+   "en": "Snow on the slopes of Mount Hermon under a bright sun"
+  }
  },
  "park-suwayda-0": {
   "src": "/guide/park-suwayda-0.webp",
   "w": 1280,
   "h": 837,
   "credit": "James Gordon from Los Angeles, California, USA · CC BY 2.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Cistern,_Qanawat,_NW_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Cistern,_Qanawat,_NW_Syria.jpg",
+  "alt": {
+   "ar": "أقواس حجرية لخزان ماء قديم في قنوات",
+   "en": "Stone arches of an old cistern at Qanawat"
+  }
  },
  "park-tartous-1": {
   "src": "/guide/park-tartous-1.webp",
   "w": 1280,
   "h": 852,
   "credit": "Dosseman · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Arwad_general_view_0729.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Arwad_general_view_0729.jpg",
+  "alt": {
+   "ar": "بيوت جزيرة أرواد وحجارة قديمة على الشاطئ",
+   "en": "Houses on Arwad island and old stones by the shore"
+  }
  },
  "park-zabadani-1": {
   "src": "/guide/park-zabadani-1.webp",
   "w": 720,
   "h": 1280,
   "credit": "Noorbokaie · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:%D8%B5%D9%88%D8%B1%D8%A9_%D9%85%D9%86_%D8%AF%D8%A7%D8%AE%D9%84_%D8%A7%D9%84%D9%82%D8%B1%D9%8A%D8%A9.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:%D8%B5%D9%88%D8%B1%D8%A9_%D9%85%D9%86_%D8%AF%D8%A7%D8%AE%D9%84_%D8%A7%D9%84%D9%82%D8%B1%D9%8A%D8%A9.jpg",
+  "alt": {
+   "ar": "بيوت بين الأشجار على سفح جبل",
+   "en": "Houses among trees on a mountainside"
+  }
  },
  "food-aleppo-3": {
   "src": "/guide/food-aleppo-3.webp",
@@ -1186,238 +1610,374 @@
   "w": 1280,
   "h": 960,
   "credit": "Vyacheslav Argenberg · CC BY 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Syria,_Al-Husn,_Panoramic_view_of_Tartus_Hills,_Homs_Gap.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Syria,_Al-Husn,_Panoramic_view_of_Tartus_Hills,_Homs_Gap.jpg",
+  "alt": {
+   "ar": "قرية الحصن وتلال طرطوس من فوق",
+   "en": "Al-Husn village and the Tartus hills from above"
+  }
  },
  "gallery-homs-x1": {
   "src": "/guide/gallery-tartous-5.webp",
   "w": 1280,
   "h": 960,
   "credit": "Vyacheslav Argenberg · CC BY 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Syria,_Al-Husn,_Panoramic_view_of_Al-Husn_village_and_Tartus_hills.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Syria,_Al-Husn,_Panoramic_view_of_Al-Husn_village_and_Tartus_hills.jpg",
+  "alt": {
+   "ar": "قرية الحصن من أسوار القلعة، والتلال خلفها",
+   "en": "Al-Husn village from the castle walls, hills behind"
+  }
  },
  "trip-مشقيتا": {
   "src": "/guide/gallery-mashquita-4.webp",
   "w": 1280,
   "h": 850,
   "credit": "Abd Alsattar Ardati · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Lakeside_huts_and_tents_at_Mashqita_Lake,_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Lakeside_huts_and_tents_at_Mashqita_Lake,_Syria.jpg",
+  "alt": {
+   "ar": "أكواخ وخيم على ضفة بحيرة مشقيتا",
+   "en": "Huts and tents on the shore of Mashqita Lake"
+  }
  },
  "trip-سرجيلا والبارة": {
   "src": "/guide/park-idlib-1.webp",
   "w": 1280,
   "h": 188,
   "credit": "Erik Albers · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Serjilla_overview.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Serjilla_overview.jpg",
+  "alt": {
+   "ar": "أطلال قرية سرجيلا الحجرية، منظر عريض",
+   "en": "The stone ruins of Serjilla, a wide view"
+  }
  },
  "trip-جزيرة أرواد": {
   "src": "/guide/park-tartous-1.webp",
   "w": 1280,
   "h": 852,
   "credit": "Dosseman · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Arwad_general_view_0729.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Arwad_general_view_0729.jpg",
+  "alt": {
+   "ar": "بيوت جزيرة أرواد وحجارة قديمة على الشاطئ",
+   "en": "Houses on Arwad island and old stones by the shore"
+  }
  },
  "trip-بساتين النخيل": {
   "src": "/guide/gallery-palmyra-0.webp",
   "w": 1280,
   "h": 864,
   "credit": "Bernard Gagnon · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Palmyra_03.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Palmyra_03.jpg",
+  "alt": {
+   "ar": "معبد بل في تدمر من بعيد وجمال ترعى أمامه",
+   "en": "The Temple of Bel at Palmyra in the distance, camels grazing before it"
+  }
  },
  "trip-جبل الشيخ": {
   "src": "/guide/park-quneitra-0.webp",
   "w": 1280,
   "h": 960,
   "credit": "Nunusandio · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Mount_Hermon_Qalaat_al-Jandal_snow_landscape.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Mount_Hermon_Qalaat_al-Jandal_snow_landscape.jpg",
+  "alt": {
+   "ar": "ثلج على سفوح جبل الشيخ تحت شمس ساطعة",
+   "en": "Snow on the slopes of Mount Hermon under a bright sun"
+  }
  },
  "trip-قنوات": {
   "src": "/guide/park-suwayda-0.webp",
   "w": 1280,
   "h": 837,
   "credit": "James Gordon from Los Angeles, California, USA · CC BY 2.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Cistern,_Qanawat,_NW_Syria.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Cistern,_Qanawat,_NW_Syria.jpg",
+  "alt": {
+   "ar": "أقواس حجرية لخزان ماء قديم في قنوات",
+   "en": "Stone arches of an old cistern at Qanawat"
+  }
  },
  "trip-كسب": {
   "src": "/guide/gallery-kasab-1.webp",
   "w": 1280,
   "h": 960,
   "credit": "Preacher lad · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Kessab,_Syria-Turkey_border.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Kessab,_Syria-Turkey_border.jpg",
+  "alt": {
+   "ar": "شاطئ حصى تحت جبل غائم قرب كسب، وناس يمشون",
+   "en": "A pebble beach below a cloudy mountain near Kessab, people walking"
+  }
  },
  "trip-مشتى الحلو": {
   "src": "/guide/gallery-mashta-al-helu-0.webp",
   "w": 960,
   "h": 1280,
   "credit": "أفرام · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Nature_mashta_al_helo.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Nature_mashta_al_helo.jpg",
+  "alt": {
+   "ar": "شجرة صنوبر فوق وادٍ أخضر في مشتى الحلو",
+   "en": "A pine above a green valley in Mashta al-Helu"
+  }
  },
  "trip-بلودان والزبداني": {
   "src": "/guide/gallery-bloudan-1.webp",
   "w": 1280,
   "h": 960,
   "credit": "Laithmahfouz · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:%D8%B3%D9%87%D9%84_%D8%A7%D9%84%D8%B2%D8%A8%D8%AF%D8%A7%D9%86%D9%8A.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:%D8%B3%D9%87%D9%84_%D8%A7%D9%84%D8%B2%D8%A8%D8%AF%D8%A7%D9%86%D9%8A.jpg",
+  "alt": {
+   "ar": "بيوت بأسطح حمراء فوق سهل تحت الجبل والغيوم",
+   "en": "Red-roofed houses above a plain below mountains and clouds"
+  }
  },
  "trip-نبع بردى": {
   "src": "/guide/park-zabadani-1.webp",
   "w": 720,
   "h": 1280,
   "credit": "Noorbokaie · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:%D8%B5%D9%88%D8%B1%D8%A9_%D9%85%D9%86_%D8%AF%D8%A7%D8%AE%D9%84_%D8%A7%D9%84%D9%82%D8%B1%D9%8A%D8%A9.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:%D8%B5%D9%88%D8%B1%D8%A9_%D9%85%D9%86_%D8%AF%D8%A7%D8%AE%D9%84_%D8%A7%D9%84%D9%82%D8%B1%D9%8A%D8%A9.jpg",
+  "alt": {
+   "ar": "بيوت بين الأشجار على سفح جبل",
+   "en": "Houses among trees on a mountainside"
+  }
  },
  "park-quneitra-1": {
   "src": "/guide/gallery-quneitra-4.webp",
   "w": 1280,
   "h": 853,
   "credit": "Ed Brambley from Cambridge, UK · CC BY-SA 2.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Al_Quneitra_-_Flickr_-_edbrambley.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Al_Quneitra_-_Flickr_-_edbrambley.jpg",
+  "alt": {
+   "ar": "علم ممزّق فوق سطح بناء في القنيطرة، والتلال خلفه",
+   "en": "A torn flag on a rooftop in Quneitra, hills behind"
+  }
  },
  "gallery2-slunfeh-0": {
   "src": "/guide/gallery2-slunfeh-0.webp",
   "w": 1280,
   "h": 813,
   "credit": "JYB Devot · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Slinfah_P1013409mod.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Slinfah_P1013409mod.jpg",
+  "alt": {
+   "ar": "سفح مشجّر بالصنوبر الصغير في صلنفة",
+   "en": "A slope of young pines at Slunfeh"
+  }
  },
  "gallery2-latakia-0": {
   "src": "/guide/gallery2-latakia-0.webp",
   "w": 1280,
   "h": 988,
   "credit": "Nouh Hammami · CC BY 2.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Latakia_Sports_City_Stadium.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Latakia_Sports_City_Stadium.jpg",
+  "alt": {
+   "ar": "ملعب المدينة الرياضية في اللاذقية",
+   "en": "The stadium of Latakia Sports City"
+  }
  },
  "gallery2-latakia-1": {
   "src": "/guide/gallery2-latakia-1.webp",
   "w": 1280,
   "h": 927,
   "credit": "JYB Devot · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Latakia_Suburb_P1013420mod.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Latakia_Suburb_P1013420mod.jpg",
+  "alt": {
+   "ar": "حي سكني في اللاذقية ليلاً تحت أضواء الشارع",
+   "en": "A Latakia neighbourhood at night under street lights"
+  }
  },
  "gallery2-latakia-2": {
   "src": "/guide/gallery2-latakia-2.webp",
   "w": 852,
   "h": 1280,
   "credit": "Dosseman · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Latakia_Tetraporticus_4042.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Latakia_Tetraporticus_4042.jpg",
+  "alt": {
+   "ar": "قوس روماني رباعي في اللاذقية بين الأشجار",
+   "en": "The Roman tetraporticus arch in Latakia among trees"
+  }
  },
  "gallery2-latakia-3": {
   "src": "/guide/gallery2-latakia-3.webp",
   "w": 1280,
   "h": 852,
   "credit": "Dosseman · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Latakia_Tetraporticus_4041.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Latakia_Tetraporticus_4041.jpg",
+  "alt": {
+   "ar": "حجارة منحوتة في أعلى القوس الروماني باللاذقية",
+   "en": "Carved stones at the top of the Roman arch in Latakia"
+  }
  },
  "gallery2-latakia-4": {
   "src": "/guide/gallery2-latakia-4.webp",
   "w": 852,
   "h": 1280,
   "credit": "Dosseman · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Latakia_Tetraporticus_4035.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Latakia_Tetraporticus_4035.jpg",
+  "alt": {
+   "ar": "من تحت القوس الروماني في اللاذقية",
+   "en": "Looking through the Roman arch in Latakia"
+  }
  },
  "gallery2-idlib-2": {
   "src": "/guide/gallery2-idlib-2.webp",
   "w": 1280,
   "h": 960,
   "credit": "Eng.Zaher al shaar · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Salqin_Highway.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Salqin_Highway.jpg",
+  "alt": {
+   "ar": "طريق سلقين بين بساتين الزيتون والتلال",
+   "en": "The Salqin road between olive groves and hills"
+  }
  },
  "gallery2-idlib-4": {
   "src": "/guide/gallery2-idlib-4.webp",
   "w": 960,
   "h": 1280,
   "credit": "Eng.Zaher al shaar · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Araa_springs_Mount.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Araa_springs_Mount.jpg",
+  "alt": {
+   "ar": "وادٍ صخري ونهر بين الأشجار",
+   "en": "A rocky gorge and a river among trees"
+  }
  },
  "gallery2-homs-0": {
   "src": "/guide/gallery2-homs-0.webp",
   "w": 1280,
   "h": 960,
   "credit": "Emir Ghazi · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Christian%27s_valley,_Homs.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Christian%27s_valley,_Homs.jpg",
+  "alt": {
+   "ar": "كنيسة بقبة حمراء فوق وادي النصارى الأخضر",
+   "en": "A church with a red dome above the green Valley of the Christians"
+  }
  },
  "gallery2-homs-1": {
   "src": "/guide/gallery2-homs-1.webp",
   "w": 960,
   "h": 1280,
   "credit": "Hayan Alhasan · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:The_New_Clock_Tower_(0)_in_Homs,_Syria_-_May_2023.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:The_New_Clock_Tower_(0)_in_Homs,_Syria_-_May_2023.jpg",
+  "alt": {
+   "ar": "برج الساعة الجديدة في حمص",
+   "en": "The New Clock Tower in Homs"
+  }
  },
  "gallery2-homs-2": {
   "src": "/guide/gallery2-homs-2.webp",
   "w": 1280,
   "h": 290,
   "credit": "JYB Devot · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Tell_Homs_P1013166mod.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Tell_Homs_P1013166mod.jpg",
+  "alt": {
+   "ar": "حقول وتل ترابي قرب حمص",
+   "en": "Fields and an earth mound near Homs"
+  }
  },
  "gallery2-homs-3": {
   "src": "/guide/gallery2-homs-3.webp",
   "w": 1280,
   "h": 1028,
   "credit": "Bernard Gagnon · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Road_sign_Homs-Palmyra-Baghdad.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Road_sign_Homs-Palmyra-Baghdad.jpg",
+  "alt": {
+   "ar": "لوحة طريق إلى تدمر وحمص وبغداد في البادية",
+   "en": "A desert road sign to Palmyra, Homs and Baghdad"
+  }
  },
  "gallery2-homs-4": {
   "src": "/guide/gallery2-homs-4.webp",
   "w": 1280,
   "h": 852,
   "credit": "Dosseman · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Seat_of_the_Syrian_Catholic_Archbishop_of_Homs_5.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Seat_of_the_Syrian_Catholic_Archbishop_of_Homs_5.jpg",
+  "alt": {
+   "ar": "مطرانية السريان الكاثوليك في حمص بحجر أبلق",
+   "en": "The Syriac Catholic archbishopric in Homs, in striped stone"
+  }
  },
  "gallery2-zabadani-0": {
   "src": "/guide/gallery2-zabadani-0.webp",
   "w": 960,
   "h": 1280,
   "credit": "Noorbokaie · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:%D8%AC%D8%A7%D9%85%D8%B9_%D8%A7%D9%84%D9%86%D8%AC%D9%88%D9%85_%D8%A7%D9%84%D9%83%D8%A8%D9%8A%D8%B1_%D9%81%D9%8A_%D8%A7%D9%84%D8%A8%D9%84%D8%AF%D8%A9.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:%D8%AC%D8%A7%D9%85%D8%B9_%D8%A7%D9%84%D9%86%D8%AC%D9%88%D9%85_%D8%A7%D9%84%D9%83%D8%A8%D9%8A%D8%B1_%D9%81%D9%8A_%D8%A7%D9%84%D8%A8%D9%84%D8%AF%D8%A9.jpg",
+  "alt": {
+   "ar": "جامع بمئذنة بيضاء بين البساتين في الزبداني",
+   "en": "A mosque with a white minaret among the orchards of Zabadani"
+  }
  },
  "gallery2-zabadani-1": {
   "src": "/guide/gallery2-zabadani-1.webp",
   "w": 1280,
   "h": 960,
   "credit": "Noorbokaie · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:%D8%A7%D8%B7%D9%84%D8%A7%D9%84%D8%A9_%D8%AD%D9%88%D8%B4_%D8%A8%D8%AC%D8%AF_%D8%B9%D9%84%D9%89_%D8%B3%D9%87%D9%84_%D8%A7%D9%84%D8%B2%D8%A8%D8%AF%D8%A7%D9%86%D9%8A_%D9%88_%D8%BA%D8%B1%D9%88%D8%A8_%D8%A7%D9%84%D8%B4%D9%85%D8%B3.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:%D8%A7%D8%B7%D9%84%D8%A7%D9%84%D8%A9_%D8%AD%D9%88%D8%B4_%D8%A8%D8%AC%D8%AF_%D8%B9%D9%84%D9%89_%D8%B3%D9%87%D9%84_%D8%A7%D9%84%D8%B2%D8%A8%D8%AF%D8%A7%D9%86%D9%8A_%D9%88_%D8%BA%D8%B1%D9%88%D8%A8_%D8%A7%D9%84%D8%B4%D9%85%D8%B3.jpg",
+  "alt": {
+   "ar": "سهل الزبداني عند الغروب من فوق الأسطح",
+   "en": "The Zabadani plain at sunset over the rooftops"
+  }
  },
  "gallery2-zabadani-2": {
   "src": "/guide/gallery2-zabadani-2.webp",
   "w": 1280,
   "h": 768,
   "credit": "Noorbokaie · CC BY-SA 4.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:%D9%85%D8%B2%D8%A7%D8%B1%D8%B9_%D8%A7%D9%84%D8%A8%D9%84%D8%AF%D8%A9.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:%D9%85%D8%B2%D8%A7%D8%B1%D8%B9_%D8%A7%D9%84%D8%A8%D9%84%D8%AF%D8%A9.jpg",
+  "alt": {
+   "ar": "بساتين أشجار مثمرة تحت تلة في الزبداني",
+   "en": "Fruit orchards below a hill in Zabadani"
+  }
  },
  "gallery2-zabadani-3": {
   "src": "/guide/gallery2-zabadani-3.webp",
   "w": 1280,
   "h": 960,
   "credit": "Wesamt / Wesamt at en.wikipedia · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Bloudan_Jerjanieh.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Bloudan_Jerjanieh.jpg",
+  "alt": {
+   "ar": "شارع وأبنية على سفح بلودان",
+   "en": "A street and buildings on the slope of Bloudan"
+  }
  },
  "gallery2-zabadani-4": {
   "src": "/guide/gallery2-zabadani-4.webp",
   "w": 1280,
   "h": 960,
   "credit": "Wikimedia Commons · Public domain · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Alzabadani.JPG"
+  "href": "https://commons.wikimedia.org/wiki/File:Alzabadani.JPG",
+  "alt": {
+   "ar": "وادي الزبداني والجبال من فوق",
+   "en": "The Zabadani valley and mountains from above"
+  }
  },
  "gallery2-raqqa-2": {
   "src": "/guide/gallery2-raqqa-2.webp",
   "w": 1280,
   "h": 720,
   "credit": "Serge Ottaviani · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Raqqa_-_Syrie_-_Fragment_frise_architecturale.JPG"
+  "href": "https://commons.wikimedia.org/wiki/File:Raqqa_-_Syrie_-_Fragment_frise_architecturale.JPG",
+  "alt": {
+   "ar": "حجر منحوت بكتابة عربية من الرقة في متحف",
+   "en": "A carved stone with Arabic inscription from Raqqa in a museum"
+  }
  },
  "gallery2-raqqa-3": {
   "src": "/guide/gallery2-raqqa-3.webp",
   "w": 1280,
   "h": 857,
   "credit": "Bertramz · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Raqqa,4kmW1.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Raqqa,4kmW1.jpg",
+  "alt": {
+   "ar": "أبنية سكنية بلون رملي في الرقة",
+   "en": "Sand-coloured apartment blocks in Raqqa"
+  }
  },
  "gallery2-raqqa-4": {
   "src": "/guide/gallery2-raqqa-4.webp",
   "w": 1280,
   "h": 857,
   "credit": "Bertramz · CC BY-SA 3.0 · Wikimedia Commons",
-  "href": "https://commons.wikimedia.org/wiki/File:Raqqa,center2.jpg"
+  "href": "https://commons.wikimedia.org/wiki/File:Raqqa,center2.jpg",
+  "alt": {
+   "ar": "شارع تجاري مزدحم في وسط الرقة بسيارات أجرة صفراء",
+   "en": "A busy shopping street in central Raqqa with yellow taxis"
+  }
  },
  "gallery2-bloudan-3": {
   "src": "/guide/gallery2-bloudan-3.webp",
