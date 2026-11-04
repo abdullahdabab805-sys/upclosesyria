@@ -1,0 +1,79 @@
+# Weekly SEO audit of the deployed site (SEO day 7): seo + geo + media audits and Lighthouse (mobile,
+# median of 3), compared with audits/baseline/www.upclosesyria.com.json. Public data only: page paths,
+# HTTP statuses, counts and lab scores. Search Console and Bing data never pass through GitHub; the
+# private report is a Vercel Cron that e-mails the owner (src/endpoints/seoReport.ts).
+#
+# Scheduled workflows in a public repository are disabled by GitHub after 60 days without activity
+# in the repository; GitHub e-mails the owner first, and one click on "Enable workflow" restores it.
+name: weekly-audit
+
+on:
+  schedule:
+    # Sunday 03:00 UTC = 06:00 in Riyadh. GitHub may start scheduled runs some minutes late.
+    - cron: '0 3 * * 0'
+  workflow_dispatch:
+    inputs:
+      update_baseline:
+        description: 'Write this run as the new baseline (uploaded as an artifact to review and commit)'
+        type: boolean
+        default: false
+
+concurrency:
+  group: weekly-audit
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      SITE: https://www.upclosesyria.com
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Audit the deployed site
+        id: audit
+        run: |
+          set +e
+          npm run audit:weekly -- "$SITE" --lighthouse ${{ inputs.update_baseline && '--update-baseline' || '' }}
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+        env:
+          PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
+      - name: Summary
+        if: always()
+        run: test -f audits/WEEKLY.md && cat audits/WEEKLY.md >> "$GITHUB_STEP_SUMMARY" || true
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: weekly-audit
+          path: |
+            audits/WEEKLY.md
+            audits/weekly.json
+            audits/baseline/
+          retention-days: 30
+      - name: One issue per regression streak
+        if: always() && !inputs.update_baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CODE: ${{ steps.audit.outputs.code }}
+        run: |
+          gh label create seo-regression --color B5713A --description 'Weekly audit found a regression' --force >/dev/null
+          open=$(gh issue list --label seo-regression --state open --json number --jq '.[0].number')
+          head -c 60000 audits/WEEKLY.md > body.md 2>/dev/null || echo "audit:weekly produced no report (exit $CODE). Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" > body.md
+          printf '\n\n[run](%s/%s/actions/runs/%s)\n' "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" >> body.md
+          if [ "$CODE" != "0" ]; then
+            if [ -n "$open" ]; then gh issue comment "$open" --body-file body.md
+            else gh issue create --title "تراجع في الفحص الأسبوعي (SEO)" --label seo-regression --body-file body.md; fi
+            exit 1
+          elif [ -n "$open" ]; then
+            gh issue close "$open" --comment "الفحص الأسبوعي نظيف الآن. $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          fi

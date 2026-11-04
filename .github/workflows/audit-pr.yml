@@ -1,0 +1,47 @@
+# Audit on every pull request (SEO day 7): the quick part of the weekly audit (seo + geo + media, no
+# Lighthouse) on the hermetic production build, against audits/baseline/localhost-3100.json, so a
+# regression is stopped before it is merged. Same hermetic server as e2e: no secrets, no Neon, no Blob.
+name: audit-pr
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: audit-pr-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Start the hermetic production build
+        run: |
+          node scripts/e2e-server.mjs > server.log 2>&1 &
+          for i in $(seq 1 120); do curl -fs http://localhost:3100/ >/dev/null && exit 0; sleep 5; done
+          cat server.log; exit 1
+      - run: npm run audit:weekly -- http://localhost:3100
+      - name: Summary
+        if: always()
+        run: test -f audits/WEEKLY.md && cat audits/WEEKLY.md >> "$GITHUB_STEP_SUMMARY" || true
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: audit-pr
+          path: |
+            audits/WEEKLY.md
+            audits/weekly.json
+            audits/baseline/
+          retention-days: 7

@@ -95,7 +95,7 @@ async function main() {
   ].join('\n')
 
   writeFileSync('GEO-AUDIT.md', md + '\n')
-  writeFileSync('geo-audit.json', JSON.stringify({ base, date: new Date().toISOString(), rows, pages }, null, 2))
+  writeFileSync('geo-audit.json', JSON.stringify({ base, date: new Date().toISOString(), rows, pages, problems }, null, 2))
   console.log(`geo:audit ${base}: ${rows.length} requests, ${failedFetch.length} blocked/non-200, ${problems.length} content problems → GEO-AUDIT.md`)
   if (failedFetch.length || problems.length) process.exitCode = 1
 }

@@ -26,7 +26,7 @@
     "lhci": "node scripts/lhci.mjs",
     "fonts:subset": "node scripts/fonts/subset.mjs",
     "screens": "playwright test -c playwright.screens.config.ts && node scripts/compare.mjs",
-    "check:guard": "node scripts/check-guard.mjs",
+    "check:guard": "node scripts/check-guard.mjs && node scripts/check-private.mjs",
     "check:fast": "npm run typecheck && npm run lint && npm run check:guard",
     "check:task": "npm run check:fast && npm run test:coverage",
     "check:full": "npm run check:task && npm run test:int && npm run test:e2e",
@@ -43,6 +43,8 @@
     "seo:audit": "tsx scripts/seo-audit.ts",
     "geo:audit": "tsx scripts/geo-audit.ts",
     "media:audit": "tsx scripts/media-audit.ts",
+    "audit:weekly": "tsx scripts/audit-weekly.ts",
+    "lighthouse:weekly": "node scripts/lighthouse-weekly.mjs",
     "photos:variants": "node scripts/guide-variants.mjs"
   },
   "dependencies": {
