@@ -27,3 +27,10 @@ accounts/
 seo-audit.json
 geo-audit.json
 media-audit.json
+# Weekly audit (SEO day 7): run output and unreviewed baseline candidates; the reviewed baseline is committed.
+lighthouse-weekly.json
+audits/weekly.json
+audits/WEEKLY.md
+audits/baseline/*.candidate.json
+# Search Console / Bing data never enters this public repository (SEO day 7).
+content-import/seo/

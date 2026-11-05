@@ -18,6 +18,10 @@
     {
       "path": "/api/bookings/cron?kind=reminder",
       "schedule": "0 15 * * *"
+    },
+    {
+      "path": "/api/seo-report",
+      "schedule": "0 3 * * 0"
     }
   ]
 }

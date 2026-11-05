@@ -20,6 +20,7 @@
 | لا `@ts-ignore` ولا `@ts-nocheck`، ولا `@ts-expect-error` بلا سبب مكتوب، ولا `eslint-disable` | `node scripts/check-guard.mjs` | SPEC §6: أي suppression يحتاج موافقة، فيُسجَّل في جدول الاستثناءات |
 | لا اختبار متخطّى أو مركّز (`.skip`، و`.only`، و`.todo`، و`xit`) | `node scripts/check-guard.mjs` | SPEC §8: لا تعطيل اختبار لتمرير البناء |
 | لا stubs بصيغة `throw new Error('not implemented')` | `node scripts/check-guard.mjs` | لا كود ناقص يُعدّ منجزاً |
+| لا بيانات Search Console أو Bing في أي ملف متتبَّع (أسماء ملفات، وحقول لا تحملها إلا ردود هذه الـ APIs في ملفات البيانات) | `node scripts/check-private.mjs` (ضمن `check:guard`) | المستودع عام؛ هذه البيانات في البريد الخاص فقط (SEO اليوم 7، 2026-11-04) |
 | لا حذف لاختبار قائم دون ذكره وسببه في رسالة الـ commit | مراجعة الـ diff (`/constraints guard`) | SPEC §8 |
 
 ## العتبات المفروضة
@@ -126,6 +127,18 @@
 كل صورة تصنع 4 ملفات (الأصل وثلاثة أحجام)، فالحد العملي نحو **500 صورة في الشهر**. عند بلوغ أي حد تتوقف الخدمة حتى الشهر التالي، دون دفع.
 
 **الإجراء عند الاقتراب من الحد:** الانتقال إلى R2 بضبط `S3_*` (دون تعديل كود)، أو الترقية إلى Pro.
+
+## الفحص الأسبوعي وخط الأساس (SEO اليوم 7، 2026-11-04)
+
+| الفحص | الأمر | متى | يفشل عند |
+| --- | --- | --- | --- |
+| seo + geo + media على الإنتاج، وLighthouse (هاتف، وسيط 3) على 7 صفحات | `npm run audit:weekly -- https://www.upclosesyria.com --lighthouse` (`.github/workflows/weekly-audit.yml`) | كل أحد 03:00 UTC، ويدوياً | أي مقياس أسوأ من `audits/baseline/www.upclosesyria.com.json`، أو صفحة كانت 200 ولم تعد، أو noindex داخل الـ sitemap. يفتح issue واحداً ويحدّثه |
+| seo + geo + media على البناء المعزول | `npm run audit:weekly -- http://localhost:3100` (`.github/workflows/audit-pr.yml`) | كل Pull Request على `main` | نفس القواعد مقابل `audits/baseline/localhost-3100.json` |
+
+- **عدّادات الأخطاء** (روابط مكسورة، صور بلا alt، صفحات يتيمة...) بلا هامش: واحد إضافي تراجع.
+- **Lighthouse** بهامش ضجيج لأن القياس يتذبذب (راجع أعلاه: 7 نقاط على صفحة لم تتغير): الدرجات 0.05، وLCP الأكبر من 20% و150ms، وTBT الأكبر من 50% و100ms، وCLS 0.05، ووزن JavaScript وصورة LCP الأكبر من 10% و5KB. الهوامش في `src/lib/auditBaseline.ts`، وأي تغيير عليها يُذكر في الـ commit.
+- هذه ميزانيات نسبية فوق عتبات هذا الملف، لا بديل عنها: Performance ≥ 0.90 وAccessibility ≥ 0.95 تبقى مع `npm run lhci`.
+- **خط الأساس يُحدَّث يدوياً فقط**: `--update-baseline` (أو `update_baseline` في تشغيل يدوي للـ workflow)، ثم مراجعة الملف وإضافته في commit. بلا خط أساس يكتب الفحص ملفاً مرشّحاً `*.candidate.json` ولا يفشل.
 
 ## مُقاس فقط (لا يُفشل البناء)
 

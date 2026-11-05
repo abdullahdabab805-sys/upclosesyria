@@ -35,6 +35,7 @@ import { siteOrigins, siteUrl } from './lib/site-url'
 import { blobStorage, mediaStorage } from './lib/storage'
 import { MAX_UPLOAD_BYTES } from './lib/upload-limits'
 import { revalidateSiteEndpoint, withRevalidate } from './hooks/revalidate'
+import { seoReportEndpoint } from './endpoints/seoReport'
 import { withIndexNow } from './hooks/indexNow'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -74,7 +75,7 @@ export default buildConfig({
   globals: [SiteSettings, NotificationSettings],
   // Resend or SMTP from the environment (lib/email); none = mail goes to the log, bookings still save.
   email: emailAdapter(),
-  endpoints: [revalidateSiteEndpoint],
+  endpoints: [revalidateSiteEndpoint, seoReportEndpoint],
   plugins: [
     // Vercel Blob in production, S3/R2 if configured instead, local disk otherwise (lib/storage).
     vercelBlobStorage(blobStorage()),
