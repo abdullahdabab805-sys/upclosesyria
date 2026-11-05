@@ -1,0 +1,159 @@
+{
+  "base": "http://localhost:3100",
+  "date": "2026-11-05T09:18:16.585Z",
+  "metrics": {
+    "seo.sitemapPages": {
+      "value": 44,
+      "better": "higher"
+    },
+    "seo.non200": {
+      "value": 0,
+      "better": "lower"
+    },
+    "seo.orphans": {
+      "value": 0,
+      "better": "lower"
+    },
+    "seo.brokenLinks": {
+      "value": 0,
+      "better": "lower"
+    },
+    "seo.redirectChains": {
+      "value": 0,
+      "better": "lower"
+    },
+    "seo.duplicateTitlePages": {
+      "value": 0,
+      "better": "lower"
+    },
+    "seo.duplicateDescriptionPages": {
+      "value": 0,
+      "better": "lower"
+    },
+    "seo.h1NotOne": {
+      "value": 0,
+      "better": "lower"
+    },
+    "seo.canonicalMismatch": {
+      "value": 0,
+      "better": "lower"
+    },
+    "seo.imagesWithoutAlt": {
+      "value": 0,
+      "better": "lower"
+    },
+    "geo.blockedOrNon200": {
+      "value": 0,
+      "better": "lower"
+    },
+    "geo.contentProblems": {
+      "value": 0,
+      "better": "lower"
+    },
+    "geo.invalidJsonLdPages": {
+      "value": 0,
+      "better": "lower"
+    },
+    "media.imagesWithoutAlt": {
+      "value": 0,
+      "better": "lower"
+    },
+    "media.imagesWithoutSize": {
+      "value": 0,
+      "better": "lower"
+    },
+    "media.lazyLcp": {
+      "value": 0,
+      "better": "lower"
+    },
+    "media.iframesBeforePlay": {
+      "value": 0,
+      "better": "lower"
+    },
+    "media.brokenImageFiles": {
+      "value": 0,
+      "better": "lower"
+    },
+    "media.videoObjectIssues": {
+      "value": 0,
+      "better": "lower"
+    },
+    "media.lcpImageKb:/cities/damascus": {
+      "value": 360.3,
+      "better": "lower",
+      "rel": 0.1,
+      "abs": 5
+    },
+    "media.lcpImageKb:/en/cities/damascus": {
+      "value": 360.3,
+      "better": "lower",
+      "rel": 0.1,
+      "abs": 5
+    },
+    "media.lcpImageKb:/cities/aleppo": {
+      "value": 706.9,
+      "better": "lower",
+      "rel": 0.1,
+      "abs": 5
+    },
+    "media.lcpImageKb:/inside/bloudan": {
+      "value": 128,
+      "better": "lower",
+      "rel": 0.1,
+      "abs": 5
+    },
+    "media.lcpImageKb:/blog/damascus-from-qasioun": {
+      "value": 155.2,
+      "better": "lower",
+      "rel": 0.1,
+      "abs": 5
+    }
+  },
+  "statuses": {
+    "/": 200,
+    "/en": 200,
+    "/cities": 200,
+    "/en/cities": 200,
+    "/outside": 200,
+    "/en/outside": 200,
+    "/outside/first-visit": 200,
+    "/en/outside/first-visit": 200,
+    "/inside": 200,
+    "/seasons": 200,
+    "/blog": 200,
+    "/en/blog": 200,
+    "/guides": 200,
+    "/en/guides": 200,
+    "/videos": 200,
+    "/en/videos": 200,
+    "/about": 200,
+    "/en/about": 200,
+    "/cities/latakia": 200,
+    "/en/cities/latakia": 200,
+    "/cities/aleppo": 200,
+    "/en/cities/aleppo": 200,
+    "/cities/damascus": 200,
+    "/en/cities/damascus": 200,
+    "/inside/bloudan": 200,
+    "/inside/maaloula-saydnaya": 200,
+    "/inside/saint-simeon": 200,
+    "/inside/kasab": 200,
+    "/inside/slunfeh": 200,
+    "/inside/saladin-castle": 200,
+    "/inside/zabadani": 200,
+    "/inside/barada-spring": 200,
+    "/inside/serjilla-al-bara": 200,
+    "/inside/mashquita": 200,
+    "/blog/damascus-from-qasioun": 200,
+    "/en/blog/damascus-from-qasioun": 200,
+    "/blog/inside-damascene-houses": 200,
+    "/en/blog/inside-damascene-houses": 200,
+    "/blog/blue-of-the-south": 200,
+    "/en/blog/blue-of-the-south": 200,
+    "/blog/green-of-the-jabal": 200,
+    "/en/blog/green-of-the-jabal": 200,
+    "/blog/colours-of-syrian-cities": 200,
+    "/en/blog/colours-of-syrian-cities": 200
+  },
+  "noindexInSitemap": []
+}
