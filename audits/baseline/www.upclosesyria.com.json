@@ -1,0 +1,525 @@
+{
+  "base": "https://www.upclosesyria.com",
+  "date": "2026-11-05T09:32:38.838Z",
+  "metrics": {
+    "seo.sitemapPages": {
+      "value": 103,
+      "better": "higher"
+    },
+    "seo.non200": {
+      "value": 0,
+      "better": "lower"
+    },
+    "seo.orphans": {
+      "value": 0,
+      "better": "lower"
+    },
+    "seo.brokenLinks": {
+      "value": 0,
+      "better": "lower"
+    },
+    "seo.redirectChains": {
+      "value": 0,
+      "better": "lower"
+    },
+    "seo.duplicateTitlePages": {
+      "value": 0,
+      "better": "lower"
+    },
+    "seo.duplicateDescriptionPages": {
+      "value": 0,
+      "better": "lower"
+    },
+    "seo.h1NotOne": {
+      "value": 0,
+      "better": "lower"
+    },
+    "seo.canonicalMismatch": {
+      "value": 0,
+      "better": "lower"
+    },
+    "seo.imagesWithoutAlt": {
+      "value": 0,
+      "better": "lower"
+    },
+    "geo.blockedOrNon200": {
+      "value": 0,
+      "better": "lower"
+    },
+    "geo.contentProblems": {
+      "value": 0,
+      "better": "lower"
+    },
+    "geo.invalidJsonLdPages": {
+      "value": 0,
+      "better": "lower"
+    },
+    "media.imagesWithoutAlt": {
+      "value": 0,
+      "better": "lower"
+    },
+    "media.imagesWithoutSize": {
+      "value": 0,
+      "better": "lower"
+    },
+    "media.lazyLcp": {
+      "value": 0,
+      "better": "lower"
+    },
+    "media.iframesBeforePlay": {
+      "value": 0,
+      "better": "lower"
+    },
+    "media.brokenImageFiles": {
+      "value": 0,
+      "better": "lower"
+    },
+    "media.videoObjectIssues": {
+      "value": 0,
+      "better": "lower"
+    },
+    "media.lcpImageKb:/cities/damascus": {
+      "value": 312,
+      "better": "lower",
+      "rel": 0.1,
+      "abs": 5
+    },
+    "media.lcpImageKb:/en/cities/damascus": {
+      "value": 312,
+      "better": "lower",
+      "rel": 0.1,
+      "abs": 5
+    },
+    "media.lcpImageKb:/cities/aleppo": {
+      "value": 80,
+      "better": "lower",
+      "rel": 0.1,
+      "abs": 5
+    },
+    "media.lcpImageKb:/inside/bloudan": {
+      "value": 128,
+      "better": "lower",
+      "rel": 0.1,
+      "abs": 5
+    },
+    "media.lcpImageKb:/seasons/hama-2026-10-21": {
+      "value": 401.3,
+      "better": "lower",
+      "rel": 0.1,
+      "abs": 5
+    },
+    "media.lcpImageKb:/blog/damascus-from-qasioun": {
+      "value": 155.2,
+      "better": "lower",
+      "rel": 0.1,
+      "abs": 5
+    },
+    "lh.performance:/": {
+      "value": 0.86,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.accessibility:/": {
+      "value": 0.96,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.seo:/": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.bestPractices:/": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.lcpMs:/": {
+      "value": 3830,
+      "better": "lower",
+      "rel": 0.2,
+      "abs": 150
+    },
+    "lh.tbtMs:/": {
+      "value": 106,
+      "better": "lower",
+      "rel": 0.5,
+      "abs": 100
+    },
+    "lh.cls:/": {
+      "value": 0,
+      "better": "lower",
+      "abs": 0.05
+    },
+    "lh.scriptKb:/": {
+      "value": 153,
+      "better": "lower",
+      "rel": 0.1,
+      "abs": 5
+    },
+    "lh.performance:/cities/damascus": {
+      "value": 0.79,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.accessibility:/cities/damascus": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.seo:/cities/damascus": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.bestPractices:/cities/damascus": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.lcpMs:/cities/damascus": {
+      "value": 4947,
+      "better": "lower",
+      "rel": 0.2,
+      "abs": 150
+    },
+    "lh.tbtMs:/cities/damascus": {
+      "value": 139,
+      "better": "lower",
+      "rel": 0.5,
+      "abs": 100
+    },
+    "lh.cls:/cities/damascus": {
+      "value": 0,
+      "better": "lower",
+      "abs": 0.05
+    },
+    "lh.scriptKb:/cities/damascus": {
+      "value": 158,
+      "better": "lower",
+      "rel": 0.1,
+      "abs": 5
+    },
+    "lh.performance:/cities/aleppo": {
+      "value": 0.86,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.accessibility:/cities/aleppo": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.seo:/cities/aleppo": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.bestPractices:/cities/aleppo": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.lcpMs:/cities/aleppo": {
+      "value": 3922,
+      "better": "lower",
+      "rel": 0.2,
+      "abs": 150
+    },
+    "lh.tbtMs:/cities/aleppo": {
+      "value": 103,
+      "better": "lower",
+      "rel": 0.5,
+      "abs": 100
+    },
+    "lh.cls:/cities/aleppo": {
+      "value": 0,
+      "better": "lower",
+      "abs": 0.05
+    },
+    "lh.scriptKb:/cities/aleppo": {
+      "value": 158,
+      "better": "lower",
+      "rel": 0.1,
+      "abs": 5
+    },
+    "lh.performance:/inside/bloudan": {
+      "value": 0.84,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.accessibility:/inside/bloudan": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.seo:/inside/bloudan": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.bestPractices:/inside/bloudan": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.lcpMs:/inside/bloudan": {
+      "value": 3564,
+      "better": "lower",
+      "rel": 0.2,
+      "abs": 150
+    },
+    "lh.tbtMs:/inside/bloudan": {
+      "value": 197,
+      "better": "lower",
+      "rel": 0.5,
+      "abs": 100
+    },
+    "lh.cls:/inside/bloudan": {
+      "value": 0,
+      "better": "lower",
+      "abs": 0.05
+    },
+    "lh.scriptKb:/inside/bloudan": {
+      "value": 161,
+      "better": "lower",
+      "rel": 0.1,
+      "abs": 5
+    },
+    "lh.performance:/seasons/hama-2026-10-21": {
+      "value": 0.79,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.accessibility:/seasons/hama-2026-10-21": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.seo:/seasons/hama-2026-10-21": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.bestPractices:/seasons/hama-2026-10-21": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.lcpMs:/seasons/hama-2026-10-21": {
+      "value": 4854,
+      "better": "lower",
+      "rel": 0.2,
+      "abs": 150
+    },
+    "lh.tbtMs:/seasons/hama-2026-10-21": {
+      "value": 197,
+      "better": "lower",
+      "rel": 0.5,
+      "abs": 100
+    },
+    "lh.cls:/seasons/hama-2026-10-21": {
+      "value": 0.001,
+      "better": "lower",
+      "abs": 0.05
+    },
+    "lh.scriptKb:/seasons/hama-2026-10-21": {
+      "value": 160,
+      "better": "lower",
+      "rel": 0.1,
+      "abs": 5
+    },
+    "lh.performance:/videos": {
+      "value": 0.96,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.accessibility:/videos": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.seo:/videos": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.bestPractices:/videos": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.lcpMs:/videos": {
+      "value": 1973,
+      "better": "lower",
+      "rel": 0.2,
+      "abs": 150
+    },
+    "lh.tbtMs:/videos": {
+      "value": 190,
+      "better": "lower",
+      "rel": 0.5,
+      "abs": 100
+    },
+    "lh.cls:/videos": {
+      "value": 0.011,
+      "better": "lower",
+      "abs": 0.05
+    },
+    "lh.scriptKb:/videos": {
+      "value": 150,
+      "better": "lower",
+      "rel": 0.1,
+      "abs": 5
+    },
+    "lh.performance:/en/cities/damascus": {
+      "value": 0.8,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.accessibility:/en/cities/damascus": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.seo:/en/cities/damascus": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.bestPractices:/en/cities/damascus": {
+      "value": 1,
+      "better": "higher",
+      "abs": 0.05
+    },
+    "lh.lcpMs:/en/cities/damascus": {
+      "value": 4528,
+      "better": "lower",
+      "rel": 0.2,
+      "abs": 150
+    },
+    "lh.tbtMs:/en/cities/damascus": {
+      "value": 205,
+      "better": "lower",
+      "rel": 0.5,
+      "abs": 100
+    },
+    "lh.cls:/en/cities/damascus": {
+      "value": 0,
+      "better": "lower",
+      "abs": 0.05
+    },
+    "lh.scriptKb:/en/cities/damascus": {
+      "value": 158,
+      "better": "lower",
+      "rel": 0.1,
+      "abs": 5
+    }
+  },
+  "statuses": {
+    "/": 200,
+    "/en": 200,
+    "/cities": 200,
+    "/en/cities": 200,
+    "/outside": 200,
+    "/en/outside": 200,
+    "/outside/first-visit": 200,
+    "/en/outside/first-visit": 200,
+    "/inside": 200,
+    "/seasons": 200,
+    "/blog": 200,
+    "/en/blog": 200,
+    "/guides": 200,
+    "/en/guides": 200,
+    "/videos": 200,
+    "/en/videos": 200,
+    "/about": 200,
+    "/en/about": 200,
+    "/cities/hasakah": 200,
+    "/en/cities/hasakah": 200,
+    "/cities/deir-ez-zor": 200,
+    "/en/cities/deir-ez-zor": 200,
+    "/cities/raqqa": 200,
+    "/en/cities/raqqa": 200,
+    "/cities/quneitra": 200,
+    "/en/cities/quneitra": 200,
+    "/cities/suwayda": 200,
+    "/en/cities/suwayda": 200,
+    "/cities/daraa": 200,
+    "/en/cities/daraa": 200,
+    "/cities/idlib": 200,
+    "/en/cities/idlib": 200,
+    "/cities/tartous": 200,
+    "/en/cities/tartous": 200,
+    "/cities/hama": 200,
+    "/en/cities/hama": 200,
+    "/cities/homs": 200,
+    "/en/cities/homs": 200,
+    "/cities/latakia": 200,
+    "/en/cities/latakia": 200,
+    "/cities/aleppo": 200,
+    "/en/cities/aleppo": 200,
+    "/cities/damascus": 200,
+    "/en/cities/damascus": 200,
+    "/inside/bloudan": 200,
+    "/inside/maaloula-saydnaya": 200,
+    "/inside/saint-simeon": 200,
+    "/inside/kasab": 200,
+    "/inside/slunfeh": 200,
+    "/inside/saladin-castle": 200,
+    "/inside/zabadani": 200,
+    "/inside/barada-spring": 200,
+    "/inside/serjilla-al-bara": 200,
+    "/inside/mashquita": 200,
+    "/inside/krak-des-chevaliers": 200,
+    "/inside/mashta-al-helu": 200,
+    "/inside/mar-georges-monastery": 200,
+    "/inside/apamea": 200,
+    "/inside/masyaf-castle": 200,
+    "/inside/shaizar-castle": 200,
+    "/inside/arwad": 200,
+    "/inside/margat-castle": 200,
+    "/inside/safita-tower": 200,
+    "/inside/amrit": 200,
+    "/inside/bosra": 200,
+    "/inside/tell-shihab-falls": 200,
+    "/inside/shahba": 200,
+    "/inside/qanawat": 200,
+    "/inside/salkhad-castle": 200,
+    "/inside/mount-hermon": 200,
+    "/inside/palmyra": 200,
+    "/inside/qalat-jabar": 200,
+    "/inside/resafa": 200,
+    "/inside/dura-europos": 200,
+    "/inside/mari": 200,
+    "/inside/tell-brak": 200,
+    "/seasons/hama-2026-10-21": 200,
+    "/seasons/hasakah-2026-10-21": 200,
+    "/seasons/damascus-2026-10-21": 200,
+    "/seasons/suwayda-2026-10-21": 200,
+    "/seasons/aleppo-2026-10-21": 200,
+    "/seasons/latakia-2026-10-21": 200,
+    "/seasons/bloudan-2026-10-21": 200,
+    "/outside/first-visit/transport": 200,
+    "/en/outside/first-visit/transport": 200,
+    "/outside/first-visit/connectivity": 200,
+    "/en/outside/first-visit/connectivity": 200,
+    "/outside/first-visit/money": 200,
+    "/en/outside/first-visit/money": 200,
+    "/outside/first-visit/arrival": 200,
+    "/en/outside/first-visit/arrival": 200,
+    "/outside/first-visit/visa": 200,
+    "/en/outside/first-visit/visa": 200,
+    "/blog/damascus-from-qasioun": 200,
+    "/en/blog/damascus-from-qasioun": 200,
+    "/blog/inside-damascene-houses": 200,
+    "/en/blog/inside-damascene-houses": 200,
+    "/blog/blue-of-the-south": 200,
+    "/en/blog/blue-of-the-south": 200,
+    "/blog/green-of-the-jabal": 200,
+    "/en/blog/green-of-the-jabal": 200,
+    "/blog/colours-of-syrian-cities": 200,
+    "/en/blog/colours-of-syrian-cities": 200
+  },
+  "noindexInSitemap": []
+}
