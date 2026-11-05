@@ -17,9 +17,11 @@ async function sample(): Promise<string[]> {
     const xml = res.ok ? await res.text() : ''
     return [...xml.matchAll(/<url><loc>([^<]+)<\/loc>/g)].map((m) => decodeURIComponent(new URL(m[1] ?? '').pathname))
   }
-  const [rural, seasons, firstVisit] = await Promise.all([sitemap('countryside'), sitemap('seasons'), sitemap('first-visit')])
+  const [cities, rural, seasons, firstVisit] = await Promise.all([sitemap('cities'), sitemap('countryside'), sitemap('seasons'), sitemap('first-visit')])
   const bloudan = rural.find((p) => /بلودان|bloudan/i.test(p)) ?? rural[0]
-  return [...fixed, ...(bloudan ? [bloudan] : []), ...seasons.slice(0, 1), ...firstVisit.slice(0, 1)]
+  // A city the database has no page for (the hermetic test seed has no Homs) is skipped, not reported as a 404.
+  const present = fixed.filter((p) => !/\/cities\//.test(p) || cities.includes(p.replace(/^\/en(?=\/)/, '')))
+  return [...present, ...(bloudan ? [bloudan] : []), ...seasons.slice(0, 1), ...firstVisit.slice(0, 1)]
 }
 
 type Row = { path: string; crawler: string; status: number; block: string | null; facts: GeoFacts | null }
