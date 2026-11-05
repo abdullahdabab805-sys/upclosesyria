@@ -20,7 +20,7 @@ export type Regression = { key: string; before: number | null; after: number | n
 export type SeoPage = { path: string; status: number; robots: string; title: string; description: string; canonical: string; url: string; h1: string[]; imgsNoAlt: number; links: string[] }
 export type SeoJson = { pages: SeoPage[]; broken: [string, unknown][]; redirects: [string, { hops: number }][] }
 export type GeoJson = {
-  rows: { status: number; block: string | null }[]
+  rows: { status: number; block: string | null; path?: string; crawler?: string }[]
   pages: { path: string; facts: { ldTypes: string[] } | null }[]
   problems?: { path: string; problem: string }[]
 }

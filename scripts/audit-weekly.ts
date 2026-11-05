@@ -60,6 +60,12 @@ const current: Snapshot = {
   statuses: s.statuses,
   noindexInSitemap: s.noindexInSitemap,
 }
+if (geo) {
+  const failed = geo.rows.filter((r) => r.status !== 200 || r.block)
+  const byPath = new Map<string, string[]>()
+  for (const r of failed) byPath.set(r.path ?? '?', [...(byPath.get(r.path ?? '?') ?? []), `${r.crawler ?? '?'} ${r.block ?? r.status}`])
+  for (const [p, v] of byPath) notes.push(`geo: \`${p}\` لم ترجع 200 لـ ${v.join('، ')}`)
+}
 if (lh) notes.push(`بيانات المستخدمين الحقيقية (CrUX): ${lh.crux}`)
 if (missing.length) notes.push(`لم تُنتج بيانات: ${missing.join('، ')}`)
 

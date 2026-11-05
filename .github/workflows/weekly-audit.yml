@@ -50,7 +50,10 @@ jobs:
           PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
       - name: Summary
         if: always()
-        run: test -f audits/WEEKLY.md && cat audits/WEEKLY.md >> "$GITHUB_STEP_SUMMARY" || true
+        # Also printed to the log: artifacts need a signed-in download, the log is readable through the API.
+        run: |
+          test -f audits/WEEKLY.md && cat audits/WEEKLY.md | tee -a "$GITHUB_STEP_SUMMARY" || true
+          for f in audits/baseline/*.json; do [ -f "$f" ] && { echo "::group::$f"; cat "$f"; echo "::endgroup::"; }; done
       - uses: actions/upload-artifact@v6
         if: always()
         with:
