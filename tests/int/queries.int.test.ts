@@ -22,6 +22,8 @@ import {
   getStories,
   getStory,
   getVenues,
+  getNearbyHubs,
+  getIndexableNearbyHub,
 } from '@/data/queries'
 import type { City, User } from '@/payload-types'
 import { makeUser, payload, resetWithAdmin } from './helpers'
@@ -120,6 +122,18 @@ describe('public queries (anonymous)', () => {
     expect((await getTripForPlace(resort.id))?.id).toBe(trip.id)
     expect(await getTripForPlace(damascus.id)).toBeNull()
     expect((await getAllPlaces()).map((pl) => (pl.title as { ar: string }).ar)).toEqual(['أ', 'ب'])
+  })
+
+  it('SEO day 8: a city’s "trips near" hub is indexable only with 3+ trips and an editor’s intro', async () => {
+    // Runs after the test above: Damascus now has three trips (معلولا، بلودان، بلا رابط); the resort has none of its own.
+    const p = await payload()
+    const as = { user: editor, overrideAccess: false } as const
+    expect((await getNearbyHubs()).map((h) => [h.slug, h.trips, h.indexable, h.reasons])).toEqual([['damascus', 3, false, ['no-intro']]])
+    expect(await getIndexableNearbyHub(damascus.id)).toBeNull()
+    await p.update({ collection: 'cities', id: damascus.id, data: { nearbyIntro: 'نص تجريبي للاختبار فقط: مشاوير يوم قريبة من المدينة للعيلة والشباب، ينابيع ومصايف وآثار، أغلبها بتنعمل بنهار واحد.' }, ...as })
+    expect(await getIndexableNearbyHub(damascus.id)).toMatchObject({ path: '/inside/near/damascus', trips: 3, indexable: true })
+    await p.update({ collection: 'cities', id: damascus.id, data: { nearbyIntro: '' }, ...as })
+    expect(await getIndexableNearbyHub(damascus.id)).toBeNull()
   })
 
   it('read the site settings', async () => {

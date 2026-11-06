@@ -4,6 +4,7 @@ import { cache } from 'react'
 import type { Media } from '@/payload-types'
 import type { Rel } from '@/lib/docs'
 import { buildWithoutDatabase } from '@/lib/build-phase'
+import { nearbyHubs } from '@/lib/nearby'
 import { timed } from '@/lib/timing'
 import type { VenueCategory, VenueSubcategory } from '@/lib/venueClass'
 
@@ -18,7 +19,7 @@ export const payloadClient = cache(() => timed('getPayload', () => getPayload({ 
 /** A localized field fetched with locale 'all' (or a plain value for non-localized fields). */
 export type L = unknown
 
-export type CityDoc = { id: number; slug: string; updatedAt?: string; name: L; tag: L; lede: L; eat: L; coverShotNote: L; coverImage?: Rel<Media>; parentCity?: Rel<CityDoc> | null }
+export type CityDoc = { id: number; slug: string; updatedAt?: string; name: L; tag: L; lede: L; eat: L; coverShotNote: L; coverImage?: Rel<Media>; parentCity?: Rel<CityDoc> | null; nearbyIntro?: string | null }
 export type PlaceDoc = { id: number; title: L; description: L; image?: Rel<Media>; order?: number | null; lat?: number | null; lng?: number | null }
 export type StatusDoc = {
   id: number
@@ -129,6 +130,15 @@ export const getSettings = cache(async (): Promise<SettingsDoc> => {
 })
 
 export const getDayTrips = cache(() => find<DayTripDoc>('dayTrips', { sort: 'order' }))
+
+/** "Trips from a city" hubs (SEO day 8), each with whether it may be indexed and linked (lib/nearby). */
+export const getNearbyHubs = cache(async () => {
+  const [cities, trips] = await Promise.all([getCities(), getDayTrips()])
+  return nearbyHubs(cities, trips)
+})
+
+/** The indexable hub of a city, or null (unlinked and noindex otherwise). */
+export const getIndexableNearbyHub = cache(async (cityId: number) => (await getNearbyHubs()).find((h) => h.cityId === cityId && h.indexable) ?? null)
 
 /** One trip page, by slug or (for a trip saved without one) by id. */
 export const getTrip = cache(async (key: { slug: string } | { id: number }) => {

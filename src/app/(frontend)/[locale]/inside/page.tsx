@@ -9,7 +9,7 @@ import { ArabicOnly } from '@/components/ArabicOnly'
 import { Filterable } from '@/components/client/Filterable'
 import { Photo, Stays, text } from '@/components/content'
 import { staticPhoto } from '@/content/photos'
-import { asDoc, getCity, getDayTrips, getMainCities, getSettings, getStays, type DayTripDoc } from '@/data/queries'
+import { asDoc, getCity, getDayTrips, getMainCities, getNearbyHubs, getSettings, getStays, type DayTripDoc } from '@/data/queries'
 import { tripPath } from '@/lib/rural'
 import { isLocale } from '@/lib/i18n'
 import { localePath } from '@/lib/routing'
@@ -53,6 +53,8 @@ export default async function InsidePage({ params }: { params: Promise<{ locale:
   }
 
   const cities = await getMainCities()
+  // SEO day 8: each city's "trips near" hub, linked only while it is indexable (lib/nearby).
+  const hubBySlug = new Map((await getNearbyHubs()).filter((h) => h.indexable).map((h) => [h.slug, h.path]))
   let n = 0
   const num = () => String(++n).padStart(2, '0')
 
@@ -98,10 +100,16 @@ export default async function InsidePage({ params }: { params: Promise<{ locale:
                     <div className="trip-group">
                       <header>
                         <h3>{g.from}</h3>
-                        {slug !== 'other' && (
-                          <Link className="more" href={localePath('ar', `/cities/${slug}`)}>
-                            صفحة {g.name} ←
+                        {hubBySlug.has(slug) ? (
+                          <Link className="more" href={hubBySlug.get(slug)!}>
+                            كل المشاوير القريبة من {g.name} ←
                           </Link>
+                        ) : (
+                          slug !== 'other' && (
+                            <Link className="more" href={localePath('ar', `/cities/${slug}`)}>
+                              صفحة {g.name} ←
+                            </Link>
+                          )
                         )}
                       </header>
                       <div className="cards">

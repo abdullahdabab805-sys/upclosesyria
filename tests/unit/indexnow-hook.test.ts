@@ -186,3 +186,21 @@ describe('hooks', () => {
     expect(fetchMock).not.toHaveBeenCalled()
   })
 })
+
+describe('SEO day 8: the "trips near" hub', () => {
+  const INTRO = 'مشاوير يوم من دمشق للعيلة والشباب: ينابيع ومصايف وأديرة قديمة، أغلبها بتنعمل بنهار واحد وبترجع عالمسا.'
+  it('is sent with a trip or its city only while indexable (3+ trips and an intro)', async () => {
+    const extra = [{ id: 10, slug: 'a', fromCity: 1 }, { id: 11, slug: 'b', fromCity: 1 }, { id: 12, slug: 'c', fromCity: 1 }]
+    TRIPS.push(...extra)
+    try {
+      // Enough trips, no intro yet: not indexable, not sent.
+      expect((await pagesOf('dayTrips', { id: 10, slug: 'a', fromCity: 1 })).map((p) => p.path)).not.toContain('/inside/near/damascus')
+      CITIES[0]!.nearbyIntro = INTRO
+      expect((await pagesOf('dayTrips', { id: 10, slug: 'a', fromCity: 1 })).map((p) => p.path)).toContain('/inside/near/damascus')
+      expect((await pagesOf('cities', { id: 1, slug: 'damascus' })).map((p) => p.path)).toContain('/inside/near/damascus')
+    } finally {
+      TRIPS.splice(TRIPS.length - extra.length, extra.length)
+      delete CITIES[0]!.nearbyIntro
+    }
+  })
+})

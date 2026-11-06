@@ -139,3 +139,31 @@ export function ruralMeta(f: RuralFacts): Meta {
 export function articleMeta(locale: Locale, title: string, sentences: readonly Sentence[]): Meta {
   return { title, description: describe([...sentences, SITE_LINE[locale]]) }
 }
+
+export type NearbyFacts = {
+  cityName: string
+  /** The editor's intro (lib/nearby): the page's only prose, so the description leads with it. */
+  intro?: string | null
+  trips: number
+  /** Kinds of place among the trips (مصيف، آثار، نبع…), as the editors tagged them. */
+  kinds: readonly string[]
+  /** Trips with a distance note on the page (mentioned only when every trip has one). */
+  withDistance: number
+  reports: number
+}
+
+/** "Trips near <city>" hub (Arabic only, for people inside Syria). */
+export function nearbyMeta(f: NearbyFacts): Meta {
+  const kinds = [...new Set(f.kinds.map((k) => k.trim()).filter(Boolean))]
+  const title = fitTopic(`مشاوير قريبة من ${f.cityName}`, kinds.slice(0, 3), 'ar')
+  return {
+    title,
+    description: describe([
+      f.intro,
+      f.trips > 0 && `${f.trips} مشوار من ${f.cityName}، ولكل مشوار صفحته`,
+      f.trips > 0 && f.withDistance === f.trips && 'المسافة من المدينة مكتوبة على كل مشوار',
+      f.reports > 0 && 'وفيها آخر تقارير الموسم من المنطقة بتاريخها',
+      SITE_LINE.ar,
+    ]),
+  }
+}

@@ -15,6 +15,7 @@ import * as migration_20261028_072300_site_social_profiles from './20261028_0723
 import * as migration_20261028_072400_indexnow_log from './20261028_072400_indexnow_log';
 import * as migration_20261029_063705_venue_classes from './20261029_063705_venue_classes';
 import * as migration_20261029_064438_guides_bookings_videos from './20261029_064438_guides_bookings_videos';
+import * as migration_20261029_115900_city_nearby_intro from './20261029_115900_city_nearby_intro';
 import * as migration_20261029_120000_city_videos from './20261029_120000_city_videos';
 import * as migration_20261031_090000_first_visit_refresh from './20261031_090000_first_visit_refresh';
 
@@ -102,7 +103,13 @@ export const migrations = [
   {
     up: migration_20261029_064438_guides_bookings_videos.up,
     down: migration_20261029_064438_guides_bookings_videos.down,
-    name: '20261029_064438_guides_bookings_videos'
+    name: '20261029_064438_guides_bookings_videos',
+  },
+  {
+    // SEO day 8 (written 2026-11-06): ordered before city_videos, whose Payload query reads every cities column.
+    up: migration_20261029_115900_city_nearby_intro.up,
+    down: migration_20261029_115900_city_nearby_intro.down,
+    name: '20261029_115900_city_nearby_intro',
   },
   {
     up: migration_20261029_120000_city_videos.up,
