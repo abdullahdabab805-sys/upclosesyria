@@ -14,7 +14,7 @@ import { Gallery } from '@/components/client/Gallery'
 import { LiveMap, type MapKind, type MapPoint } from '@/components/client/LiveMap'
 import { GUIDE, type GuideVenue } from '@/content/guide'
 import { archiveLabel, photoAlt, staticPhoto } from '@/content/photos'
-import { asDoc, asMedia, getCityPhotos, getDayTrips, getLatestReports, getPlaces, getSettings, getStays, getTrip, getVenues, type CityDoc, type DayTripDoc, type TripSpot } from '@/data/queries'
+import { asDoc, asMedia, getCityPhotos, getDayTrips, getIndexableNearbyHub, getLatestReports, getPlaces, getSettings, getStays, getTrip, getVenues, type CityDoc, type DayTripDoc, type TripSpot } from '@/data/queries'
 import { citations, faqLd, siteBase, touristDestinationLd } from '@/lib/jsonld'
 import { CITY_COORDS } from '@/lib/geo'
 import { isLocale } from '@/lib/i18n'
@@ -125,6 +125,8 @@ export default async function TripPage({ params }: Props) {
     getDayTrips(),
     getLatestReports(100),
   ])
+  // SEO day 8: the city's "trips near" hub, linked only while it is indexable.
+  const hub = from ? await getIndexableNearbyHub(from.id) : null
   // Internal links (SEO day 4): the other places around the same city, and this place's season reports.
   const siblings = from ? allTrips.filter((t) => t.id !== trip.id && asDoc(t.fromCity)?.id === from.id) : []
   const placeReports = place ? reports.filter((r) => asDoc(r.city)?.id === place.id) : []
@@ -400,6 +402,7 @@ export default async function TripPage({ params }: Props) {
           title={from ? `أماكن أخرى في ريف ${fromName}` : 'أماكن أخرى جوّا سوريا'}
           links={[
             ...(from ? [{ href: fromPath, label: `دليل مدينة ${fromName}` }] : []),
+            ...(hub ? [{ href: hub.path, label: `كل المشاوير القريبة من ${fromName}` }] : []),
             ...siblings.map((t) => ({ href: tripPath(t), label: t.title })),
             ...placeReports.map((r) => ({ href: `/seasons/${r.slug}`, label: `تقرير موسم: ${r.title}` })),
           ]}

@@ -27,6 +27,7 @@ const snap: SitemapSnapshot = {
   stories: [{ slug: 'qasioun', at: '2026-10-24', translated: true, images: ['/guide/a.webp', '/guide/a.webp'] }],
   guides: [{ slug: 'rami', at: '2026-10-21T00:00:00.000Z', translated: false, images: [] }],
   videos: [{ at: '2026-10-22T00:00:00.000Z' }],
+  nearby: [],
 }
 
 describe('latest', () => {
@@ -145,5 +146,20 @@ describe('XML', () => {
         `<sitemap><loc>${base}/sitemaps/blog.xml</loc></sitemap>\n` +
         '</sitemapindex>\n',
     )
+  })
+})
+
+describe('SEO day 8: "trips near a city" hubs', () => {
+  it('an indexable hub joins the countryside section, dated by its city and its trips; Arabic only', () => {
+    const withHub: SitemapSnapshot = { ...snap, nearby: [{ path: '/inside/near/damascus', city: 1 }] }
+    const pages = sectionPages('countryside', withHub)
+    expect(pages.at(-1)).toEqual({ path: '/inside/near/damascus', lastmod: '2026-10-11T00:00:00.000Z' })
+    const urls = sitemapUrls(base, pages).map((u) => u.loc)
+    expect(urls).toContain(`${base}/inside/near/damascus`)
+    expect(urls).not.toContain(`${base}/en/inside/near/damascus`)
+  })
+
+  it('no indexable hub: the section is exactly the trips', () => {
+    expect(sectionPages('countryside', snap).map((p) => p.path)).toEqual(['/inside/bloudan', '/inside/maaloula'])
   })
 })

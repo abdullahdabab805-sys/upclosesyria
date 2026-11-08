@@ -17,7 +17,7 @@ import { Lore } from '@/components/client/Lore'
 import { archClip, cityTheme } from '@/lib/cityTheme'
 import { isLocale, type Locale } from '@/lib/i18n'
 import { isTranslated } from '@/lib/localized'
-import { asDoc, asMedia, type L, getCity, getDayTrips, getLatestReports, getMainCities, getTripForPlace, getCityLore, getCityPhotos, getPlaces, getSettings, getStatusItems, getStays, getVenues, getCityGuides, getCityVideos, type VenueDoc } from '@/data/queries'
+import { asDoc, asMedia, type L, getCity, getDayTrips, getIndexableNearbyHub, getLatestReports, getMainCities, getTripForPlace, getCityLore, getCityPhotos, getPlaces, getSettings, getStatusItems, getStays, getVenues, getCityGuides, getCityVideos, type VenueDoc } from '@/data/queries'
 import { GuideCard, GuideSlot } from '@/components/guides'
 import { VideoGallery } from '@/components/client/VideoGallery'
 import { videoCards, videoText } from '@/lib/videoCards'
@@ -220,6 +220,8 @@ export default async function CityPage({ params }: Props) {
     return [{ id: ph.id, src, ...(full !== src ? { full } : {}), alt: caption, meta }]
   })
   const trips = (await getDayTrips()).filter((tr) => asDoc(tr.fromCity)?.id === city.id)
+  // SEO day 8: the "trips near" hub (Arabic only), linked only while it is indexable (lib/nearby).
+  const nearbyHub = locale === 'ar' ? await getIndexableNearbyHub(city.id) : null
   // Season reports from the city or a place in its countryside (Arabic-only section: Arabic page only).
   const ownReports =
     locale === 'ar'
@@ -596,6 +598,11 @@ export default async function CityPage({ params }: Props) {
                   <h2>{T(`ريف ${name}`, `Around ${name}`)}</h2>
                   <p>{T('كل مكان إلو صفحته: وين تنام، وين تاكل، الطبيعة والآثار، أماكن السيران، والموقع على الخريطة.', 'Each place has its own page (in Arabic): where to stay and eat, nature and ruins, and the map.')}</p>
                 </div>
+                {nearbyHub && (
+                  <Link className="more" href={nearbyHub.path}>
+                    كل المشاوير القريبة من {name} ←
+                  </Link>
+                )}
               </div>
               <ShowMore className="cards rural-cards" more={more} less={less}>
                 {trips.map((tr) => (

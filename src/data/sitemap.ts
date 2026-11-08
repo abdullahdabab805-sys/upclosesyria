@@ -4,6 +4,7 @@ import { staticPhoto } from '@/content/photos'
 import type { Media } from '@/payload-types'
 import { buildWithoutDatabase } from '@/lib/build-phase'
 import { isTranslated } from '@/lib/localized'
+import { nearbyHubs } from '@/lib/nearby'
 import { tripPath, tripPhotoKeys } from '@/lib/rural'
 import { latest, type SitemapSnapshot, type SnapChild } from '@/lib/sitemap'
 import { payloadClient } from '@/data/queries'
@@ -22,7 +23,7 @@ export const isOwnImage = (src: string) => src.startsWith('/') || /^https:\/\/[a
 
 const guidePhotos = (keys: readonly string[]) => keys.flatMap((k) => staticPhoto(k)?.src ?? []).filter(isOwnImage)
 
-const EMPTY: SitemapSnapshot = { cities: [], children: [], trips: [], reports: [], firstVisit: [], stories: [], guides: [], videos: [] }
+const EMPTY: SitemapSnapshot = { cities: [], children: [], trips: [], reports: [], firstVisit: [], stories: [], guides: [], videos: [], nearby: [] }
 
 type Collection = 'cities' | 'places' | 'stays' | 'venues' | 'cityLore' | 'cityPhotos' | 'statusItems' | 'dayTrips' | 'seasonReports' | 'firstVisitPages' | 'stories' | 'guides' | 'videos' | 'media'
 
@@ -34,7 +35,15 @@ export const getSitemapSnapshot = cache(async (): Promise<SitemapSnapshot> => {
 
   type Row = { id: number; city?: Rel; updatedAt?: string; image?: Rel; photo?: Rel; verifiedAt?: string | null }
   const [cities, places, stays, venues, lore, photos, status, trips, reports, firstVisit, stories, guides, videos] = await Promise.all([
-    all<{ id: number; slug: string; parentCity?: Rel; updatedAt?: string; name?: unknown; lede?: unknown; coverImage?: Rel }>('cities', { slug: true, parentCity: true, updatedAt: true, name: true, lede: true, coverImage: true }),
+    all<{ id: number; slug: string; parentCity?: Rel; updatedAt?: string; name?: unknown; lede?: unknown; coverImage?: Rel; nearbyIntro?: string | null }>('cities', {
+      slug: true,
+      parentCity: true,
+      updatedAt: true,
+      name: true,
+      lede: true,
+      coverImage: true,
+      nearbyIntro: true,
+    }),
     all<Row>('places', { city: true, updatedAt: true, image: true }),
     all<Row>('stays', { city: true, updatedAt: true, image: true }),
     all<Row>('venues', { city: true, updatedAt: true, image: true }),
@@ -128,5 +137,8 @@ export const getSitemapSnapshot = cache(async (): Promise<SitemapSnapshot> => {
     ],
     guides: guides.map((g) => ({ slug: g.slug, at: g.updatedAt, translated: isTranslated([g.bio], 'en'), images: imgs([g.photo]) })),
     videos: videos.map((v) => ({ at: v.updatedAt })),
+    nearby: nearbyHubs(cities, trips)
+      .filter((h) => h.indexable)
+      .map((h) => ({ path: h.path, city: h.cityId })),
   }
 })

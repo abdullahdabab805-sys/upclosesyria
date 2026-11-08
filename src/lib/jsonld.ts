@@ -117,6 +117,25 @@ export function infoPageLd(o: { base: string; path: string; locale: Locale; name
   }
 }
 
+/**
+ * A list page built from other pages (the "trips near a city" hubs, SEO day 8): CollectionPage, a plain
+ * WebPage type. No ItemList: Google's list carousels are for recipes, courses, films and restaurants only.
+ */
+export function collectionPageLd(o: { base: string; path: string; locale: Locale; name: string; description?: string; dateModified?: string | null }) {
+  const url = abs(o.base, o.path)
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': url,
+    url,
+    name: o.name,
+    ...(o.description ? { description: o.description } : {}),
+    inLanguage: o.locale,
+    ...(o.dateModified ? { dateModified: o.dateModified } : {}),
+    publisher: orgRef(o.base),
+  }
+}
+
 /** Breadcrumbs for search results: every item but the last has a URL. */
 export function breadcrumbLd(base: string, items: { name: string; path?: string }[]) {
   return {

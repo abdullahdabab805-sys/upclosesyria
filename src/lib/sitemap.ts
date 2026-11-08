@@ -34,6 +34,8 @@ export type SnapStory = { slug: string; at: When; translated: boolean; images: s
 /** Batch 4: a published tour guide (its own page) and a published video (on /videos). */
 export type SnapGuide = { slug: string; at: When; translated: boolean; images: string[] }
 export type SnapVideo = { at: When }
+/** SEO day 8: an indexable "trips near a city" hub (lib/nearby decides; non-indexable hubs never get here). */
+export type SnapNearby = { path: string; city: number }
 
 export type SitemapSnapshot = {
   cities: SnapCity[]
@@ -44,6 +46,7 @@ export type SitemapSnapshot = {
   stories: SnapStory[]
   guides: SnapGuide[]
   videos: SnapVideo[]
+  nearby: SnapNearby[]
 }
 
 /** A page before it is split into its indexable language URLs. */
@@ -90,11 +93,18 @@ export function sectionPages(section: SitemapSection, snap: SitemapSnapshot): Si
         return { path: `/cities/${c.slug}`, translated: c.translated, lastmod: latest(...own.dates, ...trips.map((t) => t.at)), images: own.images }
       })
     case 'countryside':
-      return snap.trips.map((t) => {
-        // A resort's trip page shows the resort's own places, stays, venues and photos.
-        const place = cityParts(snap, t.place)
-        return { path: t.path, lastmod: latest(t.at, ...place.dates), images: [...t.images, ...place.images] }
-      })
+      return [
+        ...snap.trips.map((t) => {
+          // A resort's trip page shows the resort's own places, stays, venues and photos.
+          const place = cityParts(snap, t.place)
+          return { path: t.path, lastmod: latest(t.at, ...place.dates), images: [...t.images, ...place.images] }
+        }),
+        // A hub lists its city's trips: it changes when one of them (or the editor's intro) does.
+        ...snap.nearby.map((h) => {
+          const city = snap.cities.find((c) => c.id === h.city)
+          return { path: h.path, lastmod: latest(city?.updatedAt, ...snap.trips.filter((t) => t.fromCity === h.city).map((t) => t.at)) }
+        }),
+      ]
     case 'seasons':
       return snap.reports.map((r) => ({ path: `/seasons/${r.slug}`, lastmod: latest(r.at), images: r.images }))
     case 'first-visit':

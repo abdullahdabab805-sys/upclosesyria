@@ -2,6 +2,7 @@ import { after } from 'next/server'
 import type { CollectionAfterChangeHook, CollectionAfterDeleteHook, CollectionConfig, Payload } from 'payload'
 import { indexNowEnabled, indexNowKey, runIndexNow, type PageRef, type Query } from '@/lib/indexnow'
 import { isTranslated } from '@/lib/localized'
+import { nearbyHubs, type NearbyCity, type NearbyTrip } from '@/lib/nearby'
 import { tripPath } from '@/lib/rural'
 import { siteUrl } from '@/lib/site-url'
 
@@ -35,6 +36,19 @@ async function translatedNow(payload: Payload, collection: 'firstVisitPages' | '
   return doc ? isTranslated([doc.title, doc.body], 'en') : false
 }
 
+/** SEO day 8: the city's "trips near" hub, only while it is indexable (lib/nearby). */
+async function nearbyPages(payload: Payload, id: Rel): Promise<PageRef[]> {
+  const cityId = relId(id)
+  if (cityId == null) return []
+  const [cities, trips] = await Promise.all([
+    payload.find({ collection: 'cities', where: { id: { equals: cityId } }, limit: 1, ...visitor }),
+    payload.find({ collection: 'dayTrips', where: { fromCity: { equals: cityId } }, pagination: false, ...visitor }),
+  ])
+  return nearbyHubs(cities.docs as unknown as NearbyCity[], trips.docs as unknown as NearbyTrip[])
+    .filter((h) => h.indexable)
+    .map((h) => ({ path: h.path }))
+}
+
 type Resolver = (payload: Payload, doc: Doc) => Promise<PageRef[]>
 
 const byCity: Resolver = (payload, doc) => cityPages(payload, doc.city as Rel)
@@ -45,7 +59,7 @@ export const PAGES: Record<string, Resolver> = {
     const own = await cityPages(payload, doc.id as number)
     // Deleted (or hidden) main city: its old address, so engines learn it is gone.
     const gone = !own.length && doc.slug && relId(doc.parentCity) == null ? [{ path: `/cities/${String(doc.slug)}` }] : []
-    return [...own, ...gone, { path: '/cities' }]
+    return [...own, ...gone, { path: '/cities' }, ...(await nearbyPages(payload, doc.id as number))]
   },
   places: byCity,
   stays: byCity,
@@ -56,8 +70,9 @@ export const PAGES: Record<string, Resolver> = {
   dayTrips: async (payload, doc) => [
     { path: tripPath({ id: Number(doc.id), slug: doc.slug as string | null }) },
     { path: '/inside' },
-    // The city page lists its countryside.
+    // The city page lists its countryside, and so does the city's hub (SEO day 8).
     ...(await cityPages(payload, doc.fromCity as Rel)),
+    ...(await nearbyPages(payload, doc.fromCity as Rel)),
   ],
   seasonReports: async (_payload, doc) => [...(doc.slug ? [{ path: `/seasons/${String(doc.slug)}` }] : []), { path: '/seasons' }, { path: '/' }],
   firstVisitPages: async (payload, doc) => [

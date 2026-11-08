@@ -205,6 +205,10 @@ export interface City {
   tag?: string | null;
   lede?: string | null;
   eat?: string | null;
+  /**
+   * A short paragraph written by a person (80+ characters). No prices or safety claims. Empty = the page is not indexed or linked.
+   */
+  nearbyIntro?: string | null;
   coverImage?: (number | null) | Media;
   coverShotNote?: string | null;
   /**
@@ -823,6 +827,7 @@ export interface CitiesSelect<T extends boolean = true> {
   tag?: T;
   lede?: T;
   eat?: T;
+  nearbyIntro?: T;
   coverImage?: T;
   coverShotNote?: T;
   parentCity?: T;
