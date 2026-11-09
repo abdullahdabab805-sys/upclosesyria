@@ -20,6 +20,7 @@ import Image from 'next/image'
 import { FIRST_VISIT } from '@/lib/firstVisitTopics'
 import { isLocale, type Locale } from '@/lib/i18n'
 import { localePath } from '@/lib/routing'
+import { BRAND, BRAND_HOST } from '@/lib/brand'
 
 export const revalidate = 3600
 
@@ -220,7 +221,7 @@ export default async function OutsidePage({ params }: Props) {
                 'Every place links to its location on Google Maps · check roads and stays before you travel.',
               ),
               docAhleen: T('احجز إقامتك عبر أهلين', 'Book your stay on Ahleen'),
-              docSite: T('سوريا عن قرب · دليل مستقل · syria-up-close.vercel.app', 'Syria Up Close · an independent guide · syria-up-close.vercel.app'),
+              docSite: T(`${BRAND.ar} · دليل مستقل · ${BRAND_HOST}`, `${BRAND.en} · an independent guide · ${BRAND_HOST}`),
               docPage: T('صفحة {n}', 'page {n}'),
             }}
           />

@@ -1,5 +1,6 @@
 import { siteUrl } from '@/lib/site-url'
 import type { Locale } from '@/lib/i18n'
+import { BRAND, BRAND_ALTERNATES, BRAND_DESCRIPTION } from '@/lib/brand'
 
 // schema.org structured data (SPEC §5.5): TouristDestination (inside a WebPage) for cities and the
 // countryside, Article for season reports.
@@ -145,6 +146,25 @@ export function breadcrumbLd(base: string, items: { name: string; path?: string 
   }
 }
 
+/**
+ * The About page (SEO day 9): an AboutPage whose subject is the site's Organization, by @id, so search
+ * engines and AI assistants tie "who writes this guide" to the same entity every page names as publisher.
+ */
+export function aboutPageLd(o: { base: string; path: string; locale: Locale; name: string; description?: string }) {
+  const url = abs(o.base, o.path)
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    '@id': url,
+    url,
+    name: o.name,
+    ...(o.description ? { description: o.description } : {}),
+    inLanguage: o.locale,
+    about: orgRef(o.base),
+    publisher: orgRef(o.base),
+  }
+}
+
 /** The page's visible questions and answers (the same text, never extra claims). */
 export function faqLd(items: { q: string; a: string }[]) {
   return {
@@ -161,15 +181,15 @@ export function faqLd(items: { q: string; a: string }[]) {
  */
 export function websiteLd(base: string, sameAs: readonly string[] = []) {
   const orgId = `${base}/#org`
-  const site = { '@type': 'WebSite', '@id': `${base}/#site`, name: 'سوريا عن قرب', alternateName: 'Syria Up Close', url: `${base}/`, inLanguage: ['ar', 'en'], publisher: { '@id': orgId } }
+  const site = { '@type': 'WebSite', '@id': `${base}/#site`, name: BRAND.ar, alternateName: [...BRAND_ALTERNATES], url: `${base}/`, inLanguage: ['ar', 'en'], publisher: { '@id': orgId } }
   const org = {
     '@type': 'Organization',
     '@id': orgId,
-    name: 'سوريا عن قرب',
-    alternateName: 'Syria Up Close',
+    name: BRAND.ar,
+    alternateName: [...BRAND_ALTERNATES],
     url: `${base}/`,
     logo: { '@type': 'ImageObject', url: `${base}/icon-512.png`, width: 512, height: 512 },
-    description: 'دليل سياحي مستقل عن سوريا، بالشراكة مع أهلين. لسنا جهة رسمية.',
+    description: BRAND_DESCRIPTION,
     ...(sameAs.length ? { sameAs: [...sameAs] } : {}),
   }
   return { '@context': 'https://schema.org', '@graph': [site, org] as [typeof site, typeof org] }

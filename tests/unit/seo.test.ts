@@ -9,6 +9,7 @@ describe('pageMetadata', () => {
       alternates: {
         canonical: '/en/cities/damascus',
         languages: { ar: '/cities/damascus', en: '/en/cities/damascus', 'x-default': '/cities/damascus' },
+        types: { 'application/rss+xml': [{ url: '/feeds/updates-en.xml', title: "Syria Up Close: what's new" }] },
       },
       openGraph: {
         title: 'Damascus',
@@ -25,6 +26,7 @@ describe('pageMetadata', () => {
     expect(pageMetadata({ locale: 'ar', path: '/', title: 'سوريا عن قرب' }).alternates).toEqual({
       canonical: '/',
       languages: { ar: '/', en: '/en', 'x-default': '/' },
+      types: { 'application/rss+xml': [{ url: '/feeds/seasons.xml', title: 'تقارير الموسم · سوريا عن قرب' }, { url: '/feeds/updates.xml', title: 'جديد سوريا عن قرب' }] },
     })
   })
 
@@ -37,13 +39,14 @@ describe('pageMetadata', () => {
   it('English page not yet translated: noindex and no English hreflang', () => {
     const m = pageMetadata({ locale: 'en', path: '/outside/first-visit/visa', title: 'Visa', translated: false })
     expect(m.robots).toEqual({ index: false, follow: true })
-    expect(m.alternates).toEqual({ canonical: '/en/outside/first-visit/visa', languages: { ar: '/outside/first-visit/visa', 'x-default': '/outside/first-visit/visa' } })
+    expect(m.alternates).toEqual({ canonical: '/en/outside/first-visit/visa', languages: { ar: '/outside/first-visit/visa', 'x-default': '/outside/first-visit/visa' }, types: { 'application/rss+xml': [{ url: '/feeds/updates-en.xml', title: "Syria Up Close: what's new" }] } })
   })
 
   it('Arabic-only sections: Arabic hreflang only; the /en copy is noindex and points to the Arabic page', () => {
     expect(pageMetadata({ locale: 'ar', path: '/seasons', title: 't', arabicOnly: true }).alternates).toEqual({
       canonical: '/seasons',
       languages: { ar: '/seasons', 'x-default': '/seasons' },
+      types: { 'application/rss+xml': [{ url: '/feeds/seasons.xml', title: 'تقارير الموسم · سوريا عن قرب' }, { url: '/feeds/updates.xml', title: 'جديد سوريا عن قرب' }] },
     })
     const en = pageMetadata({ locale: 'en', path: '/inside', title: 't', arabicOnly: true })
     expect(en.robots).toEqual({ index: false, follow: true })
@@ -75,7 +78,7 @@ describe('indexable language versions (one rule for metadata, sitemap and IndexN
   it('metadata follows the same rule even when a page forgets arabicOnly', () => {
     const m = pageMetadata({ locale: 'en', path: '/inside', title: 't' })
     expect(m.robots).toEqual({ index: false, follow: true })
-    expect(m.alternates).toEqual({ canonical: '/inside', languages: { ar: '/inside', 'x-default': '/inside' } })
+    expect(m.alternates).toEqual({ canonical: '/inside', languages: { ar: '/inside', 'x-default': '/inside' }, types: { 'application/rss+xml': [{ url: '/feeds/updates-en.xml', title: "Syria Up Close: what's new" }] } })
   })
 })
 

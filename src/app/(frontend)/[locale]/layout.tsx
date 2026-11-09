@@ -17,6 +17,7 @@ import '@/styles/guide.css'
 import '@/styles/site.css'
 import '@/styles/v2.css'
 import '@/styles/batch4.css'
+import { BRAND } from '@/lib/brand'
 
 // Light identity (owner decision 2026-10-29): white header, so the browser bar matches it.
 export const viewport: Viewport = { themeColor: '#FFFFFF' }
@@ -28,7 +29,7 @@ export function generateStaticParams() {
 // Site-wide: absolute URLs for canonical/OG, and the title template. Pages add the rest (lib/seo).
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  const name = locale === 'en' ? 'Syria Up Close' : 'سوريا عن قرب'
+  const name = locale === 'en' ? BRAND.en : BRAND.ar
   return {
     metadataBase: new URL(siteUrl()),
     title: { default: name, template: `%s | ${name}` },

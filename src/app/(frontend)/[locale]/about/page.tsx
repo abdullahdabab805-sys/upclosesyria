@@ -6,6 +6,9 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { isLocale, type Locale } from '@/lib/i18n'
+import { localePath } from '@/lib/routing'
+import { JsonLd } from '@/components/content'
+import { aboutPageLd, siteBase } from '@/lib/jsonld'
 import { FlipCards, Lens, Soap, Steps } from '@/components/client/About'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -13,16 +16,19 @@ type Props = { params: Promise<{ locale: string }> }
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
   if (!isLocale(locale)) return {}
+  return pageMetadata({ locale, path: '/about', ...aboutSeo(locale) })
+}
+
+/** The About page's title and description: the same text for the metadata and the AboutPage schema. */
+function aboutSeo(locale: Locale) {
   const T = (ar: string, en: string) => (locale === 'ar' ? ar : en)
-  return pageMetadata({
-    locale,
-    path: '/about',
+  return {
     title: T('من نحن: دليل مستقل وكيف نتحقق', 'About: an independent guide, how we check'),
     description: describe([
       T('دليل سياحي مستقل عن سوريا، عربي أولاً. لسنا جهة رسمية ولا نبيع جولات', 'An independent, Arabic-first travel guide to Syria. Not an official body; we do not sell tours'),
       T('هنا كيف نتحقق من كل معلومة، وشراكتنا مع أهلين للإقامة', 'How we check every piece of information, and our partnership with Ahleen for stays'),
     ]),
-  })
+  }
 }
 
 export default async function AboutPage({ params }: Props) {
@@ -33,6 +39,7 @@ export default async function AboutPage({ params }: Props) {
 
   return (
     <Page locale={locale} path="/about">
+      <JsonLd data={aboutPageLd({ base: siteBase(), path: localePath(locale, '/about'), locale, name: aboutSeo(locale).title, description: aboutSeo(locale).description })} />
       <section className="dark about-hero">
         <SyrianFill id="khatam" opacity={0.1} />
         <div className="wrap">

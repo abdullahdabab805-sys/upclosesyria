@@ -27,6 +27,11 @@ describe('revalidateSite', () => {
     expect(revalidatePath).toHaveBeenCalledWith('/llms.txt')
   })
 
+  it('also refreshes the RSS feeds, which list the same pages (SEO day 9)', () => {
+    revalidateSite()
+    for (const f of ['/feeds/seasons.xml', '/feeds/updates.xml', '/feeds/updates-en.xml']) expect(revalidatePath).toHaveBeenCalledWith(f)
+  })
+
   it('is a no-op outside a Next request (seed CLI, tests) instead of failing the save', () => {
     outsideNext = true
     expect(() => revalidateSite()).not.toThrow()

@@ -4,9 +4,10 @@
 // that are indexable (lib/seo indexablePaths): never a draft, a noindex page or an untranslated English URL.
 import { indexablePaths } from '@/lib/seo'
 import type { SitemapPage } from '@/lib/sitemap'
+import { BRAND_FULL } from '@/lib/brand'
 
 /** What the page is called and its one-line summary (its own lede or description). */
-export type LlmsInfo = { name: string; en?: string; note?: string | null }
+export type LlmsInfo = { name: string; en?: string; note?: string | null; /** A season report's field date (the RSS feed's pubDate). */ date?: string }
 
 export type LlmsLink = { name: string; path: string; note?: string; en?: string; englishPath?: string }
 
@@ -34,7 +35,7 @@ export function llmsLinks(pages: readonly SitemapPage[], info: (path: string) =>
 export function llmsTxt(o: { base: string; cities: LlmsLink[]; trips: LlmsLink[]; firstVisit: LlmsLink[]; seasons?: LlmsLink[] }): string {
   const sec = (title: string, links: LlmsLink[]) => (links.length ? [`## ${title}`, '', ...links.map((l) => line(o.base, l)), ''] : [])
   return [
-    '# سوريا عن قرب | Syria Up Close',
+    `# ${BRAND_FULL}`,
     '',
     '> دليل سياحي مستقل عن سوريا كما هي اليوم: مدن وأرياف، أماكن ومطاعم وحلويات وفنادق، بمعلومات مؤرخة من مراسلين على الأرض. بالشراكة مع أهلين (ahleenbooking.com). لسنا جهة رسمية، ولا ننشر أسعاراً ولا ادعاءات عن الأمان.',
     '> An independent travel guide to Syria as it is today, with dated information from correspondents on the ground. Not an official body.',
