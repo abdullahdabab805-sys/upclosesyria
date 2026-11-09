@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { articleLd, breadcrumbLd, citations, faqLd, infoPageLd, serializeLd, touristDestinationLd, websiteLd } from '@/lib/jsonld'
+import { aboutPageLd, articleLd, breadcrumbLd, citations, faqLd, infoPageLd, serializeLd, touristDestinationLd, websiteLd } from '@/lib/jsonld'
 
 const base = 'https://example.org'
 
@@ -165,12 +165,12 @@ describe('breadcrumbs, FAQ and site', () => {
       '@type': 'WebSite',
       '@id': 'https://x.org/#site',
       name: 'سوريا عن قرب',
-      alternateName: 'Syria Up Close',
+      alternateName: ['Syria Up Close', 'Up Close Syria', 'upclosesyria.com'],
       url: 'https://x.org/',
       inLanguage: ['ar', 'en'],
       publisher: { '@id': 'https://x.org/#org' },
     })
-    expect(org).toMatchObject({ '@type': 'Organization', '@id': 'https://x.org/#org', name: 'سوريا عن قرب', alternateName: 'Syria Up Close', url: 'https://x.org/' })
+    expect(org).toMatchObject({ '@type': 'Organization', '@id': 'https://x.org/#org', name: 'سوريا عن قرب', alternateName: ['Syria Up Close', 'Up Close Syria', 'upclosesyria.com'], url: 'https://x.org/' })
     expect(org?.logo).toEqual({ '@type': 'ImageObject', url: 'https://x.org/icon-512.png', width: 512, height: 512 })
     // No search box markup (Google retired it) and no invented accounts.
     expect(JSON.stringify(site)).not.toContain('SearchAction')
@@ -186,5 +186,34 @@ describe('breadcrumbs, FAQ and site', () => {
     expect(place.geo).toEqual({ '@type': 'GeoCoordinates', latitude: 33.7, longitude: 36.1 })
     expect(node(ld, 'WebPage')?.dateModified).toBe('2026-10-26')
     expect(place.includesAttraction?.[0]?.geo).toEqual({ '@type': 'GeoCoordinates', latitude: 33.71, longitude: 36.12 })
+  })
+})
+
+describe('the site as one entity (SEO day 9)', () => {
+  it('alternateName: the English name first, the domain last and in lowercase', () => {
+    const [site, org] = websiteLd('https://x.org')['@graph']
+    expect(site.alternateName).toEqual(org.alternateName)
+    expect(site.alternateName.at(-1)).toBe(site.alternateName.at(-1)?.toLowerCase())
+    expect(site.alternateName[0]).toBe('Syria Up Close')
+  })
+  it('the organization is independent: no parent, owner or funder, nothing "official"', () => {
+    const org = websiteLd('https://x.org')['@graph'][1]
+    for (const k of ['parentOrganization', 'owner', 'funder', 'sponsor']) expect(org).not.toHaveProperty(k)
+    expect(org['@type']).toBe('Organization')
+    expect(JSON.stringify(org)).not.toMatch(/GovernmentOrganization|رسمي|official|ministry|وزارة/i)
+  })
+  it('the About page is about the same organization, by @id', () => {
+    const ld = aboutPageLd({ base: 'https://x.org', path: '/en/about', locale: 'en', name: 'About', description: 'd' })
+    expect(ld).toEqual({
+      '@context': 'https://schema.org',
+      '@type': 'AboutPage',
+      '@id': 'https://x.org/en/about',
+      url: 'https://x.org/en/about',
+      name: 'About',
+      description: 'd',
+      inLanguage: 'en',
+      about: { '@id': 'https://x.org/#org' },
+      publisher: { '@id': 'https://x.org/#org' },
+    })
   })
 })

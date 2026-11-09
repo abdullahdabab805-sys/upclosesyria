@@ -1,6 +1,7 @@
 import { existsSync } from 'node:fs'
 import path from 'node:path'
 import sharp, { type OverlayOptions } from 'sharp'
+import { BRAND } from '@/lib/brand'
 
 // Branded Open Graph images (1200×630) rendered with sharp/Pango, which shapes Arabic correctly
 // (Next's ImageResponse/Satori does not join Arabic letters), in the brand font IBM Plex Sans Arabic.
@@ -103,7 +104,7 @@ async function renderCard({ kicker, title, subtitle }: OgCard): Promise<Buffer> 
   const t = await textImage(title, { size: 64, color: C.ink, width: textW, bold: true, maxLines: 3 })
   parts.push({ input: t.input, left: right - t.width, top: y })
   y += t.height + 24
-  const brand = await textImage('سوريا عن قرب · SYRIA UP CLOSE', { size: 26, color: C.ink, width: textW, bold: true, maxLines: 1 })
+  const brand = await textImage(`${BRAND.ar} · ${BRAND.en.toUpperCase()}`, { size: 26, color: C.ink, width: textW, bold: true, maxLines: 1 })
   const brandTop = H - pad - brand.height
   if (subtitle) {
     const s = await textImage(subtitle, { size: 30, color: C.muted, width: textW, maxLines: 2 })
@@ -133,8 +134,8 @@ const BAND = 104
 
 async function renderPhotoCard(photo: Buffer): Promise<Buffer> {
   const img = await sharp(photo).resize(W, H - BAND, { fit: 'cover', position: 'attention' }).toBuffer()
-  const ar = await textImage('سوريا عن قرب', { size: 40, color: C.ink, width: 400, bold: true, maxLines: 1 })
-  const en = await textImage('SYRIA UP CLOSE', { size: 20, color: C.ink, width: 400, bold: true, maxLines: 1 })
+  const ar = await textImage(BRAND.ar, { size: 40, color: C.ink, width: 400, bold: true, maxLines: 1 })
+  const en = await textImage(BRAND.en.toUpperCase(), { size: 20, color: C.ink, width: 400, bold: true, maxLines: 1 })
   const band = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${BAND}"><rect width="${W}" height="${BAND}" fill="${C.sand}"/><rect width="${W}" height="6" fill="${C.mark}"/></svg>`
   const m = 84
   const right = W - 40

@@ -5,6 +5,7 @@ import { parseTripKey, tripPhotoKeys } from '@/lib/rural'
 import { GUIDE } from '@/content/guide'
 import { ogAlt, ogCard, pickCover } from '@/og/cover'
 import { OG_CACHE, OG_SIZE } from '@/og/render'
+import { BRAND } from '@/lib/brand'
 
 type Params = { locale: string; slug: string }
 
@@ -20,7 +21,7 @@ async function load({ slug }: Params) {
 /** One card per page; its alt is what the photo shows (SEO day 6). */
 export async function generateImageMetadata({ params }: { params: Params }) {
   const d = await load(params)
-  return [{ id: 'card', size: OG_SIZE, contentType: 'image/jpeg', alt: d ? ogAlt(d.cover, d.trip.title) : 'سوريا عن قرب' }]
+  return [{ id: 'card', size: OG_SIZE, contentType: 'image/jpeg', alt: d ? ogAlt(d.cover, d.trip.title) : BRAND.ar }]
 }
 
 /** A countryside page's card: its photo, or its name, its city's countryside and one-line description. */

@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
 import type { Locale } from '@/lib/i18n'
 import { isArabicOnly, localePath } from '@/lib/routing'
+import { BRAND } from '@/lib/brand'
+import { feedLinks } from '@/lib/feeds'
 
 // SEO rules (SPEC §5.5): canonical per language, hreflang ar/en/x-default, Arabic-only sections
 // have no English alternate, untranslated English pages are noindex until translated (س-9).
 
-const SITE = { ar: 'سوريا عن قرب', en: 'Syria Up Close' } as const
+const SITE = BRAND
 const OG_LOCALE = { ar: 'ar_SY', en: 'en_US' } as const
 
 export type PageSeo = {
@@ -52,6 +54,8 @@ export function pageMetadata({ locale, path, title, description, arabicOnly, tra
     alternates: {
       canonical,
       languages: hasEnglish ? { ar, en, 'x-default': ar } : { ar, 'x-default': ar },
+      // The RSS feeds in this page's language (SEO day 9), as <link rel="alternate" type="application/rss+xml">.
+      types: { 'application/rss+xml': feedLinks('', locale) },
     },
     openGraph: {
       title,

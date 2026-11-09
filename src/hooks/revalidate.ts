@@ -1,6 +1,7 @@
 import { revalidatePath } from 'next/cache'
 import type { CollectionAfterChangeHook, CollectionAfterDeleteHook, CollectionConfig, Endpoint, GlobalAfterChangeHook } from 'payload'
 import { secretMatches } from '@/lib/secret'
+import { FEEDS } from '@/lib/feeds'
 
 /** Collections that never appear on public pages. */
 export const PRIVATE_COLLECTIONS = ['users', 'auditLog', 'bookings'] as const
@@ -15,6 +16,8 @@ export function revalidateSite(): void {
     revalidatePath('/', 'layout')
     // Route handlers sit outside the page layouts; llms.txt lists the pages, so it changes with them (SEO day 5).
     revalidatePath('/llms.txt')
+    // The RSS feeds list the same pages (SEO day 9).
+    for (const f of Object.values(FEEDS)) revalidatePath(f.path)
   } catch {
     // not inside a Next.js request
   }

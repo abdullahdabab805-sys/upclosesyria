@@ -1,11 +1,12 @@
 import type { Locale } from '@/lib/i18n'
+import { BRAND } from '@/lib/brand'
 
 // Page titles and meta descriptions (SEO day 4). One place builds them for every page type, from the
 // page's own data: a title or description never names a section the page does not show ("no empty
 // promises"), never mentions prices or safety, and the same text feeds Open Graph and Twitter.
 
 /** The layout template adds this to every title except the home page's. */
-export const TITLE_SUFFIX = { ar: ' | سوريا عن قرب', en: ' | Syria Up Close' } as const
+export const TITLE_SUFFIX = { ar: ` | ${BRAND.ar}`, en: ` | ${BRAND.en}` } as const
 export const TITLE_MAX = 60
 export const DESC_MIN = 120
 export const DESC_MAX = 160

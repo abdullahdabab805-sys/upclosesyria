@@ -5,6 +5,7 @@ import { isLocale, type Locale } from '@/lib/i18n'
 import { GUIDE } from '@/content/guide'
 import { ogAlt, ogCard, pickCover } from '@/og/cover'
 import { OG_CACHE, OG_SIZE } from '@/og/render'
+import { BRAND } from '@/lib/brand'
 
 type Params = { locale: string; slug: string }
 
@@ -20,7 +21,7 @@ async function load({ locale, slug }: Params) {
 /** One card per page; its alt is what the photo shows (SEO day 6), so it cannot be a static export. */
 export async function generateImageMetadata({ params }: { params: Params }) {
   const d = await load(params)
-  return [{ id: 'card', size: OG_SIZE, contentType: 'image/jpeg', alt: d ? ogAlt(d.cover, d.name) : 'سوريا عن قرب' }]
+  return [{ id: 'card', size: OG_SIZE, contentType: 'image/jpeg', alt: d ? ogAlt(d.cover, d.name) : BRAND.ar }]
 }
 
 export default async function Image({ params }: { params: Promise<Params> }) {

@@ -1,11 +1,12 @@
 import type { MetadataRoute } from 'next'
+import { BRAND, BRAND_DESCRIPTION, BRAND_FULL } from '@/lib/brand'
 
 // Home-screen icon and colours (owner decision 2026-10-26: the lens as the site's icon; light identity 2026-10-29, icon unchanged).
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'سوريا عن قرب | Syria Up Close',
-    short_name: 'سوريا عن قرب',
-    description: 'دليل مستقل لسوريا كما هي اليوم.',
+    name: BRAND_FULL,
+    short_name: BRAND.ar,
+    description: BRAND_DESCRIPTION,
     start_url: '/',
     display: 'browser',
     background_color: '#FBF8F2',

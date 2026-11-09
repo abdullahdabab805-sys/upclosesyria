@@ -2,6 +2,8 @@
 // is set, else none. With none, Payload writes mail to the log and a booking is still saved (never lost
 // because mail is not configured).
 
+import { BRAND } from '@/lib/brand'
+
 type Env = Record<string, string | undefined>
 
 export type EmailChoice =
@@ -9,7 +11,7 @@ export type EmailChoice =
   | { kind: 'smtp'; host: string; port: number; secure: boolean; user?: string; pass?: string; from: string; fromName: string }
   | { kind: 'none' }
 
-export const FROM_NAME = 'سوريا عن قرب'
+export const FROM_NAME = BRAND.ar
 
 export function emailChoice(env: Env = process.env): EmailChoice {
   const from = env.EMAIL_FROM?.trim() || 'bookings@upclosesyria.com'
