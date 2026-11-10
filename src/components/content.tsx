@@ -16,6 +16,8 @@ import { ShowMore } from '@/components/client/ShowMore'
 import { ahleenCityUrl, withUtm } from '@/lib/rural'
 import type { Media } from '@/payload-types'
 import { heroSizes, type HeroLayer } from '@/lib/heroSizes'
+import { correctionHref } from '@/lib/brand'
+import { siteUrl } from '@/lib/site-url'
 
 /** Re-exported for pages that already import from here; lives in lib/localized (no UI imports). */
 export { text }
@@ -352,8 +354,14 @@ export function JsonLd({ data }: { data: unknown }) {
  * "How we check" (SEO day 5): the trust line under "last updated" points to the section of the About
  * page that explains it (/about#how-we-check), so readers and crawlers can see how a page was checked.
  */
-export function HowWeCheck({ locale }: { locale: Locale }) {
-  return <Link href={`${localePath(locale, '/about')}#how-we-check`}>{locale === 'ar' ? 'كيف نتحقق' : 'How we check'}</Link>
+export function HowWeCheck({ locale, path }: { locale: Locale; /** The page's path, for the "report a correction" link (SEO day 9). */ path?: string }) {
+  const how = <Link href={`${localePath(locale, '/about')}#how-we-check`}>{locale === 'ar' ? 'كيف نتحقق' : 'How we check'}</Link>
+  if (!path) return how
+  return (
+    <>
+      {how} · <a href={correctionHref(`${siteUrl()}${localePath(locale, path)}`, locale)}>{locale === 'ar' ? 'أبلغ عن تصحيح' : 'Report a correction'}</a>
+    </>
+  )
 }
 
 /**

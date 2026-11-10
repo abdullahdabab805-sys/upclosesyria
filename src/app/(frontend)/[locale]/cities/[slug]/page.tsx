@@ -355,7 +355,7 @@ export default async function CityPage({ params }: Props) {
                   <h2 id="short-h">{name} في سطرين</h2>
                   {city.updatedAt && (
                     <span className="by">
-                      آخر تحديث: <time dateTime={city.updatedAt}>{formatDate(new Date(city.updatedAt), 'ar')}</time> · <a href="#faq">الأسئلة والمصادر</a> · <HowWeCheck locale="ar" />
+                      آخر تحديث: <time dateTime={city.updatedAt}>{formatDate(new Date(city.updatedAt), 'ar')}</time> · <a href="#faq">الأسئلة والمصادر</a> · <HowWeCheck locale="ar" path={`/cities/${slug}`} />
                     </span>
                   )}
                 </div>

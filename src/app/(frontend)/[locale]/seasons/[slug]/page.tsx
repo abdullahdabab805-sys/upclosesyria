@@ -75,7 +75,7 @@ export default async function ReportPage({ params }: Props) {
             </span>
             {report.authorName && <span className="cap">كتبه: {report.authorName}</span>}
             <span className="cap">
-              <HowWeCheck locale="ar" />
+              <HowWeCheck locale="ar" path={`/seasons/${slug}`} />
             </span>
           </div>
           {photos[0] && <Photo media={photos[0]} shot={report.title} size="hero" priority />}
