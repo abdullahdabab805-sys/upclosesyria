@@ -23,3 +23,16 @@ export const BRAND_ALTERNATES = [BRAND.en, 'Up Close Syria', 'upclosesyria.com']
 export const BRAND_DESCRIPTION = 'دليل سياحي مستقل عن سوريا كما هي اليوم: معلومات مؤرخة من مراسلين على الأرض، بالشراكة مع أهلين للإقامة.'
 
 export const brandName = (locale: Locale) => BRAND[locale]
+
+/** Where readers report a wrong or outdated detail (owner choice 2026-11-10). */
+export const EDITOR_EMAIL = 'upclosesyria@ahleenbooking.com'
+
+/**
+ * "Report a correction" link (SEO day 9): a mailto to the editors whose subject names the page, so the
+ * report arrives with the exact URL. No form and nothing stored on our side.
+ */
+export function correctionHref(pageUrl: string, locale: Locale, email: string = EDITOR_EMAIL): string {
+  const subject = locale === 'ar' ? `تصحيح: ${pageUrl}` : `Correction: ${pageUrl}`
+  const body = locale === 'ar' ? `الصفحة: ${pageUrl}\n\nما المعلومة الخاطئة أو القديمة؟\n\nما الصحيح، ومن أين عرفته؟\n` : `Page: ${pageUrl}\n\nWhat is wrong or out of date?\n\nWhat is correct, and how do you know?\n`
+  return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+}

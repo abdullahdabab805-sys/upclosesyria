@@ -272,7 +272,7 @@ export default async function TripPage({ params }: Props) {
               </div>
               {checked && (
                 <span className="by">
-                  آخر تحديث: <time dateTime={checked}>{formatDate(new Date(checked), 'ar')}</time> · {sources.length ? 'من مصادر منشورة، والمراسل بيأكدها بزيارته' : 'بانتظار زيارة المراسل'} · <HowWeCheck locale="ar" />
+                  آخر تحديث: <time dateTime={checked}>{formatDate(new Date(checked), 'ar')}</time> · {sources.length ? 'من مصادر منشورة، والمراسل بيأكدها بزيارته' : 'بانتظار زيارة المراسل'} · <HowWeCheck locale="ar" path={`/inside/${slug}`} />
                 </span>
               )}
             </div>

@@ -84,7 +84,7 @@ export default async function FirstVisitTopicPage({ params }: Props) {
             </span>
           )}
           <span className="cap">
-            <HowWeCheck locale={locale} />
+            <HowWeCheck locale={locale} path={`/outside/first-visit/${topic}`} />
           </span>
         </div>
         {text(page.summary, locale) && (
