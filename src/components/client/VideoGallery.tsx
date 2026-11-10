@@ -52,7 +52,22 @@ const OUT = (
  * opens that video directly. Sharing uses the Web Share sheet on phones, else copies the link.
  */
 /** `cardHeading`: h2 when the cards sit right under the page's H1 (/videos), h3 under a section's H2. */
-export function VideoGallery({ videos, text, tabs = true, pagePath, cardHeading = 'h3' }: { videos: VideoCardData[]; text: Text; tabs?: boolean; pagePath: string; cardHeading?: 'h2' | 'h3' }) {
+export function VideoGallery({
+  videos,
+  text,
+  tabs = true,
+  pagePath,
+  cardHeading = 'h3',
+  eagerFirst = 0,
+}: {
+  videos: VideoCardData[]
+  text: Text
+  tabs?: boolean
+  pagePath: string
+  cardHeading?: 'h2' | 'h3'
+  /** How many leading thumbnails are above the fold (SEO day 10): loaded eagerly, the first at high priority, so the page's LCP image never waits for lazy-loading. */
+  eagerFirst?: number
+}) {
   const CardHeading = cardHeading
   const [pf, setPf] = useState<Platform | 'all'>('all')
   const [open, setOpen] = useState<VideoCardData | null>(null)
@@ -111,13 +126,13 @@ export function VideoGallery({ videos, text, tabs = true, pagePath, cardHeading 
         </div>
       )}
       <div className="vgrid">
-        {shown.map((v) => (
+        {shown.map((v, i) => (
           <article key={v.id} className="vcard" id={videoAnchor(v.id)}>
             {/* The play button holds only the icon, so its name ("play: <title>") matches what it shows (axe). */}
             <div className={`vthumb ${v.orientation}`}>
               {v.thumbnail ? (
                 // Already an 800px WebP (Media "card") or YouTube's own still: no need for Vercel's image optimizer.
-                <Image src={v.thumbnail} alt="" fill sizes="(max-width: 600px) 50vw, 25vw" unoptimized />
+                <Image src={v.thumbnail} alt="" fill sizes="(max-width: 600px) 50vw, 25vw" unoptimized {...(i < eagerFirst ? { loading: 'eager' as const, fetchPriority: i === 0 ? ('high' as const) : ('auto' as const) } : {})} />
               ) : (
                 <svg aria-hidden="true" focusable="false">
                   <rect width="100%" height="100%" fill="url(#syr-vine)" opacity=".45" />
