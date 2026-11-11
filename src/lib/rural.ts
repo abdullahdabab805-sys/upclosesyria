@@ -123,7 +123,15 @@ export function cityAnswers(o: { name: string; tag?: string | null; eat?: string
 type SpotLike = { kind: 'stay' | 'food' | 'nature' | 'ruins' | 'picnic'; name: string }
 
 /** "In short" facts and the FAQ for a countryside page, from its own spots (no new claims). */
-export function tripAnswers(o: { name: string; region: string; distance?: string | null; spots: readonly SpotLike[]; hotels: number }): { facts: Fact[]; faq: Faq[] } {
+export function tripAnswers(o: {
+  name: string
+  region: string
+  distance?: string | null
+  spots: readonly SpotLike[]
+  hotels: number
+  /** Questions people actually search for, each written and answered by an editor (SEO day 11). Empty rows are skipped. */
+  asked?: readonly { question?: string | null; answer?: string | null }[] | null
+}): { facts: Fact[]; faq: Faq[] } {
   const names = (k: SpotLike['kind']) => o.spots.filter((s) => s.kind === k).map((s) => s.name)
   const wait = 'بانتظار المراسل'
   const [stay, food, nature, ruins] = [names('stay'), names('food'), names('nature'), names('ruins')]
@@ -135,7 +143,8 @@ export function tripAnswers(o: { name: string; region: string; distance?: string
     { k: 'وين تاكل', v: food.length ? food.slice(0, 3).join('، ') : wait },
   ]
   const faq: Faq[] = [
-    ...(o.distance ? [{ q: `كم بعيدة ${o.name}؟`, a: `${o.distance}.` }] : []),
+    // "Where is it" is how people search for a place (Search Console, SEO day 11); region and distance answer it.
+    { q: `وين بتقع ${o.name}؟`, a: `${[o.region, o.distance].filter(Boolean).join('، ')}.` },
     ...(nature.length ? [{ q: `شو في طبيعة وينابيع بـ${o.name}؟`, a: `${nature.join('، ')}.` }] : []),
     ...(ruins.length ? [{ q: `في آثار بـ${o.name}؟`, a: `${ruins.join('، ')}.` }] : []),
     {
@@ -143,6 +152,11 @@ export function tripAnswers(o: { name: string; region: string; distance?: string
       a: stay.length || o.hotels ? `${[...stay, ...(o.hotels ? ['إقامات على أهلين'] : [])].join('، ')}. تأكد من الحجز قبل السفر.` : `بانتظار المراسل؛ صفحة ${o.region} على أهلين فيها الإقامات القريبة.`,
     },
     { q: `في أماكن تخييم بـ${o.name}؟`, a: 'ما منقترح مكان تخييم قبل ما يزوره مراسلنا ويتأكد منه.' },
+    ...(o.asked ?? []).flatMap((x) => {
+      const q = x.question?.trim()
+      const a = x.answer?.trim()
+      return q && a ? [{ q, a }] : []
+    }),
   ]
   return { facts, faq }
 }

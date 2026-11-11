@@ -18,6 +18,7 @@ import * as migration_20261029_064438_guides_bookings_videos from './20261029_06
 import * as migration_20261029_115900_city_nearby_intro from './20261029_115900_city_nearby_intro';
 import * as migration_20261029_120000_city_videos from './20261029_120000_city_videos';
 import * as migration_20261031_090000_first_visit_refresh from './20261031_090000_first_visit_refresh';
+import * as migration_20261111_080439_trip_asked_questions from './20261111_080439_trip_asked_questions';
 
 export const migrations = [
   {
@@ -106,7 +107,6 @@ export const migrations = [
     name: '20261029_064438_guides_bookings_videos',
   },
   {
-    // SEO day 8 (written 2026-11-06): ordered before city_videos, whose Payload query reads every cities column.
     up: migration_20261029_115900_city_nearby_intro.up,
     down: migration_20261029_115900_city_nearby_intro.down,
     name: '20261029_115900_city_nearby_intro',
@@ -120,5 +120,10 @@ export const migrations = [
     up: migration_20261031_090000_first_visit_refresh.up,
     down: migration_20261031_090000_first_visit_refresh.down,
     name: '20261031_090000_first_visit_refresh',
+  },
+  {
+    up: migration_20261111_080439_trip_asked_questions.up,
+    down: migration_20261111_080439_trip_asked_questions.down,
+    name: '20261111_080439_trip_asked_questions'
   },
 ];

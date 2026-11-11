@@ -178,7 +178,7 @@ export default async function TripPage({ params }: Props) {
     }),
   ]
   const hotels = stays.filter((s) => s.ahleenUrl && !/\/cities\//.test(s.ahleenUrl)).length
-  const answers = tripAnswers({ name: trip.title, region, distance: trip.distanceNote, spots: [...spots, ...placeFood.map((c) => ({ kind: 'food' as const, name: c.name }))], hotels })
+  const answers = tripAnswers({ name: trip.title, region, distance: trip.distanceNote, spots: [...spots, ...placeFood.map((c) => ({ kind: 'food' as const, name: c.name }))], hotels, asked: trip.askedQuestions })
   const gallery = photos.flatMap((ph) => {
     const m = asMedia(ph.photo)
     const src = m?.sizes?.card?.url ?? m?.url
