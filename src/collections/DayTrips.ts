@@ -61,5 +61,18 @@ export const DayTrips: CollectionConfig = {
         { name: 'image', type: 'upload', relationTo: 'media', label: { ar: 'صورة', en: 'Photo' } },
       ],
     },
+    {
+      // Questions people really search for (Search Console), added to the page's questions and its FAQ schema.
+      // Written and answered by an editor from the page's sources: no prices, no safety claims (SEO day 11).
+      name: 'askedQuestions',
+      type: 'array',
+      label: { ar: 'أسئلة يسألها الناس', en: 'Questions people ask' },
+      labels: { singular: { ar: 'سؤال', en: 'Question' }, plural: { ar: 'أسئلة', en: 'Questions' } },
+      admin: { description: { ar: 'سؤال حقيقي من بحث الناس (مثل: كم ارتفاع صلنفة؟) وجوابه القصير من مصادر الصفحة. بلا أسعار ولا ادعاءات أمان.', en: 'A real search question and its short answer from the page sources. No prices, no safety claims.' } },
+      fields: [
+        { name: 'question', type: 'text', required: true, label: { ar: 'السؤال', en: 'Question' } },
+        { name: 'answer', type: 'textarea', required: true, label: { ar: 'الجواب', en: 'Answer' } },
+      ],
+    },
   ],
 }

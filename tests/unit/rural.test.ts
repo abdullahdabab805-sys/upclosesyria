@@ -94,11 +94,12 @@ describe('trip answers', () => {
     ]
     const a = tripAnswers({ name: 'بلودان', region: 'ريف دمشق', distance: 'نحو 50 كم من دمشق', spots, hotels: 2 })
     expect(a.facts.map((f) => f.v)).toEqual(['ريف دمشق، نحو 50 كم من دمشق', 'نبع أبو زاد', 'جبل يونان', 'فندق بلودان الكبير، 2 إقامة على أهلين', 'بانتظار المراسل'])
-    expect(a.faq.map((f) => f.q)).toEqual(['كم بعيدة بلودان؟', 'شو في طبيعة وينابيع بـبلودان؟', 'في آثار بـبلودان؟', 'وين بنام بـبلودان؟', 'في أماكن تخييم بـبلودان؟'])
+    expect(a.faq.map((f) => f.q)).toEqual(['وين بتقع بلودان؟', 'شو في طبيعة وينابيع بـبلودان؟', 'في آثار بـبلودان؟', 'وين بنام بـبلودان؟', 'في أماكن تخييم بـبلودان؟'])
     const empty = tripAnswers({ name: 'ماري', region: 'ريف دير الزور', spots: [], hotels: 0 })
     expect(empty.facts[0]?.v).toBe('ريف دير الزور')
-    expect(empty.faq).toHaveLength(2)
-    expect(empty.faq[0]?.a).toContain('بانتظار المراسل')
+    expect(empty.faq).toHaveLength(3)
+    expect(empty.faq[0]).toEqual({ q: 'وين بتقع ماري؟', a: 'ريف دير الزور.' })
+    expect(empty.faq[1]?.a).toContain('بانتظار المراسل')
   })
 })
 
@@ -108,5 +109,23 @@ describe('tripPhotoKeys', () => {
       'sv-maaloula-1', 'sv-maaloula-2', 'sv-maaloula-3', 'sv-maaloula-4', 'trip-معلولا',
       'trip-maaloula-1', 'trip-maaloula-2', 'trip-maaloula-3', 'trip-maaloula-4',
     ])
+  })
+
+  it('editor-written questions people ask join the FAQ; incomplete rows are skipped (SEO day 11)', () => {
+    const a = tripAnswers({
+      name: 'صلنفة',
+      region: 'ريف اللاذقية',
+      distance: 'نحو 50 كم شرق اللاذقية',
+      spots: [],
+      hotels: 0,
+      asked: [
+        { question: ' كم ارتفاع صلنفة؟ ', answer: 'نحو 1130 م.' },
+        { question: 'سؤال بلا جواب', answer: '' },
+        { question: null, answer: 'جواب بلا سؤال' },
+      ],
+    })
+    expect(a.faq[0]).toEqual({ q: 'وين بتقع صلنفة؟', a: 'ريف اللاذقية، نحو 50 كم شرق اللاذقية.' })
+    expect(a.faq.at(-1)).toEqual({ q: 'كم ارتفاع صلنفة؟', a: 'نحو 1130 م.' })
+    expect(a.faq.filter((f) => f.q === 'سؤال بلا جواب')).toHaveLength(0)
   })
 })

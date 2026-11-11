@@ -324,6 +324,16 @@ export interface DayTrip {
         id?: string | null;
       }[]
     | null;
+  /**
+   * A real search question and its short answer from the page sources. No prices, no safety claims.
+   */
+  askedQuestions?:
+    | {
+        question: string;
+        answer: string;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -876,6 +886,13 @@ export interface DayTripsSelect<T extends boolean = true> {
         lat?: T;
         lng?: T;
         image?: T;
+        id?: T;
+      };
+  askedQuestions?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
         id?: T;
       };
   updatedAt?: T;

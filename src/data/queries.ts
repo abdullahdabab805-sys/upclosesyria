@@ -66,6 +66,8 @@ export type DayTripDoc = {
   checkedAt?: string | null
   sources?: string | null
   spots?: TripSpot[] | null
+  /** Editor-written questions people search for (SEO day 11). */
+  askedQuestions?: { question?: string | null; answer?: string | null }[] | null
   updatedAt?: string
 }
 export type ReportDoc = {
