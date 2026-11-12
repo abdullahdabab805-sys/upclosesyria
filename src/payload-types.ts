@@ -215,6 +215,16 @@ export interface City {
    * Leave empty for main cities.
    */
   parentCity?: (number | null) | City;
+  /**
+   * Arabic, shown on the Arabic page only. A real search question and its short answer from the page sources. No prices, no safety claims.
+   */
+  askedQuestions?:
+    | {
+        question: string;
+        answer: string;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -841,6 +851,13 @@ export interface CitiesSelect<T extends boolean = true> {
   coverImage?: T;
   coverShotNote?: T;
   parentCity?: T;
+  askedQuestions?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

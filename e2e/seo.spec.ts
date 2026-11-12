@@ -165,8 +165,8 @@ test('home: WebSite published by the Organization, square PNG logo that loads, n
   const ld = (await jsonLd(page)) as { '@graph': Record<string, unknown>[] }
   const site = ld['@graph'].find((n) => n['@type'] === 'WebSite')
   const org = ld['@graph'].find((n) => n['@type'] === 'Organization')
-  expect(site).toMatchObject({ '@id': abs('/#site'), name: 'سوريا عن قرب', alternateName: 'Syria Up Close', publisher: { '@id': abs('/#org') } })
-  expect(org).toMatchObject({ '@id': abs('/#org'), name: 'سوريا عن قرب', alternateName: 'Syria Up Close', url: abs('/'), logo: { '@type': 'ImageObject', url: abs('/icon-512.png'), width: 512, height: 512 } })
+  expect(site).toMatchObject({ '@id': abs('/#site'), name: 'سوريا عن قرب', alternateName: ['Syria Up Close', 'Up Close Syria', 'upclosesyria.com'], publisher: { '@id': abs('/#org') } })
+  expect(org).toMatchObject({ '@id': abs('/#org'), name: 'سوريا عن قرب', alternateName: ['Syria Up Close', 'Up Close Syria', 'upclosesyria.com'], url: abs('/'), logo: { '@type': 'ImageObject', url: abs('/icon-512.png'), width: 512, height: 512 } })
   expect(org).not.toHaveProperty('sameAs')
   expect(JSON.stringify(ld)).not.toContain('SearchAction')
   const logo = await request.get(abs('/icon-512.png'))

@@ -45,5 +45,18 @@ export const Cities: CollectionConfig = {
       label: { ar: 'تابعة لريف مدينة', en: 'In the countryside of' },
       admin: { description: { ar: 'اتركها فارغة للمدن الرئيسية.', en: 'Leave empty for main cities.' } },
     },
+    {
+      // Questions people really search for (Search Console), added to the Arabic page's questions and its FAQ schema.
+      // Written and answered by an editor from the page's sources: no prices, no safety claims (SEO day 12).
+      name: 'askedQuestions',
+      type: 'array',
+      label: { ar: 'أسئلة يسألها الناس', en: 'Questions people ask' },
+      labels: { singular: { ar: 'سؤال', en: 'Question' }, plural: { ar: 'أسئلة', en: 'Questions' } },
+      admin: { description: { ar: 'بالعربي، تظهر في الصفحة العربية فقط. سؤال حقيقي من بحث الناس (مثل: وين تقع حلب؟) وجوابه القصير من مصادر الصفحة. بلا أسعار ولا ادعاءات أمان.', en: 'Arabic, shown on the Arabic page only. A real search question and its short answer from the page sources. No prices, no safety claims.' } },
+      fields: [
+        { name: 'question', type: 'text', required: true, label: { ar: 'السؤال', en: 'Question' } },
+        { name: 'answer', type: 'textarea', required: true, label: { ar: 'الجواب', en: 'Answer' } },
+      ],
+    },
   ],
 }

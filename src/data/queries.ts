@@ -7,6 +7,7 @@ import { buildWithoutDatabase } from '@/lib/build-phase'
 import { nearbyHubs } from '@/lib/nearby'
 import { timed } from '@/lib/timing'
 import type { VenueCategory, VenueSubcategory } from '@/lib/venueClass'
+import type { AskedQuestion } from '@/lib/rural'
 
 export { asDoc, asMedia, damascusDate } from '@/lib/docs'
 
@@ -19,7 +20,7 @@ export const payloadClient = cache(() => timed('getPayload', () => getPayload({ 
 /** A localized field fetched with locale 'all' (or a plain value for non-localized fields). */
 export type L = unknown
 
-export type CityDoc = { id: number; slug: string; updatedAt?: string; name: L; tag: L; lede: L; eat: L; coverShotNote: L; coverImage?: Rel<Media>; parentCity?: Rel<CityDoc> | null; nearbyIntro?: string | null }
+export type CityDoc = { id: number; slug: string; updatedAt?: string; name: L; tag: L; lede: L; eat: L; coverShotNote: L; coverImage?: Rel<Media>; parentCity?: Rel<CityDoc> | null; nearbyIntro?: string | null; askedQuestions?: AskedQuestion[] | null }
 export type PlaceDoc = { id: number; title: L; description: L; image?: Rel<Media>; order?: number | null; lat?: number | null; lng?: number | null }
 export type StatusDoc = {
   id: number
@@ -67,7 +68,7 @@ export type DayTripDoc = {
   sources?: string | null
   spots?: TripSpot[] | null
   /** Editor-written questions people search for (SEO day 11). */
-  askedQuestions?: { question?: string | null; answer?: string | null }[] | null
+  askedQuestions?: AskedQuestion[] | null
   updatedAt?: string
 }
 export type ReportDoc = {
