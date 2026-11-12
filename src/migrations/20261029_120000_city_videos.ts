@@ -1,4 +1,4 @@
-import type { MigrateDownArgs, MigrateUpArgs } from '@payloadcms/db-postgres'
+import { sql, type MigrateDownArgs, type MigrateUpArgs } from '@payloadcms/db-postgres'
 
 // "عدسات" for every city (owner request 2026-10-29: "add each city's own videos from social media").
 // Public YouTube videos shown only through YouTube's official embed, with the creator's name and a link
@@ -39,11 +39,14 @@ export const CITY_VIDEOS: V[] = [
   { city: 'hasakah', id: '5ddJE0sYdQo', author: 'Safartas', ar: 'سوق الغنم في الحسكة', en: 'Al-Hasakah sheep bazaar' },
 ]
 
-export async function up({ payload, req }: MigrateUpArgs): Promise<void> {
+export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   for (const [i, v] of CITY_VIDEOS.entries()) {
     const exists = await payload.count({ collection: 'videos', where: { videoId: { equals: v.id } }, req, overrideAccess: true })
     if (exists.totalDocs) continue
-    const city = (await payload.find({ collection: 'cities', where: { slug: { equals: v.city } }, limit: 1, depth: 0, req, overrideAccess: true })).docs[0]
+    // The city's id straight from its table: payload.find would join tables later migrations add (askedQuestions,
+    // SEO day 12) and fail on a fresh database, where those tables do not exist yet at this point.
+    const { rows } = await db.execute(sql`select id from cities where slug = ${v.city} limit 1`)
+    const city = rows[0] as { id: number } | undefined
     if (!city) continue
     const doc = await payload.create({
       collection: 'videos',

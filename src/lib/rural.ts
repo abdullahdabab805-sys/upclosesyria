@@ -91,8 +91,28 @@ export function sourceLines(v: string | null | undefined): string[] {
 export type Fact = { k: string; v: string }
 export type Faq = { q: string; a: string }
 
+/** Questions people search for, written and answered by an editor (SEO days 11–12). Rows missing either half are skipped. */
+export type AskedQuestion = { question?: string | null; answer?: string | null }
+export function askedFaq(rows: readonly AskedQuestion[] | null | undefined): Faq[] {
+  return (rows ?? []).flatMap((x) => {
+    const q = x.question?.trim()
+    const a = x.answer?.trim()
+    return q && a ? [{ q, a }] : []
+  })
+}
+
 /** "In short" facts and the FAQ for a city page, from what the page already shows (no new claims). */
-export function cityAnswers(o: { name: string; tag?: string | null; eat?: string | null; sweets: string[]; sights: string[]; hotels: number; listed?: number; rural: string[] }): { facts: Fact[]; faq: Faq[] } {
+export function cityAnswers(o: {
+  name: string
+  tag?: string | null
+  eat?: string | null
+  sweets: string[]
+  sights: string[]
+  hotels: number
+  listed?: number
+  rural: string[]
+  asked?: readonly AskedQuestion[] | null
+}): { facts: Fact[]; faq: Faq[] } {
   const wait = 'بانتظار مراسل المدينة'
   const facts: Fact[] = [
     ...(o.tag ? [{ k: 'المنطقة', v: o.tag }] : []),
@@ -116,6 +136,7 @@ export function cityAnswers(o: { name: string; tag?: string | null; eat?: string
     },
     ...(o.rural.length ? [{ q: `شو في مشاوير قريبة من ${o.name}؟`, a: `${o.rural.join('، ')}. لكل مكان صفحته بقسم جوّا سوريا.` }] : []),
     { q: `كيف حال الكهرباء والإنترنت اليوم بـ${o.name}؟`, a: 'بقسم "حال البلد اليوم": كل بند عليه اسم المراسل اللي تحقق منه وتاريخ التحقق.' },
+    ...askedFaq(o.asked),
   ]
   return { facts, faq }
 }
@@ -130,7 +151,7 @@ export function tripAnswers(o: {
   spots: readonly SpotLike[]
   hotels: number
   /** Questions people actually search for, each written and answered by an editor (SEO day 11). Empty rows are skipped. */
-  asked?: readonly { question?: string | null; answer?: string | null }[] | null
+  asked?: readonly AskedQuestion[] | null
 }): { facts: Fact[]; faq: Faq[] } {
   const names = (k: SpotLike['kind']) => o.spots.filter((s) => s.kind === k).map((s) => s.name)
   const wait = 'بانتظار المراسل'
@@ -152,11 +173,7 @@ export function tripAnswers(o: {
       a: stay.length || o.hotels ? `${[...stay, ...(o.hotels ? ['إقامات على أهلين'] : [])].join('، ')}. تأكد من الحجز قبل السفر.` : `بانتظار المراسل؛ صفحة ${o.region} على أهلين فيها الإقامات القريبة.`,
     },
     { q: `في أماكن تخييم بـ${o.name}؟`, a: 'ما منقترح مكان تخييم قبل ما يزوره مراسلنا ويتأكد منه.' },
-    ...(o.asked ?? []).flatMap((x) => {
-      const q = x.question?.trim()
-      const a = x.answer?.trim()
-      return q && a ? [{ q, a }] : []
-    }),
+    ...askedFaq(o.asked),
   ]
   return { facts, faq }
 }

@@ -128,4 +128,10 @@ describe('tripPhotoKeys', () => {
     expect(a.faq.at(-1)).toEqual({ q: 'كم ارتفاع صلنفة؟', a: 'نحو 1130 م.' })
     expect(a.faq.filter((f) => f.q === 'سؤال بلا جواب')).toHaveLength(0)
   })
+
+  it('city pages take editor-written questions too, after the built ones (SEO day 12)', () => {
+    const a = cityAnswers({ name: 'حلب', sweets: [], sights: [], hotels: 0, rural: [], asked: [{ question: 'وين تقع حلب؟', answer: 'بشمال سوريا.' }, { question: '', answer: 'x' }] })
+    expect(a.faq.at(-1)).toEqual({ q: 'وين تقع حلب؟', a: 'بشمال سوريا.' })
+    expect(a.faq.filter((f) => f.a === 'x')).toHaveLength(0)
+  })
 })
