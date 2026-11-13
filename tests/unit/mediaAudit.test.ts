@@ -188,6 +188,13 @@ describe('videoObjectsLd', () => {
     expect(ld?.['@graph'].map((n) => n['@id'])).toEqual(['https://x.org/videos#v-1'])
     expect(videoObjectsLd({ base: 'https://x.org', path: '/videos', videos: [{ ...v, uploadDate: undefined }] })).toBeNull()
   })
+  it("gives the creator a url when their channel is known, and none otherwise", () => {
+    const ld = videoObjectsLd({ base: 'https://x.org', path: '/videos', videos: [{ ...v, authorUrl: 'https://www.youtube.com/@x' }, { ...v, anchor: 'v-2', authorUrl: null }] })
+    expect(ld?.['@graph'].map((n) => n.creator)).toEqual([
+      { '@type': 'Person', name: 'صانع', url: 'https://www.youtube.com/@x' },
+      { '@type': 'Person', name: 'صانع' },
+    ])
+  })
 })
 
 describe('archiveLabel', () => {

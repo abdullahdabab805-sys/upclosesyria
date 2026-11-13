@@ -202,7 +202,7 @@ export function serializeLd(data: unknown): string {
 
 export const siteBase = () => siteUrl()
 
-export type VideoLd = { anchor: string; name: string; author: string; thumbnail?: string | null; embedUrl: string; uploadDate?: string | null; duration?: string }
+export type VideoLd = { anchor: string; name: string; author: string; authorUrl?: string | null; thumbnail?: string | null; embedUrl: string; uploadDate?: string | null; duration?: string }
 
 /**
  * "عدسات": one VideoObject per video (batch 4), each with its own anchor on the page. Only videos with
@@ -226,7 +226,8 @@ export function videoObjectsLd(o: { base: string; path: string; videos: VideoLd[
       uploadDate: v.uploadDate,
       ...(v.duration ? { duration: v.duration } : {}),
       embedUrl: v.embedUrl,
-      creator: { '@type': 'Person', name: v.author },
+      // creator.url: the creator's channel or account page (Search Console asked for it, 2026-11-13).
+      creator: { '@type': 'Person', name: v.author, ...(v.authorUrl ? { url: v.authorUrl } : {}) },
     })),
   }
 }

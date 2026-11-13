@@ -25,3 +25,12 @@ describe('video gallery thumbnails (SEO day 10: /videos LCP)', () => {
     expect(out[3]).toContain('loading="lazy"')
   })
 })
+
+describe('video gallery creator credit (SEO day 13)', () => {
+  it("links the creator's name to their channel when known, and leaves it plain otherwise", () => {
+    const html = renderToStaticMarkup(<VideoGallery videos={[{ ...card(1), author: 'Safartas', authorUrl: 'https://www.youtube.com/@safartas' }, { ...card(2), author: 'Plain' }]} text={videoText('ar')} pagePath="/videos" />)
+    expect(html).toContain('<a href="https://www.youtube.com/@safartas" target="_blank" rel="noopener noreferrer">Safartas</a>')
+    expect(html).not.toMatch(/<a [^>]*>Plain<\/a>/)
+    expect(html).toContain('Plain')
+  })
+})

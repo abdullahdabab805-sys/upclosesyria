@@ -2,6 +2,8 @@ import type { CollectionConfig } from 'payload'
 import { editorOrAdmin, publishedOrStaff } from '@/access'
 import { videoCover } from '@/hooks/videoCover'
 import { videoFromUrl } from '@/hooks/videoFromUrl'
+import { videoCreator } from '@/hooks/videoCreator'
+import { creatorUrlError } from '@/lib/videoCreator'
 import { PLATFORMS, PLATFORM_LABELS, videoUrlError } from '@/lib/video'
 
 /**
@@ -16,7 +18,7 @@ export const Videos: CollectionConfig = {
   defaultSort: 'order',
   versions: { drafts: true, maxPerDoc: 20 },
   access: { read: publishedOrStaff, readVersions: editorOrAdmin, create: editorOrAdmin, update: editorOrAdmin, delete: editorOrAdmin },
-  hooks: { beforeChange: [videoFromUrl, videoCover()] },
+  hooks: { beforeChange: [videoFromUrl, videoCover(), videoCreator()] },
   fields: [
     {
       name: 'url',
@@ -36,6 +38,13 @@ export const Videos: CollectionConfig = {
     },
     { name: 'title', type: 'text', required: true, localized: true, label: { ar: 'العنوان', en: 'Title' } },
     { name: 'author', type: 'text', required: true, label: { ar: 'صاحب المقطع (يظهر دائماً)', en: 'Creator (always shown)' } },
+    {
+      name: 'authorUrl',
+      type: 'text',
+      label: { ar: 'رابط قناة أو حساب صاحب المقطع', en: "Creator's channel or account" },
+      validate: (v: unknown) => creatorUrlError(v),
+      admin: { description: { ar: 'يُملأ تلقائياً عند الحفظ لمقاطع يوتيوب وتيك توك. لإنستغرام الصقه بنفسك.', en: 'Filled on save for YouTube and TikTok. Paste it yourself for Instagram.' } },
+    },
     { name: 'city', type: 'relationship', relationTo: 'cities', index: true, label: { ar: 'المدينة (اختياري)', en: 'City (optional)' } },
     { name: 'duration', type: 'text', label: { ar: 'المدة (18:24)', en: 'Duration (18:24)' }, validate: (v: unknown) => v == null || v === '' || /^(\d{1,2}:)?\d{1,2}:\d{2}$/.test(String(v)) || 'مثل 18:24 أو 1:02:03' },
     {
