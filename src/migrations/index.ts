@@ -20,6 +20,7 @@ import * as migration_20261029_120000_city_videos from './20261029_120000_city_v
 import * as migration_20261031_090000_first_visit_refresh from './20261031_090000_first_visit_refresh';
 import * as migration_20261111_080439_trip_asked_questions from './20261111_080439_trip_asked_questions';
 import * as migration_20261112_064103_city_asked_questions from './20261112_064103_city_asked_questions';
+import * as migration_20261113_164417_video_creator_url from './20261113_164417_video_creator_url';
 
 export const migrations = [
   {
@@ -130,6 +131,11 @@ export const migrations = [
   {
     up: migration_20261112_064103_city_asked_questions.up,
     down: migration_20261112_064103_city_asked_questions.down,
-    name: '20261112_064103_city_asked_questions'
+    name: '20261112_064103_city_asked_questions',
+  },
+  {
+    up: migration_20261113_164417_video_creator_url.up,
+    down: migration_20261113_164417_video_creator_url.down,
+    name: '20261113_164417_video_creator_url'
   },
 ];

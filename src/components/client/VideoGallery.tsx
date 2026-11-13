@@ -11,6 +11,8 @@ export type VideoCardData = {
   orientation: Orientation
   title: string
   author: string
+  /** The creator's channel or account; the name links to it when known. */
+  authorUrl?: string | null
   duration?: string | null
   thumbnail?: string | null
 }
@@ -25,6 +27,17 @@ type Text = {
   close: string
   copied: string
   link: string
+}
+
+/** The creator's name, linked to their channel or account when we have it. */
+function Creator({ v }: { v: Pick<VideoCardData, 'author' | 'authorUrl'> }) {
+  return v.authorUrl ? (
+    <a href={v.authorUrl} target="_blank" rel="noopener noreferrer">
+      {v.author}
+    </a>
+  ) : (
+    <>{v.author}</>
+  )
 }
 
 const PLAY = (
@@ -147,7 +160,7 @@ export function VideoGallery({
             <div className="b">
               <CardHeading>{v.title}</CardHeading>
               <span className="by">
-                {v.author} · {text.platforms[v.platform]}
+                <Creator v={v} /> · {text.platforms[v.platform]}
               </span>
               <div className="row">
                 <button type="button" className="pill" onClick={() => share(v)}>
@@ -188,7 +201,9 @@ export function VideoGallery({
                 {open.duration ? ` · ${open.duration}` : ''}
               </span>
               <h2>{open.title}</h2>
-              <span className="muted">{open.author}</span>
+              <span className="muted">
+                <Creator v={open} />
+              </span>
               <div className="row">
                 <button type="button" className="btn-pill small" onClick={() => share(open)}>
                   {SHARE} {text.share}

@@ -50,6 +50,7 @@ export default async function VideosPage({ params }: Props) {
       anchor: videoAnchor(v.id),
       name: v.title,
       author: v.author,
+      authorUrl: v.authorUrl,
       thumbnail: v.thumbnail,
       embedUrl: embedUrl({ platform: v.platform, id: v.videoId }),
       // The original's own date only (Payload "تاريخ نشر المقطع الأصلي"); without it, no VideoObject.
