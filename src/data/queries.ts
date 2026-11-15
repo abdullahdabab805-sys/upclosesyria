@@ -211,6 +211,7 @@ export type VideoDoc = {
   orientation?: 'wide' | 'tall' | null
   title: L
   author: string
+  authorUrl?: string | null
   city?: Rel<CityDoc> | null
   duration?: string | null
   thumbnail?: Rel<Media>

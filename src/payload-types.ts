@@ -637,6 +637,10 @@ export interface Video {
   orientation?: ('wide' | 'tall') | null;
   title: string;
   author: string;
+  /**
+   * Filled on save for YouTube and TikTok. Paste it yourself for Instagram.
+   */
+  authorUrl?: string | null;
   city?: (number | null) | City;
   duration?: string | null;
   /**
@@ -1120,6 +1124,7 @@ export interface VideosSelect<T extends boolean = true> {
   orientation?: T;
   title?: T;
   author?: T;
+  authorUrl?: T;
   city?: T;
   duration?: T;
   thumbnail?: T;
