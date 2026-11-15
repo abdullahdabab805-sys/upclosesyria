@@ -35,7 +35,7 @@ import { SWEET_ART, SWEET_SAID } from '@/content/sweetArt'
 import { SweetArt } from '@/components/client/SweetArt'
 import { ShowMore } from '@/components/client/ShowMore'
 import { cityAnswers, tripPath } from '@/lib/rural'
-import { cityMeta } from '@/lib/seoText'
+import { cityMeta, TOURISM_TITLE_TRIAL } from '@/lib/seoText'
 
 mark('module cities/[slug] loaded')
 
@@ -69,6 +69,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     sweets: eating.filter((v) => v.kind === 'sweets').length + (SWEETS[slug]?.length ?? 0),
     stays: stays.length,
     rural: locale === 'ar' ? trips.filter((tr) => asDoc(tr.fromCity)?.id === city.id).length : 0,
+    tourismLead: TOURISM_TITLE_TRIAL.has(slug),
   })
   return pageMetadata({
     locale,

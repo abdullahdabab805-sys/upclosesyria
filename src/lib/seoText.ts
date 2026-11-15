@@ -90,7 +90,16 @@ export type CityFacts = {
   stays: number
   /** Countryside trips shown on the page (Arabic page only). */
   rural: number
+  /** Lead the Arabic title with "أماكن سياحية في <city>" (the phrase people search for). See TOURISM_TITLE_TRIAL. */
+  tourismLead?: boolean
 }
+
+/**
+ * SEO day 15 (15 Nov 2026) keyword audit: the site shows for bare city names but never for "أماكن سياحية في
+ * <city>", which is Google's first suggestion. Trial on three cities first; compare their impressions with the
+ * rest of the cities around 1 Dec 2026 before extending it to all of them.
+ */
+export const TOURISM_TITLE_TRIAL: ReadonlySet<string> = new Set(['damascus', 'tartous', 'aleppo'])
 
 export function cityMeta(f: CityFacts): Meta {
   const ar = f.locale === 'ar'
@@ -98,7 +107,8 @@ export function cityMeta(f: CityFacts): Meta {
   const see = Boolean(f.sights)
   const eat = Boolean(f.eat || f.dishes)
   const enTopic = see && eat ? 'what to see and eat' : see ? 'what to see' : eat ? 'what to eat' : null
-  const title = ar ? fitTopic(f.name, shown, 'ar') : fitTopic(`${f.name} travel guide`, enTopic ? [enTopic] : [], 'en')
+  const head = ar && f.tourismLead && see ? `أماكن سياحية في ${f.name}` : f.name
+  const title = ar ? fitTopic(head, shown, 'ar') : fitTopic(`${f.name} travel guide`, enTopic ? [enTopic] : [], 'en')
   const inside = ar
     ? [f.sights && 'معالمها', f.eat && 'مطاعمها وكافيهاتها', !f.eat && f.dishes && 'أكلاتها', f.sweets && 'حلوياتها', f.stays && 'فنادقها', f.rural && 'مشاوير ريفها']
     : [f.sights && 'its sights', f.eat && 'restaurants and cafes', !f.eat && f.dishes && 'local dishes', f.sweets && 'sweets', f.stays && 'hotels']

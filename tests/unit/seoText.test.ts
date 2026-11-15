@@ -73,6 +73,15 @@ group('cityMeta', () => {
     expect(m.description.startsWith(city.lede)).toBe(true)
     expect(m.description).toContain('فنادقها')
   })
+  it('trial cities lead with the searched phrase, within the title length', () => {
+    const m = cityMeta({ ...city, tourismLead: true })
+    expect(m.title.startsWith('أماكن سياحية في دمشق: شو تشوف')).toBe(true)
+    expect(len(m.title)).toBeLessThanOrEqual(topicRoom('ar'))
+  })
+  it('the tourism lead needs sights on the page, and is Arabic only', () => {
+    expect(cityMeta({ ...city, tourismLead: true, sights: 0 }).title).not.toContain('أماكن سياحية')
+    expect(cityMeta({ ...city, locale: 'en', name: 'Damascus', tourismLead: true }).title).toBe('Damascus travel guide: what to see and eat')
+  })
   it('no stays: neither the title nor the description promises where to stay', () => {
     const m = cityMeta({ ...city, stays: 0 })
     expect(m.title).not.toContain('تنام')

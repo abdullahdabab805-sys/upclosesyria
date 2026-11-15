@@ -9,7 +9,7 @@ import { Crumbs, HowWeCheck, JsonLd, Loc, RelatedLinks, text } from '@/component
 import { citations, infoPageLd, siteBase } from '@/lib/jsonld'
 import { Stamp } from '@/components/Stamp'
 import { getFirstVisitPage, getFirstVisitPages, getSettings } from '@/data/queries'
-import { FIRST_VISIT } from '@/lib/firstVisitTopics'
+import { FIRST_VISIT, FIRST_VISIT_SEO_TITLE, type FirstVisitTopic } from '@/lib/firstVisitTopics'
 import { isLocale, type Locale } from '@/lib/i18n'
 import { isTranslated, pick } from '@/lib/localized'
 import { localePath } from '@/lib/routing'
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return pageMetadata({
     locale,
     path: `/outside/first-visit/${topic}`,
-    title: text(page.title, locale) ?? topic,
+    title: FIRST_VISIT_SEO_TITLE[topic as FirstVisitTopic]?.[locale] ?? text(page.title, locale) ?? topic,
     description: describe([
       text(page.summary, locale),
       locale === 'ar' ? 'صفحة عملية من دليل أول زيارة، مع مصدرها الرسمي وتاريخ آخر تحقق' : 'A practical first-visit page, with its official source and the date it was last checked',
