@@ -80,7 +80,7 @@ group('cityMeta', () => {
   })
   it('the tourism lead needs sights on the page, and is Arabic only', () => {
     expect(cityMeta({ ...city, tourismLead: true, sights: 0 }).title).not.toContain('أماكن سياحية')
-    expect(cityMeta({ ...city, locale: 'en', name: 'Damascus', tourismLead: true }).title).toBe('Damascus travel guide: what to see and eat')
+    expect(cityMeta({ ...city, locale: 'en', name: 'Damascus', tourismLead: true }).title).toBe('Things to do in Damascus, Syria')
   })
   it('no stays: neither the title nor the description promises where to stay', () => {
     const m = cityMeta({ ...city, stays: 0 })
@@ -98,17 +98,25 @@ group('cityMeta', () => {
     expect(m.title).toBe('دمشق: دليل المدينة')
     expect(m.description).toBe(SITE_LINE.ar[0])
   })
-  it('English: travel-guide title within the limit, no Arabic-only countryside', () => {
+  it('English: "things to do in <city>, Syria" within the limit, no Arabic-only countryside', () => {
     const m = cityMeta({ ...city, locale: 'en', name: 'Damascus', lede: 'Narrow lanes, wooden doors and covered markets.' })
-    expect(m.title).toBe('Damascus travel guide: what to see and eat')
+    expect(m.title).toBe('Things to do in Damascus, Syria')
     expect(len(full(m.title, 'en'))).toBeLessThanOrEqual(TITLE_MAX)
     expect(m.description).not.toMatch(/countryside/i)
     const bare = cityMeta({ ...city, locale: 'en', name: 'Idlib', lede: null, sights: 0, eat: 0, dishes: 0, sweets: 0, stays: 0, rural: 0 })
-    expect(bare.title).toBe('Idlib travel guide')
+    expect(bare.title).toBe('Idlib, Syria travel guide')
     const dishes = cityMeta({ ...city, locale: 'en', name: 'Hama', eat: 0 })
     expect(dishes.description).toContain('local dishes')
-    expect(cityMeta({ ...city, locale: 'en', name: 'Hama', sights: 0 }).title).toBe('Hama travel guide: what to eat')
-    expect(cityMeta({ ...city, locale: 'en', name: 'Hama', eat: 0, dishes: 0 }).title).toBe('Hama travel guide: what to see')
+    expect(cityMeta({ ...city, locale: 'en', name: 'Hama', sights: 0 }).title).toBe('Hama, Syria travel guide: what to eat')
+    expect(cityMeta({ ...city, locale: 'en', name: 'Hama', eat: 0, dishes: 0 }).title).toBe('Things to do in Hama, Syria')
+  })
+  it('English: the longest city names still fit, and a short one gets "where to eat" when there is room', () => {
+    for (const name of ['Deir ez-Zor', 'Mashta al-Helu', 'Quneitra']) {
+      const t = cityMeta({ ...city, locale: 'en', name }).title
+      expect(t.startsWith(`Things to do in ${name}, Syria`)).toBe(true)
+      expect(len(full(t, 'en'))).toBeLessThanOrEqual(TITLE_MAX)
+    }
+    expect(cityMeta({ ...city, locale: 'en', name: 'Homs', sights: 0 }).title).toBe('Homs, Syria travel guide: what to eat')
   })
 })
 

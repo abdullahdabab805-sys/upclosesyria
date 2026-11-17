@@ -101,14 +101,23 @@ export type CityFacts = {
  */
 export const TOURISM_TITLE_TRIAL: ReadonlySet<string> = new Set(['damascus', 'tartous', 'aleppo'])
 
+/**
+ * SEO day 17 (16 Nov 2026): English city pages ranked 50-95 for the bare city name, a query Wikipedia and the
+ * news own. The title now names the country and the longer phrase travellers type ("things to do in Aleppo"),
+ * and only when the page lists sights; otherwise a plain guide title that promises only what is there.
+ */
+function enCityTitle(name: string, see: boolean, eat: boolean): string {
+  if (see) return fitTopic(`Things to do in ${name}, Syria`, eat ? ['where to eat'] : [], 'en')
+  return fitTopic(`${name}, Syria travel guide`, eat ? ['what to eat'] : [], 'en')
+}
+
 export function cityMeta(f: CityFacts): Meta {
   const ar = f.locale === 'ar'
   const shown = [f.sights && 'شو تشوف', (f.eat || f.dishes) && 'شو تاكل', f.stays && 'وين تنام'].filter((p): p is string => Boolean(p))
   const see = Boolean(f.sights)
   const eat = Boolean(f.eat || f.dishes)
-  const enTopic = see && eat ? 'what to see and eat' : see ? 'what to see' : eat ? 'what to eat' : null
   const head = ar && f.tourismLead && see ? `أماكن سياحية في ${f.name}` : f.name
-  const title = ar ? fitTopic(head, shown, 'ar') : fitTopic(`${f.name} travel guide`, enTopic ? [enTopic] : [], 'en')
+  const title = ar ? fitTopic(head, shown, 'ar') : enCityTitle(f.name, see, eat)
   const inside = ar
     ? [f.sights && 'معالمها', f.eat && 'مطاعمها وكافيهاتها', !f.eat && f.dishes && 'أكلاتها', f.sweets && 'حلوياتها', f.stays && 'فنادقها', f.rural && 'مشاوير ريفها']
     : [f.sights && 'its sights', f.eat && 'restaurants and cafes', !f.eat && f.dishes && 'local dishes', f.sweets && 'sweets', f.stays && 'hotels']
