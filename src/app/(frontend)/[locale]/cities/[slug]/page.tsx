@@ -9,7 +9,7 @@ import { CityPicker } from '@/components/client/CityPicker'
 import { citations, faqLd, siteBase, touristDestinationLd } from '@/lib/jsonld'
 import { PhotoPlaceholder, SoonTag } from '@/components/ui'
 import type { CSSProperties } from 'react'
-import { PatternBand, PatternDefs, PatternFill, SyrianFill, CopperCorners, KuficRule } from '@/components/Patterns'
+import { PatternBand, PatternDefs, PatternFill, SyrianFill, CopperCorners, KuficRule, PatternTile } from '@/components/Patterns'
 import { FoodClasses, type FoodClass } from '@/components/client/FoodClasses'
 import { CATEGORY_LABELS, mergeByName, VENUE_CATEGORIES, countIn, defaultCategory, subcategoriesOf, subcategoryLabel, type VenueCategory, type VenueSubcategory } from '@/lib/venueClass'
 import { Gallery } from '@/components/client/Gallery'
@@ -31,8 +31,7 @@ import { mapLink } from '@/lib/maplinks'
 import { pointOf } from '@/lib/geocode'
 import { CITY_COORDS } from '@/lib/geo'
 import { SWEETS } from '@/content/sweets'
-import { SWEET_ART, SWEET_SAID } from '@/content/sweetArt'
-import { SweetArt } from '@/components/client/SweetArt'
+import { SweetTray3D } from '@/components/client/SweetTray3D'
 import { ShowMore } from '@/components/client/ShowMore'
 import { cityAnswers, tripPath } from '@/lib/rural'
 import { cityMeta, TOURISM_TITLE_TRIAL } from '@/lib/seoText'
@@ -231,7 +230,6 @@ export default async function CityPage({ params }: Props) {
           return c != null && (c.id === city.id || (asDoc(c.parentCity)?.id ?? c.parentCity) === city.id)
         })
       : []
-  const sweetArt = SWEET_ART[slug] ?? null
   const answers = cityAnswers({
     name,
     tag: text(city.tag, locale),
@@ -374,7 +372,8 @@ export default async function CityPage({ params }: Props) {
           </section>
         )}
 
-        <section className="sec" id="map" style={{ paddingTop: 48, paddingBottom: 40 }}>
+        <section className="sec has-pat" id="map" style={{ paddingTop: 48, paddingBottom: 40 }}>
+          <PatternTile id="sadaf" opacity={0.05} />
           <div className="wrap">
             <LiveMap
               center={CITY_COORDS[slug] ?? [33.5115, 36.3065]}
@@ -466,7 +465,8 @@ export default async function CityPage({ params }: Props) {
             )}
           </div>
         </section>
-        <section className="sec" id="stay" style={{ paddingBlock: 72 }}>
+        <section className="sec has-pat" id="stay" style={{ paddingBlock: 72 }}>
+          <PatternTile id="brocade" opacity={0.1} />
           <div className="wrap">
             <div className="sec-head" style={{ marginBottom: 10 }}>
               <h2>{T(`فنادق ${name}`, `Hotels in ${name}`)}</h2>
@@ -507,27 +507,19 @@ export default async function CityPage({ params }: Props) {
                 <p>{T(`قبل المحلات: شو الحلو يلي بتشتهر فيه ${name}، وشو لازم تدوق.`, `Before the shops: what ${name} is known for, and what to taste.`)}</p>
               </div>
             </div>
-            {sweetArt ? (
+            {sweetKinds.length ? (
               <div className="sweet-show">
-                <div className="txt">
-                  <span className="eyebrow">{T('دوق بعيونك', 'Taste it with your eyes')}</span>
-                  <h3>{sweetKinds[0]?.name[locale]}</h3>
-                  <p>{sweetKinds[0]?.note[locale]}</p>
-                </div>
-                <SweetArt
-                  art={sweetArt}
-                  make={T('اضغط على الحلو وشوف شو بيصير', 'Press the sweet and see what happens')}
-                  again={T('رجّعها', 'Put it back')}
-                  hint={T('اضغط على الرسمة وشوف شو بيطلع', 'Press the drawing and see what comes out')}
-                  hintDone={T('اضغط مرة ثانية لترجع', 'Press again to put it back')}
-                  said={SWEET_SAID[slug]?.[locale] ?? T('صحتين!', 'Enjoy!')}
+                <PatternTile id="brocade" />
+                <SweetTray3D
+                  kinds={sweetKinds.map((k) => ({ name: k.name[locale], note: k.note[locale], model: k.model }))}
+                  labels={{
+                    tray: T(`صدر نحاس عليه حلويات ${name}`, `A copper tray of ${name}’s sweets`),
+                    pick: T('اختر الحلو', 'Choose a sweet'),
+                    hint: sweetKinds.length > 1 ? T('اسحب الصدر لتدوّره · اضغط على قطعة أو اسم لترفع صنفها', 'Drag the tray to turn it · press a piece or a name to lift that sweet') : T('اسحب الصدر لتدوّره', 'Drag the tray to turn it'),
+                  }}
                 />
               </div>
-            ) : (
-              <div className="sweet-wait">
-                {T(`رسمة حلو ${name} التفاعلية بانتظار مراسل المدينة: منرسمها لما يتأكد شو الحلو الأشهر.`, `${name}’s drawn sweet waits for our correspondent to confirm the city’s best-known sweet.`)}
-              </div>
-            )}
+            ) : null}
             {sweetKinds.length ? (
               <div className="sweet-kinds">
                 {sweetKinds.map((k) => (
@@ -633,7 +625,8 @@ export default async function CityPage({ params }: Props) {
           </section>
         )}
         <RelatedLinks id="city-reports" kicker="تقارير الموسم" title={`تقارير الموسم من ${name} وريفها`} links={ownReports.map((r) => ({ href: `/seasons/${r.slug}`, label: r.title }))} />
-        <section className="sec" id="status" style={{ paddingTop: 64, paddingBottom: 32 }}>
+        <section className="sec has-pat" id="status" style={{ paddingTop: 64, paddingBottom: 32 }}>
+          <PatternTile id="qishani" opacity={0.06} />
           <div className="wrap">
             <div className="sec-head" style={{ marginBottom: 24 }}>
               <div>

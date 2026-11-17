@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { SyrianFill } from '@/components/Patterns'
+import { SyrianFill, MuqarnasEdge } from '@/components/Patterns'
 import { Page } from '@/components/Header'
 import { ArabicOnly } from '@/components/ArabicOnly'
 import { Crumbs, JsonLd, Photo, ReportList, text } from '@/components/content'
@@ -104,6 +104,7 @@ export default async function NearbyPage({ params }: Props) {
               </p>
             )}
           </div>
+          <MuqarnasEdge />
         </section>
 
         <section className="sec trips">

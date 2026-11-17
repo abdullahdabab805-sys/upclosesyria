@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { Page } from '@/components/Header'
 import { JsonLd } from '@/components/content'
-import { Ablaq, SyrianFill } from '@/components/Patterns'
+import { Ablaq, SyrianFill, MuqarnasEdge } from '@/components/Patterns'
 import { VideoGallery } from '@/components/client/VideoGallery'
 import { getVideos } from '@/data/queries'
 import { isLocale, type Locale } from '@/lib/i18n'
@@ -81,6 +81,7 @@ export default async function VideosPage({ params }: Props) {
             )}
           </p>
         </div>
+        <MuqarnasEdge />
       </section>
       <Ablaq />
       <section className="sec">

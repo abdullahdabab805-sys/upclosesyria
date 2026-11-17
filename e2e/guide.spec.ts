@@ -14,10 +14,15 @@ test('home: the map names the main cities only, and the card follows the choice'
   await expect(map.getByRole('link', { name: /افتح صفحة المدينة/ })).toHaveAttribute('href', '/cities/aleppo')
 })
 
-test('home: the hungry section links to city restaurants and the spit makes a sandwich', async ({ page }) => {
+test('home: the hungry section links to city restaurants and the 3D spit builds a plate', async ({ page }) => {
   await page.goto('/')
   await expect(page.getByRole('link', { name: 'مطاعم المدن ←' })).toHaveAttribute('href', '/cities/damascus#food')
-  await page.getByRole('button', { name: 'اضغط لتحضير سندويشة شاورما' }).click()
+  const spit = page.getByRole('button', { name: 'سيخ شاورما: اسحبه لتدوّره، واضغط عليه لتقصّ منه' })
+  await spit.scrollIntoViewIfNeeded()
+  await expect(page.locator('.shw3 .face').first()).toBeAttached()
+  await spit.click()
+  await expect(page.locator('.shw3-steps li.is-done')).toHaveCount(1)
+  for (const name of ['لفّها بالخبز', 'حمّصها وقطّعها', 'حطّ الثومية والمخلل والبطاطا']) await page.getByRole('button', { name, exact: true }).click()
   await expect(page.getByText('صحتين وعافية!')).toBeVisible()
   await expect(page.locator('.ctile').first()).toBeVisible()
 })

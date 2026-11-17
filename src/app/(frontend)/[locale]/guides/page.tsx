@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { Page } from '@/components/Header'
-import { Ablaq, SyrianFill } from '@/components/Patterns'
+import { Ablaq, SyrianFill, MuqarnasEdge } from '@/components/Patterns'
 import { GuideCard, GuideSlot, langLabel } from '@/components/guides'
 import { GuideFilter } from '@/components/client/GuideFilter'
 import { asDoc, getGuides } from '@/data/queries'
@@ -64,6 +64,7 @@ export default async function GuidesPage({ params }: Props) {
             <p className="fine">{T('ما في دفع بالموقع. الكلفة يتفق عليها الدليل معك وتوصلك مع التأكيد.', 'No payment on the site. The guide agrees the cost with you and it comes with the confirmation.')}</p>
           </div>
         </div>
+        <MuqarnasEdge />
       </section>
       <Ablaq />
       <section className="sec">

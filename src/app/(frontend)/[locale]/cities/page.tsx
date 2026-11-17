@@ -1,6 +1,6 @@
 import { pageMetadata } from '@/lib/seo'
 import { describe, SITE_LINE } from '@/lib/seoText'
-import { SyrianFill } from '@/components/Patterns'
+import { SyrianFill, MuqarnasEdge } from '@/components/Patterns'
 import { Page } from '@/components/Header'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -44,6 +44,7 @@ export default async function CitiesPage({ params }: Props) {
             {T('مراكز المحافظات. لكل مدينة: حال البلد اليوم، المعالم، المطاعم والكافيهات، الحدائق، معرض صور، ومشاوير ريفها ومصايفه.', 'The provincial capitals. For each: today’s status, sights, restaurants and cafes, parks, a photo gallery, and trips into its countryside.')}
           </p>
         </div>
+        <MuqarnasEdge />
       </section>
       <section className="sec bottom" style={{ paddingTop: 56 }}>
         <div className="wrap">

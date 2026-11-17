@@ -1,6 +1,6 @@
 import { pageMetadata } from '@/lib/seo'
 import { describe } from '@/lib/seoText'
-import { SyrianFill } from '@/components/Patterns'
+import { SyrianFill, MuqarnasEdge } from '@/components/Patterns'
 import { Page } from '@/components/Header'
 import Link from 'next/link'
 import type { Metadata } from 'next'
@@ -67,6 +67,7 @@ export default async function AboutPage({ params }: Props) {
             ]}
           />
         </div>
+        <MuqarnasEdge />
       </section>
 
       <section className="sec" id="independence" style={{ paddingTop: 88 }}>

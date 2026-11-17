@@ -1,12 +1,16 @@
 // What each city's sweets are known for (owner request 2026-10-24: the kinds first, then the shops).
 // Only the well-known specialities; a city without an entry waits for its correspondent.
+import type { SweetModel } from '@/lib/sweetTray'
+
 type T = { ar: string; en: string }
-export type Sweet = { name: T; note: T; photo?: string }
+/** `model`: how the piece is drawn on the city's 3D tray (lib/sweetTray). */
+export type Sweet = { name: T; note: T; photo?: string; model: SweetModel }
 
 export const SWEETS: Record<string, Sweet[]> = {
   damascus: [
     {
       photo: 'sweet-booza',
+      model: 'booza',
       name: { ar: 'البوظة العربية المدقوقة', en: 'Pounded Arabic ice cream' },
       note: {
         ar: 'بوظة بالسحلب تُدق بالمدقة وتتغطى بالفستق الحلبي، وأشهرها بسوق الحميدية.',
@@ -15,6 +19,7 @@ export const SWEETS: Record<string, Sweet[]> = {
     },
     {
       photo: 'sweet-barazek',
+      model: 'barazek',
       name: { ar: 'البرازق والغريبة', en: 'Barazek and ghraybeh' },
       note: {
         ar: 'كعك ناشف رقيق: البرازق بالسمسم والفستق، والغريبة بالسمن تذوب بالتم.',
@@ -23,6 +28,7 @@ export const SWEETS: Record<string, Sweet[]> = {
     },
     {
       photo: 'sweet-ish-al-bulbul',
+      model: 'mabrumeh',
       name: {
         ar: 'المبرومة والبلورية وعش البلبل',
         en: 'Mabrumeh, balloriyeh and nightingale’s nests',
@@ -35,6 +41,7 @@ export const SWEETS: Record<string, Sweet[]> = {
   ],
   aleppo: [
     {
+      model: 'karabij',
       name: { ar: 'الكرابيج مع الناطف', en: 'Karabij with natef' },
       note: {
         ar: 'أقراص سميد محشية جوز تتغمس بالناطف الأبيض، ومن أشهر ما يُهدى من حلب.',
@@ -43,6 +50,7 @@ export const SWEETS: Record<string, Sweet[]> = {
     },
     {
       photo: 'sweet-baklava',
+      model: 'baklava',
       name: { ar: 'حلويات الفستق الحلبي', en: 'Pistachio sweets' },
       note: {
         ar: 'مبرومة وبقلاوة محشية بالفستق، والفستق نفسه يحمل اسم المدينة.',
@@ -53,6 +61,7 @@ export const SWEETS: Record<string, Sweet[]> = {
   homs: [
     {
       photo: 'sweet-halawet-jibn',
+      model: 'halawet',
       name: { ar: 'حلاوة الجبن الحمصية', en: 'Homs halawet el-jibn' },
       note: {
         ar: 'عجينة جبن وسميد ملفوفة على القشطة، مع القطر والفستق.',
@@ -60,6 +69,7 @@ export const SWEETS: Record<string, Sweet[]> = {
       },
     },
     {
+      model: 'maarouk',
       name: { ar: 'المعروك', en: 'Maarouk' },
       note: {
         ar: 'خبز حلو بالسمسم وحبة البركة يكثر برمضان، ومنه المحشي بالتمر.',
@@ -70,6 +80,7 @@ export const SWEETS: Record<string, Sweet[]> = {
   hama: [
     {
       photo: 'sweet-halawet-jibn',
+      model: 'halawet',
       name: { ar: 'حلاوة الجبن الحموية', en: 'Hama halawet el-jibn' },
       note: {
         ar: 'حماة وحمص تتنافسان عليها، ولكل منهما طريقته في العجينة والقشطة.',
@@ -80,6 +91,7 @@ export const SWEETS: Record<string, Sweet[]> = {
   'deir-ez-zor': [
     {
       photo: 'sweet-kleicha',
+      model: 'kleicha',
       name: { ar: 'الكليجة الديرية', en: 'Deir ez-Zor kleicha' },
       note: {
         ar: 'أقراص عجين محشية تمر، تُخبز بالعيد وتُقدَّم مع الشاي.',
@@ -90,6 +102,7 @@ export const SWEETS: Record<string, Sweet[]> = {
   suwayda: [
     {
       photo: 'sweet-dibs',
+      model: 'dibs',
       name: { ar: 'دبس العنب', en: 'Grape molasses' },
       note: {
         ar: 'من كروم جبل العرب، يُؤكل مع الطحينة أو الخبز.',
@@ -101,6 +114,7 @@ export const SWEETS: Record<string, Sweet[]> = {
   // Alsori (2021), SANA, Snack Syrian (2018), Ronahi (2025) and Enab Baladi.
   latakia: [
     {
+      model: 'jazariyeh',
       name: { ar: 'الجزرية', en: 'Jazariyeh (carrot sweet)' },
       note: {
         ar: 'جزر مبشور مطبوخ بالسكر مع جوز الهند والجوز، يتشكّل كرات أو أهرامات. حلو تراثي مرتبط بأهل اللاذقية وبيكثر برمضان.',
@@ -110,6 +124,7 @@ export const SWEETS: Record<string, Sweet[]> = {
   ],
   tartous: [
     {
+      model: 'tallaj',
       name: { ar: 'التلاج', en: 'Tallaj' },
       note: {
         ar: 'رقائق عجين سميد رفيعة مخبوزة ومنقوعة بالقطر، سادة أو بالجوز أو القشطة. بينعمل بطرطوس من عقود وبيكثر بالأعياد.',
@@ -119,6 +134,7 @@ export const SWEETS: Record<string, Sweet[]> = {
   ],
   idlib: [
     {
+      model: 'shaibiyat',
       name: { ar: 'الشعيبيات', en: 'Shaibiyat' },
       note: {
         ar: 'عجينة رقائق بالسمن محشية قشطة، تنخبز ويُسكب عليها القطر وتنقدّم سخنة. من تراث إدلب، وتنافسها عليها أريحا.',
@@ -126,6 +142,7 @@ export const SWEETS: Record<string, Sweet[]> = {
       },
     },
     {
+      model: 'jidq',
       name: { ar: 'حريرة الجدق', en: 'Harirat al-jidq' },
       note: {
         ar: 'جوز مشكوك بخيط ومغطّس بعصير العنب المعقود، حلو موسم القطاف بسلقين.',
@@ -135,6 +152,7 @@ export const SWEETS: Record<string, Sweet[]> = {
   ],
   daraa: [
     {
+      model: 'raha',
       name: { ar: 'الراحة الحورانية', en: 'Hauran raha' },
       note: {
         ar: 'راحة بتتصنّع بدرعا من أجيال، وعدّت سانا 12 منشأة مستمرة بإنتاجها.',
@@ -142,6 +160,7 @@ export const SWEETS: Record<string, Sweet[]> = {
       },
     },
     {
+      model: 'lazzaqi',
       name: { ar: 'اللزاقيات', en: 'Lazzaqiyat' },
       note: {
         ar: 'رقاقات خبز رفيعة بزيت الزيتون والسكر، مرصوفة فوق بعض وتنقطّع مثلثات. حلو بيتي حوراني، أكثر ما ينعمل برمضان.',
@@ -151,6 +170,7 @@ export const SWEETS: Record<string, Sweet[]> = {
   ],
   quneitra: [
     {
+      model: 'lazzaqi',
       name: { ar: 'اللزاقي', en: 'Lazzaqi' },
       note: {
         ar: 'رغفان على الصاج مرصوفة بصينية مع السمنة البلدية أو الدبس، وفوقها جوز أو حبة البركة. ويسمّوه "كنافة البدو"، وبيتقدّم بالأعراس وبعد الحصاد.',
@@ -160,6 +180,7 @@ export const SWEETS: Record<string, Sweet[]> = {
   ],
   raqqa: [
     {
+      model: 'siyala',
       name: { ar: 'السيالة', en: 'Siyala' },
       note: {
         ar: 'رقائق عجين على الصاج مع السمن البلدي ودبس التمر أو السكر، بتنقدّم بصينية بالشتوية مع الشاي المر.',
@@ -170,6 +191,7 @@ export const SWEETS: Record<string, Sweet[]> = {
   hasakah: [
     {
       photo: 'dish-kleicha',
+      model: 'kleicha',
       name: { ar: 'الكليجة', en: 'Kleicha' },
       note: {
         ar: 'حلوى العيد وموروث الأجيال بالحسكة: أقراص عجين منقوشة، وبعضها محشي تمر.',
