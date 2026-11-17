@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>صدر الحلويات التفاعلي</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'IBM Plex Sans Arabic','IBM Plex Sans',Tahoma,sans-serif;color:#1C1915;background:#F1E8D9}
+a{color:#0B4836}a:hover{color:#8A5226}
+.pt{position:absolute;inset:0;pointer-events:none}
+.p-brocade{background:url(../../design/patterns/brocade.svg) 0 0/64px 96px}
+.p-khatam-c{background:url(../../design/patterns/khatam-c.svg) 0 0/58px 58px}
+.p-vine{background:url(../../design/patterns/vine.svg) 0 50%/120px 44px repeat-x}
+.p3{transform-style:preserve-3d}
+@keyframes tray{to{transform:rotateZ(360deg)} }
+.tray-spin{animation:tray 80s linear infinite}
+@media (prefers-reduced-motion:reduce){.tray-spin{animation:none} }
+</style>
+</helmet>
+<section style="position:relative; background:#F1E8D9; overflow:hidden; min-height:900px">
+<div class="pt p-brocade" aria-hidden="true" style="opacity:.16"></div>
+<div style="position:relative; max-width:1240px; margin:0 auto; padding:56px 24px; display:flex; flex-wrap:wrap; align-items:center; gap:40px">
+
+<div style="flex:1 1 440px; min-width:0; display:flex; justify-content:center">
+<div onPointerDown="{{down}}" onPointerMove="{{move}}" onPointerUp="{{up}}" onPointerLeave="{{up}}" style="position:relative; width:540px; max-width:100%; height:560px; perspective:1200px; cursor:grab; touch-action:pan-y; user-select:none">
+<div aria-hidden="true" style="position:absolute; left:50%; margin-left:-240px; top:300px; width:480px; height:150px; border-radius:50%; background:radial-gradient(ellipse at center,rgba(28,25,21,.4) 0,rgba(28,25,21,0) 68%)"></div>
+<div class="p3" style="position:absolute; left:50%; margin-left:-230px; top:36px; width:460px; height:460px; transform:rotateX(55deg)">
+<div style="position:absolute; inset:0; border-radius:50%; background:conic-gradient(from 30deg,rgba(255,255,255,.4),rgba(255,255,255,0) 14%,rgba(0,0,0,.16) 40%,rgba(255,255,255,0) 58%,rgba(255,255,255,.3) 78%,rgba(255,255,255,0) 90%,rgba(255,255,255,.4)),radial-gradient(circle,#D9A06E 0 14%,#B5713A 15% 16%,#D2955D 17% 88%,#9E602F 89% 91%,#D9A06E 92%)"></div>
+<sc-for list="{{rim}}" as="r" hint-placeholder-count="0">
+<div style="position:absolute; inset:-12px; border-radius:50%; border:12px solid {{r.c}}; transform:translateZ({{r.z}}px)"></div>
+</sc-for>
+<div class="p3" ref="{{dragRef}}" style="position:absolute; inset:0">
+<div class="p3 tray-spin" ref="{{spinRef}}" style="position:absolute; inset:0">
+<div class="p-khatam-c" style="position:absolute; inset:14px; border-radius:50%; opacity:.4; transform:translateZ(1px)"></div>
+<sc-for list="{{layers}}" as="p" hint-placeholder-count="0">
+<div onClick="{{p.pick}}" style="position:absolute; left:{{p.l}}px; top:{{p.t}}px; width:{{p.w}}px; height:{{p.h}}px; border-radius:{{p.br}}; clip-path:{{p.clip}}; background:{{p.bg}}; transform:{{p.tf}}; transition:transform .35s ease; cursor:pointer"></div>
+</sc-for>
+</div>
+</div>
+</div>
+<p style="position:absolute; left:0; right:0; bottom:6px; margin:0; text-align:center; font-size:15px; font-weight:500; color:#0B4836"><span style="background:#FBF8F2; padding:6px 14px; border-radius:999px; border:1px solid #D9C8AC">اسحب الصدر لتدوّره · اضغط على أي قطعة</span></p>
+</div>
+</div>
+
+<div style="flex:1 1 400px; min-width:0; display:flex; flex-direction:column; gap:20px">
+<div style="display:flex; align-items:center; gap:10px">
+<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,0 12.93,2.93 17.07,2.93 17.07,7.07 20,10 17.07,12.93 17.07,17.07 12.93,17.07 10,20 7.07,17.07 2.93,17.07 2.93,12.93 0,10 2.93,7.07 2.93,2.93 7.07,2.93" fill="#B5713A"/></svg>
+<span style="font-size:16px; font-weight:600; color:#8A5226">الحلو السوري</span>
+</div>
+<h2 style="margin:0; font-size:clamp(30px,4vw,46px); line-height:1.35; color:#0B4836">صدر نحاس، وكل قطعة إلها حكاية.</h2>
+<div style="display:flex; flex-wrap:wrap; gap:8px" role="group" aria-label="اختر صنفاً">
+<sc-for list="{{types}}" as="t" hint-placeholder-count="6">
+<button type="button" onClick="{{t.pick}}" aria-pressed="{{t.on}}" style="font:inherit; font-size:15px; font-weight:600; padding:10px 16px; min-height:44px; border-radius:999px; border:1px solid #0B4836; background:{{t.bg}}; color:{{t.fg}}; cursor:pointer">{{t.name}}</button>
+</sc-for>
+</div>
+<div style="position:relative; background:#FFFFFF; border:1px solid #D9C8AC; border-radius:14px; padding:26px 26px 22px; display:flex; flex-direction:column; gap:12px" aria-live="polite">
+<h3 style="margin:0; font-size:28px; color:#0B4836">{{sel.name}}</h3>
+<p style="margin:0; font-size:17px; line-height:1.9; color:#3D3830">{{sel.desc}}</p>
+<p style="margin:0; font-size:15px; font-weight:600; color:#8A5226">{{sel.where}}</p>
+<div class="p-vine" aria-hidden="true" style="height:40px; opacity:.75"></div>
+</div>
+<p style="margin:0; font-size:15px; line-height:1.8; color:#3D3830">في صفحة كل مدينة يظهر الصدر بأصناف تلك المدينة، ومعه محلات الحلويات التي زارها المراسل.</p>
+<a href="City.dc.html" style="font-weight:600; font-size:16px">ارجع لصفحة دمشق ←</a>
+</div>
+
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":900}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { sel: 0 };
+this.ang = 0; this.dragging = false; this.moved = 0; this.px = 0;
+var self = this;
+this.dragRef = function (el) { self._drag = el; };
+this.spinRef = function (el) { self._spin = el; };
+this.down = function (e) { self.dragging = true; self.moved = 0; self.px = e.clientX; if (self._spin) self._spin.style.animationPlayState = 'paused'; };
+this.move = function (e) { if (!self.dragging) return; var dx = e.clientX - self.px; self.px = e.clientX; self.moved += Math.abs(dx); self.ang -= dx * 0.5; if (self._drag) self._drag.style.transform = 'rotateZ(' + self.ang + 'deg)'; };
+this.up = function () { if (!self.dragging) return; self.dragging = false; if (self._spin) self._spin.style.animationPlayState = 'running'; };
+this.T = [
+{ name: 'بقلاوة', desc: 'رقائق عجين رقيقة مدهونة بالسمن، بينها فستق حلبي أو جوز، مقطّعة معيّنات ومسقية بالقطر.', where: 'على كل صدر حلو عربي', w: 62, h: 40, br: '0', clip: 'polygon(50% 0,100% 50%,50% 100%,0 50%)', dz: 2.5,
+ls: ['#D9A24A', '#EBC87E', '#D9A24A', '#EBC87E', '#7A9A3A', '#6B8E32', '#EBC87E', '#D9A24A', 'radial-gradient(ellipse at 50% 50%,#6F9A3A 0 4px,#8FB04A 5px,transparent 7px), linear-gradient(135deg,#F3D48C,#D69A3C 60%,#B9782A)'] },
+{ name: 'مبرومة', desc: 'شعيرية كنافة مبرومة حول حشوة فستق حلبي، تُخبز ثم تُقطّع أقراصاً يظهر فيها قلب الفستق.', where: 'من حلويات الشام المعروفة', w: 40, h: 40, br: '50%', clip: 'none', dz: 2.5,
+ls: ['#B87A2E', '#C98A3A', '#B87A2E', '#C98A3A', '#B87A2E', '#C98A3A', '#B87A2E', 'radial-gradient(circle,#8FB04A 0 30%,#5E7F2A 36%,transparent 40%), repeating-conic-gradient(#E0AC55 0 9deg,#B9782A 9deg 18deg)'] },
+{ name: 'بلّورية', desc: 'شعيرية كنافة تُخبز على نار هادئة فتبقى فاتحة اللون، وبين طبقتيها طبقة سميكة من الفستق.', where: 'من حلويات الشام المعروفة', w: 40, h: 40, br: '4px', clip: 'none', dz: 2.5,
+ls: ['#EFE5CC', '#F7F0DE', '#EFE5CC', '#7FA23E', '#6B8E32', '#7FA23E', '#F7F0DE', '#EFE5CC', 'repeating-linear-gradient(40deg,#FDF8EA 0 2px,#E4D8BC 2px 4px)'] },
+{ name: 'برازق', desc: 'أقراص بسكويت رقيقة ومقرمشة: وجه مغطّى بالسمسم المحمّص، ووجه عليه فستق.', where: 'تشتهر بها دمشق', w: 46, h: 46, br: '50%', clip: 'none', dz: 2.5,
+ls: ['#7A9A3A', '#C98F4B', 'radial-gradient(#F6E4B2 1.5px,transparent 2px) 0 0/7px 7px, radial-gradient(#F6E4B2 1.5px,transparent 2px) 3.5px 3.5px/7px 7px, #C48A45'] },
+{ name: 'معمول', desc: 'عجينة سميد محشية فستقاً أو جوزاً أو تمراً، تُنقش بقالب خشبي ويُرشّ عليها السكر الناعم.', where: 'حلو العيد في البيوت السورية', w: 44, h: 44, br: '50%', clip: 'none', dz: 2.6, dome: true,
+ls: ['r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', '#FBF4E4'] },
+{ name: 'حلاوة الجبن', desc: 'عجينة من الجبن والسميد تُفرد وتُلفّ على القشطة، وتُزيَّن بالفستق.', where: 'تشتهر بها حماة وحمص', w: 58, h: 30, br: '15px', clip: 'none', dz: 2.6, roll: true,
+ls: ['#EFE7D6', '#F6F1E4', '#EFE7D6', '#F6F1E4', '#FBF7EE', 'radial-gradient(circle at 50% 50%,#B8324A 0 3px,transparent 4px), radial-gradient(ellipse at 50% 50%,#7FA23E 0 30%,transparent 34%), #FDFAF2'] }
+];
+var slots = [[66, 0], [116, -14], [116, 14], [168, -19], [168, 0], [168, 19]];
+var base = [];
+this.T.forEach(function (t, ti) {
+slots.forEach(function (s) {
+var deg = ti * 60 + 30 + s[1], th = deg * Math.PI / 180;
+var cx = 230 + s[0] * Math.cos(th), cy = 230 + s[0] * Math.sin(th);
+t.ls.forEach(function (bg, i) {
+var sc = 1;
+if (t.dome) sc = Math.sqrt(Math.max(0.12, 1 - Math.pow(i / 9.3, 2)));
+if (t.roll) sc = [1, 0.99, 0.96, 0.91, 0.84, 0.74][i];
+base.push({ ti: ti, l: Math.round(cx - t.w / 2), t: Math.round(cy - t.h / 2), w: t.w, h: t.h, br: t.br, clip: t.clip, bg: bg === 'r' ? 'repeating-conic-gradient(#F8EEDA 0 10deg,#E2CFA8 10deg 20deg)' : bg, z: 3 + i * t.dz, rot: deg + 90, sc: sc.toFixed(3), pick: function () { if (self.moved < 6) self.setState({ sel: ti }); } });
+});
+});
+});
+this.base = base;
+this.rim = [0, 1, 2, 3, 4, 5, 6].map(function (k) { return { z: k * 3, c: k === 6 ? '#E6B98A' : (k % 2 ? '#C98A4E' : '#B5713A') }; });
+}
+componentDidUpdate() { if (this._drag) this._drag.style.transform = 'rotateZ(' + this.ang + 'deg)'; }
+renderVals() {
+var sel = this.state.sel, self = this;
+var layers = this.base.map(function (b) {
+return { l: b.l, t: b.t, w: b.w, h: b.h, br: b.br, clip: b.clip, bg: b.bg, pick: b.pick, tf: 'translateZ(' + (b.z + (b.ti === sel ? 30 : 0)).toFixed(1) + 'px) rotate(' + b.rot + 'deg) scale(' + b.sc + ')' };
+});
+var types = this.T.map(function (t, i) { return { name: t.name, on: i === sel ? 'true' : 'false', bg: i === sel ? '#0B4836' : '#FFFFFF', fg: i === sel ? '#FFFFFF' : '#0B4836', pick: function () { self.setState({ sel: i }); } }; });
+return { layers: layers, rim: this.rim, types: types, sel: this.T[sel], down: this.down, move: this.move, up: this.up, dragRef: this.dragRef, spinRef: this.spinRef };
+}
+}
+</script>
+</body>
+</html>

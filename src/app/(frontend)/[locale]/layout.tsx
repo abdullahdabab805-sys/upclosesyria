@@ -17,6 +17,7 @@ import '@/styles/guide.css'
 import '@/styles/site.css'
 import '@/styles/v2.css'
 import '@/styles/batch4.css'
+import '@/styles/batch5.css'
 import { BRAND } from '@/lib/brand'
 
 // Light identity (owner decision 2026-10-29): white header, so the browser bar matches it.

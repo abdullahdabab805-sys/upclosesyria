@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { SyrianFill } from '@/components/Patterns'
+import { SyrianFill, MuqarnasEdge } from '@/components/Patterns'
 import { pageMetadata } from '@/lib/seo'
 import { describe, SITE_LINE } from '@/lib/seoText'
 import { Page } from '@/components/Header'
@@ -70,6 +70,7 @@ export default async function InsidePage({ params }: { params: Promise<{ locale:
               وين نطلع هالويكند؟ مشاوير يوم، مصايف، وبيوت ريفية، مرتّبة حسب المدينة اللي بتطلع منها.
             </p>
           </div>
+          <MuqarnasEdge />
         </section>
 
         <section className="sec trips">

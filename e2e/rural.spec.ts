@@ -68,13 +68,16 @@ test('city page: Ahleen links carry UTM tags and "all stays" goes to the city on
   }
 })
 
-test('city page: the drawn sweet opens on a press', async ({ page }) => {
+test('city page: the 3D sweet tray lifts the kind you pick', async ({ page }) => {
   await page.goto('/cities/damascus')
-  const art = page.locator('#sweets .swt')
-  await expect(art).toHaveAttribute('aria-pressed', 'false')
-  await art.click()
-  await expect(art).toHaveAttribute('aria-pressed', 'true')
-  await expect(page.locator('#sweets .said')).toHaveText('دقّ يا معلّم!')
+  const kinds = page.locator('#sweets .swt3-kinds button')
+  await expect(kinds).toHaveCount(3)
+  await expect(kinds.first()).toHaveAttribute('aria-pressed', 'true')
+  await kinds.nth(1).click()
+  await expect(kinds.nth(1)).toHaveAttribute('aria-pressed', 'true')
+  await expect(page.locator('#sweets .swt3-card h3')).toHaveText('البرازق والغريبة')
+  await page.locator('#sweets .swt3-stage').scrollIntoViewIfNeeded()
+  await expect(page.locator('#sweets .bit').first()).toBeAttached()
 })
 
 test('home: search finds a countryside place', async ({ page }) => {

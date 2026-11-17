@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>السيخ التفاعلي — شاورما عربي</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'IBM Plex Sans Arabic','IBM Plex Sans',Tahoma,sans-serif;color:#1C1915;background:#FBF8F2}
+a{color:#0B4836}a:hover{color:#8A5226}
+.pt{position:absolute;inset:0;pointer-events:none}
+.p-khatam{background:url(../../design/patterns/khatam-g.svg) 0 0/96px 96px}
+.p-qishani{background:url(../../design/patterns/qishani.svg) 0 0/80px 80px}
+.p-khatam-c{background:url(../../design/patterns/khatam-c.svg) 0 0/56px 56px}
+.arch{border-radius:999px 999px 10px 10px;padding:9px;background:repeating-conic-gradient(from 0deg at 50% 38%,#2B2620 0 9deg,#E8DCC8 9deg 18deg);box-sizing:border-box}
+.p3{transform-style:preserve-3d}
+@keyframes spin{to{transform:rotateY(360deg)} }
+@keyframes plate{to{transform:rotateZ(360deg)} }
+@keyframes cut{0%{transform:translateY(-50px) rotate(6deg);opacity:0}15%{opacity:1}80%{transform:translateY(250px) rotate(6deg);opacity:1}100%{transform:translateY(250px) rotate(6deg);opacity:0} }
+@keyframes fall{0%{opacity:0;transform:translate(0,0) rotate(0)}10%{opacity:1}100%{opacity:1;transform:translate(var(--dx),var(--dy)) rotate(var(--r))} }
+@keyframes appear{from{opacity:0} }
+@keyframes glow{50%{opacity:.75} }
+.spin{animation:spin 18s linear infinite}
+.plate-spin{animation:plate 40s linear infinite}
+.knife{animation:cut 1.1s ease-in forwards}
+.shave{opacity:0;animation:fall .9s ease-in forwards}
+.appear{animation:appear .5s ease-out}
+.glow{animation:glow 2.4s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.spin,.plate-spin,.glow{animation:none}.knife{display:none}.shave{animation-duration:.01s} }
+</style>
+</helmet>
+<section style="position:relative; background:#FBF8F2; overflow:hidden; min-height:900px">
+<div class="pt p-khatam" aria-hidden="true" style="opacity:.06"></div>
+<div style="position:relative; max-width:1240px; margin:0 auto; padding:56px 24px; display:flex; flex-wrap:wrap; align-items:center; gap:40px">
+
+<div style="flex:1 1 420px; min-width:0; display:flex; flex-direction:column; gap:20px">
+<div style="display:flex; align-items:center; gap:10px">
+<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><polygon points="10,0 12.93,2.93 17.07,2.93 17.07,7.07 20,10 17.07,12.93 17.07,17.07 12.93,17.07 10,20 7.07,17.07 2.93,17.07 2.93,12.93 0,10 2.93,7.07 2.93,2.93 7.07,2.93" fill="#B5713A"/></svg>
+<span style="font-size:16px; font-weight:600; color:#8A5226">جوعان؟</span>
+</div>
+<h2 style="margin:0; font-size:clamp(30px,4vw,46px); line-height:1.35; color:#0B4836">شاورما عربي، والثومية جنبها.</h2>
+<p style="margin:0; font-size:18px; line-height:1.9; color:#3D3830; max-width:32em">شاورما على خبز محمّص مع بطاطا ومخلل وثومية. اسحب السيخ لتدوّره، قصّ منه، وكمّل الصحن خطوة خطوة.</p>
+
+<ol style="margin:0; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:8px">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+<li style="display:flex; align-items:center; gap:8px; font-size:15px; font-weight:500; padding:8px 14px; border-radius:999px; border:1px solid #0B4836; background:{{s.bg}}; color:{{s.fg}}"><span style="font-family:'IBM Plex Sans',sans-serif; font-weight:600">{{s.n}}</span>{{s.label}}</li>
+</sc-for>
+</ol>
+
+<div style="position:relative; width:360px; max-width:100%; height:250px; perspective:900px" aria-hidden="true">
+<div class="p3" style="position:absolute; left:50%; top:-10px; width:280px; height:280px; margin-left:-140px; transform:rotateX(56deg)">
+<div class="p3 plate-spin" style="position:absolute; inset:0">
+<div style="position:absolute; inset:0; border-radius:50%; background:radial-gradient(circle,#FFFFFF 0 56%,#EFE8DA 58%,#FFFFFF 64%,#E8DFCD 100%); border:3px solid #0B4836; box-sizing:border-box; box-shadow:0 0 0 6px #FBF8F2, 0 0 0 8px #B5713A, 14px 24px 30px rgba(28,25,21,.28)"></div>
+<sc-if value="{{isWrap}}" hint-placeholder-val="{{false}}">
+<sc-for list="{{wrap}}" as="p" hint-placeholder-count="0"><div class="appear" style="position:absolute; left:{{p.l}}px; top:{{p.t}}px; width:{{p.w}}px; height:{{p.h}}px; border-radius:{{p.br}}; background:{{p.bg}}; transform:{{p.tf}}"></div></sc-for>
+</sc-if>
+<sc-if value="{{isCut}}" hint-placeholder-val="{{false}}">
+<sc-for list="{{pieces}}" as="p" hint-placeholder-count="0"><div class="appear" style="position:absolute; left:{{p.l}}px; top:{{p.t}}px; width:{{p.w}}px; height:{{p.h}}px; border-radius:{{p.br}}; background:{{p.bg}}; transform:{{p.tf}}"></div></sc-for>
+</sc-if>
+<sc-if value="{{isSides}}" hint-placeholder-val="{{false}}">
+<sc-for list="{{sides}}" as="p" hint-placeholder-count="0"><div class="appear" style="position:absolute; left:{{p.l}}px; top:{{p.t}}px; width:{{p.w}}px; height:{{p.h}}px; border-radius:{{p.br}}; background:{{p.bg}}; transform:{{p.tf}}"></div></sc-for>
+</sc-if>
+</div>
+</div>
+</div>
+
+<div style="display:flex; flex-wrap:wrap; align-items:center; gap:12px">
+<button type="button" onClick="{{next}}" style="font:inherit; font-size:17px; font-weight:700; padding:14px 24px; min-height:48px; border:0; border-radius:10px; background:#0B4836; color:#FBF8F2; cursor:pointer">{{btn}}</button>
+<span style="font-size:15px; color:#3D3830">{{plateNote}}</span>
+</div>
+<a href="City.dc.html" style="font-weight:600; font-size:16px">مطاعم المدن ←</a>
+</div>
+
+<div style="flex:1 1 420px; min-width:0; display:flex; justify-content:center">
+<div onPointerDown="{{down}}" onPointerMove="{{move}}" onPointerUp="{{up}}" onPointerLeave="{{leave}}" style="position:relative; width:520px; max-width:100%; height:680px; overflow:hidden; perspective:1100px; cursor:grab; touch-action:pan-y; user-select:none" role="img" aria-label="سيخ شاورما ثلاثي الأبعاد يدور أمام النار">
+
+<div class="arch" style="position:absolute; left:50%; margin-left:-215px; top:16px; width:430px; height:610px">
+<div style="position:relative; height:100%; border-radius:999px 999px 4px 4px; background:#F1E8D9; overflow:hidden"><div class="pt p-qishani" style="opacity:.4"></div><div style="position:absolute; left:0; right:0; bottom:0; height:120px; background:#D9C8AC"></div></div>
+</div>
+
+<div style="position:absolute; left:50%; margin-left:-196px; top:170px; width:84px; height:316px; background:#2B2620; border-radius:10px; padding:10px; box-sizing:border-box; display:flex; flex-direction:column; gap:8px; box-shadow:0 0 60px 18px rgba(242,138,46,.4)">
+<div class="glow" style="flex:1; border-radius:5px; background:repeating-linear-gradient(0deg,rgba(43,38,32,.55) 0 2px,transparent 2px 9px),repeating-linear-gradient(90deg,rgba(43,38,32,.55) 0 2px,transparent 2px 9px),radial-gradient(ellipse at center,#FFD890 0,#F28A2E 50%,#B5441A 100%)"></div>
+<div class="glow" style="flex:1; border-radius:5px; animation-delay:.5s; background:repeating-linear-gradient(0deg,rgba(43,38,32,.55) 0 2px,transparent 2px 9px),repeating-linear-gradient(90deg,rgba(43,38,32,.55) 0 2px,transparent 2px 9px),radial-gradient(ellipse at center,#FFD890 0,#F28A2E 50%,#B5441A 100%)"></div>
+<div class="glow" style="flex:1; border-radius:5px; animation-delay:1s; background:repeating-linear-gradient(0deg,rgba(43,38,32,.55) 0 2px,transparent 2px 9px),repeating-linear-gradient(90deg,rgba(43,38,32,.55) 0 2px,transparent 2px 9px),radial-gradient(ellipse at center,#FFD890 0,#F28A2E 50%,#B5441A 100%)"></div>
+<div class="glow" style="flex:1; border-radius:5px; animation-delay:1.5s; background:repeating-linear-gradient(0deg,rgba(43,38,32,.55) 0 2px,transparent 2px 9px),repeating-linear-gradient(90deg,rgba(43,38,32,.55) 0 2px,transparent 2px 9px),radial-gradient(ellipse at center,#FFD890 0,#F28A2E 50%,#B5441A 100%)"></div>
+</div>
+
+<div style="position:absolute; left:50%; margin-left:-62px; top:556px; width:124px; height:64px; border-radius:6px 6px 12px 12px; background:linear-gradient(90deg,#6F6F6F,#D9D9D9 45%,#8A8A8A)"></div>
+<div style="position:absolute; left:50%; margin-left:-165px; top:492px; width:330px; height:78px; border-radius:50%; background:radial-gradient(ellipse at 50% 38%,#F6F6F6 0,#C4C4C4 55%,#7D7D7D 100%); box-shadow:0 16px 26px rgba(28,25,21,.3)"></div>
+<div style="position:absolute; left:50%; margin-left:-128px; top:504px; width:256px; height:50px; border-radius:50%; background:radial-gradient(ellipse at 50% 50%,#B9793A 0,#8E5522 70%,#6B3E18 100%); opacity:.55"></div>
+
+<div style="position:absolute; left:50%; margin-left:-4px; top:44px; width:8px; height:500px; border-radius:4px; background:linear-gradient(90deg,#7A7A7A,#F4F4F4 45%,#8D8D8D)"></div>
+<div style="position:absolute; left:50%; margin-left:-9px; top:36px; width:18px; height:18px; border-radius:50%; background:radial-gradient(circle at 35% 30%,#FFFFFF,#8D8D8D)"></div>
+
+<div class="p3" style="position:absolute; left:50%; top:134px; width:0; height:372px; transform:rotateX(-7deg)">
+<div class="p3" ref="{{dragRef}}" style="position:absolute; left:0; top:0; width:0; height:100%">
+<div class="p3 spin" ref="{{spinRef}}" style="position:absolute; left:0; top:0; width:0; height:100%">
+<div class="p3" style="position:absolute; left:0; top:0; width:0; height:100%; transition:transform .6s ease; transform:scale3d({{thin}},1,{{thin}})">
+<div style="position:absolute; left:-82px; top:-82px; width:164px; height:164px; border-radius:50%; transform:rotateX(90deg); background:radial-gradient(circle,#8E4416 0 8%,#D08A3C 30%,#B9651F 70%,#8E4416 100%)"></div>
+<sc-for list="{{faces}}" as="f" hint-placeholder-count="0">
+<div style="position:absolute; top:{{f.top}}px; left:{{f.left}}px; width:{{f.w}}px; height:33px; border-radius:3px; backface-visibility:hidden; transform:{{f.tf}}; background:{{f.bg}}"></div>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+
+<div style="position:absolute; left:50%; margin-left:-112px; top:128px; width:224px; height:384px; pointer-events:none; clip-path:polygon(12% 0,88% 0,100% 28%,94% 66%,78% 100%,22% 100%,6% 66%,0 28%); background:linear-gradient(90deg,rgba(255,150,50,.42) 0%,rgba(255,150,50,0) 26%,rgba(255,255,255,.14) 44%,rgba(0,0,0,0) 58%,rgba(24,9,2,.62) 100%)"></div>
+
+<div style="position:absolute; left:50%; margin-left:-40px; top:118px; width:80px; height:24px; border-radius:50%; background:radial-gradient(ellipse at 50% 40%,#FFFFFF,#E7D9E4 70%,#C9B3C6)"></div>
+<div style="position:absolute; left:50%; margin-left:-31px; top:70px; width:62px; height:56px; border-radius:48% 48% 46% 46%; background:radial-gradient(circle at 34% 28%,#FF9B7D 0,#DA3A2C 50%,#8E1B14 100%)"></div>
+<div style="position:absolute; left:50%; margin-left:-7px; top:66px; width:14px; height:8px; border-radius:50%; background:#3F6B2A"></div>
+
+<sc-if value="{{isCutting}}" hint-placeholder-val="{{false}}">
+<div class="knife" style="position:absolute; left:50%; margin-left:84px; top:120px; width:30px; height:250px">
+<div style="height:70px; width:20px; margin:0 5px; border-radius:6px; background:linear-gradient(90deg,#2B2620,#5A4A3A,#2B2620)"></div>
+<div style="height:180px; border-radius:2px 2px 4px 26px; background:linear-gradient(90deg,#FFFFFF,#B8B8B8 70%,#8D8D8D)"></div>
+</div>
+<sc-for list="{{shavings}}" as="s" hint-placeholder-count="0">
+<div class="shave" style="position:absolute; left:50%; margin-left:{{s.ml}}px; top:{{s.t}}px; width:{{s.w}}px; height:8px; border-radius:4px; background:{{s.bg}}; --dx:{{s.dx}}px; --dy:{{s.dy}}px; --r:{{s.r}}deg; animation-delay:{{s.d}}s"></div>
+</sc-for>
+</sc-if>
+
+<p style="position:absolute; left:0; right:0; bottom:8px; margin:0; text-align:center; font-size:15px; font-weight:500; color:#0B4836"><span style="background:#FBF8F2; padding:6px 14px; border-radius:999px; border:1px solid #D9C8AC">اسحب السيخ لتدوّره · اضغط عليه لتقصّ</span></p>
+</div>
+</div>
+
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":900}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { step: 0 };
+this.ang = 0; this.dragging = false; this.moved = 0; this.px = 0;
+var self = this;
+this.dragRef = function (el) { self._drag = el; };
+this.spinRef = function (el) { self._spin = el; };
+this.down = function (e) { self.dragging = true; self.moved = 0; self.px = e.clientX; if (self._spin) self._spin.style.animationPlayState = 'paused'; };
+this.move = function (e) { if (!self.dragging) return; var dx = e.clientX - self.px; self.px = e.clientX; self.moved += Math.abs(dx); self.ang += dx * 0.7; if (self._drag) self._drag.style.transform = 'rotateY(' + self.ang + 'deg)'; };
+this.up = function () { if (!self.dragging) return; self.dragging = false; if (self._spin) self._spin.style.animationPlayState = 'running'; if (self.moved < 6 && self.state.step === 0) self.setState({ step: 1 }); };
+this.leave = function () { if (!self.dragging) return; self.dragging = false; if (self._spin) self._spin.style.animationPlayState = 'running'; };
+this.next = function () { self.setState({ step: (self.state.step + 1) % 5 }); };
+this.build();
+}
+componentDidUpdate() { if (this._drag) this._drag.style.transform = 'rotateY(' + this.ang + 'deg)'; }
+build() {
+var seed = 7;
+function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+var prof = [80, 93, 99, 101, 99, 95, 91, 86, 81, 75, 68, 60];
+var pal = ['#C8772E', '#D08A3C', '#B9651F', '#A5561B', '#D99A4A', '#8E4416', '#C27028'];
+var N = 18, faces = [];
+for (var i = 0; i < prof.length; i++) {
+for (var j = 0; j < N; j++) {
+var r = prof[i] + rnd() * 7 - 3.5;
+var w = 2 * r * Math.tan(Math.PI / N) + 3;
+var c1 = pal[Math.floor(rnd() * pal.length)], c2 = pal[Math.floor(rnd() * pal.length)];
+var bg = '';
+if (rnd() < 0.4) { var s = 2 + rnd() * 4; bg += 'radial-gradient(circle at ' + Math.round(rnd() * 100) + '% ' + Math.round(rnd() * 100) + '%, rgba(45,18,6,.8) 0 ' + s.toFixed(1) + 'px, transparent ' + (s + 4).toFixed(1) + 'px), '; }
+if (rnd() < 0.3) { bg += 'radial-gradient(circle at ' + Math.round(rnd() * 100) + '% ' + Math.round(rnd() * 100) + '%, rgba(255,214,150,.55) 0 2px, transparent 5px), '; }
+bg += 'repeating-linear-gradient(' + Math.round(174 + rnd() * 12) + 'deg, rgba(60,24,8,.4) 0 1px, transparent 1px ' + (5 + rnd() * 4).toFixed(1) + 'px), linear-gradient(180deg, ' + c1 + ', ' + c2 + ')';
+faces.push({ top: i * 31 + Math.round(rnd() * 2), left: (-w / 2).toFixed(1), w: w.toFixed(1), tf: 'rotateY(' + (j * 360 / N + (i % 2) * 10) + 'deg) translateZ(' + r.toFixed(1) + 'px)', bg: bg });
+}
+}
+this.faces = faces;
+var shavings = [];
+for (var k = 0; k < 9; k++) {
+var t = 190 + Math.round(rnd() * 220);
+shavings.push({ ml: 66 + Math.round(rnd() * 14), t: t, w: 16 + Math.round(rnd() * 14), bg: pal[k % pal.length], dx: -(40 + Math.round(rnd() * 110)), dy: 516 - t + Math.round(rnd() * 14), r: Math.round(rnd() * 300 - 150), d: (0.25 + k * 0.07).toFixed(2) });
+}
+this.shavings = shavings;
+var bread = 'radial-gradient(circle at 20% 40%,#C99A5B 0 3px,transparent 4px), radial-gradient(circle at 60% 62%,#C99A5B 0 4px,transparent 5px), radial-gradient(circle at 84% 34%,#B98545 0 3px,transparent 4px), linear-gradient(180deg,#F3E2BD,#E6CD9C)';
+var wrap = [];
+for (var z = 0; z < 4; z++) wrap.push({ l: 40, t: 116, w: 200, h: 48, br: '24px', bg: z === 3 ? bread : '#D9BC86', tf: 'translateZ(' + (z * 6) + 'px)' });
+this.wrap = wrap;
+var pieces = [];
+var toast = 'repeating-linear-gradient(90deg, rgba(90,45,15,.78) 0 3px, transparent 3px 12px), linear-gradient(180deg,#E9C98F,#D2A561)';
+for (var p = 0; p < 6; p++) {
+var th = (200 + p * 28) * Math.PI / 180, cx = 140 + 82 * Math.cos(th), cy = 140 + 82 * Math.sin(th);
+for (var z2 = 0; z2 < 4; z2++) pieces.push({ l: Math.round(cx - 29), t: Math.round(cy - 15), w: 58, h: 30, br: '10px', bg: z2 === 3 ? toast : (z2 === 1 ? '#A5561B' : '#D9B67C'), tf: 'translateZ(' + (z2 * 5) + 'px) rotate(' + (200 + p * 28 + 90) + 'deg)' });
+}
+this.pieces = pieces;
+var sides = [];
+for (var z3 = 0; z3 < 5; z3++) sides.push({ l: 108, t: 132, w: 64, h: 64, br: '50%', bg: z3 === 4 ? 'radial-gradient(circle,#FFFFFF 0 58%,#F1ECE0 60%,#D9D0BD 100%)' : '#E3DAC8', tf: 'translateZ(' + (z3 * 4) + 'px)' });
+for (var f = 0; f < 8; f++) for (var z4 = 0; z4 < 2; z4++) sides.push({ l: 44 + Math.round(rnd() * 34), t: 178 + Math.round(rnd() * 40), w: 44, h: 8, br: '2px', bg: z4 ? '#F0BE55' : '#C9922E', tf: 'translateZ(' + (2 + f * 2 + z4 * 4) + 'px) rotate(' + Math.round(rnd() * 150 - 75) + 'deg)' });
+for (var q = 0; q < 5; q++) for (var z5 = 0; z5 < 2; z5++) sides.push({ l: 178 + Math.round(rnd() * 30), t: 176 + Math.round(rnd() * 36), w: 40, h: 9, br: '3px', bg: z5 ? '#E77FA3' : '#C2436F', tf: 'translateZ(' + (2 + q * 2 + z5 * 4) + 'px) rotate(' + Math.round(rnd() * 120 - 60) + 'deg)' });
+for (var g = 0; g < 3; g++) for (var z6 = 0; z6 < 2; z6++) sides.push({ l: 186 + g * 14, t: 218 + (g % 2) * 10, w: 22, h: 22, br: '50%', bg: z6 ? 'radial-gradient(circle,#CFE0A3 0 45%,#6E9A3A 50%,#4F7426 100%)' : '#4F7426', tf: 'translateZ(' + (2 + z6 * 4) + 'px)' });
+this.sides = sides;
+}
+renderVals() {
+var st = this.state.step;
+var labels = ['قصّ اللحم', 'لفّها بالخبز', 'حمّصها وقطّعها', 'ثومية ومخلل وبطاطا'];
+var steps = labels.map(function (l, i) { var done = st > i; return { n: ['١', '٢', '٣', '٤'][i], label: l, bg: done ? '#0B4836' : '#FFFFFF', fg: done ? '#FFFFFF' : '#0B4836' }; });
+var btns = ['قصّ من السيخ', 'لفّها بالخبز', 'حمّصها وقطّعها', 'حطّ الثومية والمخلل والبطاطا', 'من أول وجديد'];
+var notes = ['الصحن فاضي… بلّش بالسيخ.', 'اللحم بالصينية تحت السيخ.', 'لفّة على خبز الصاج.', 'تحمّصت وتقطّعت.', 'صحتين وعافية.'];
+return {
+faces: this.faces, shavings: this.shavings, wrap: this.wrap, pieces: this.pieces, sides: this.sides,
+steps: steps, btn: btns[st], plateNote: notes[st], thin: st >= 1 ? 0.94 : 1,
+isCutting: st === 1, isWrap: st === 2, isCut: st >= 3, isSides: st >= 4,
+down: this.down, move: this.move, up: this.up, leave: this.leave, next: this.next, dragRef: this.dragRef, spinRef: this.spinRef
+};
+}
+}
+</script>
+</body>
+</html>

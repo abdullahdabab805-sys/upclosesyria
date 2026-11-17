@@ -287,3 +287,28 @@ export function CopperCorners() {
     </>
   )
 }
+
+/* ---------- 2026-11-17 (batch 5): more ornament from the prototype in docs/batch-5 ----------
+   Tiles live in public/patterns as plain SVG files, so they cost one cached request each and no markup. */
+
+export const PATTERN_TILES = ['sadaf', 'brocade', 'aghabani', 'qishani', 'khatam-c'] as const
+export type PatternTileId = (typeof PATTERN_TILES)[number]
+
+/**
+ * A light tile behind a section: sadaf (Damascene mother-of-pearl marquetry), brocade (Damascene silk),
+ * aghabani (stitched Damascene embroidery), qishani (Damascene tiles), khatam-c (the copper star, for green panels).
+ * The parent needs `position: relative` (class `has-pat` sets it and keeps the tile behind the content).
+ */
+export function PatternTile({ id, opacity = 0.1 }: { id: PatternTileId; opacity?: number }) {
+  return <span className={`pat-tile ${id}`} style={{ opacity }} aria-hidden="true" />
+}
+
+/** A row of muqarnas niches hanging from the bottom edge of a page head. */
+export function MuqarnasEdge() {
+  return <span className="muq-edge" aria-hidden="true" />
+}
+
+/** The shamsa: a sixteen-point sun rosette around the lens ring, behind the home map. */
+export function Shamsa({ turning = false }: { turning?: boolean }) {
+  return <span className={turning ? 'shamsa turning' : 'shamsa'} aria-hidden="true" />
+}

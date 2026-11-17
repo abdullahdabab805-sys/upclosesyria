@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>مكتبة النقوش السورية</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'IBM Plex Sans Arabic','IBM Plex Sans',Tahoma,sans-serif;color:#1C1915;background:#FBF8F2}
+a{color:#0B4836}a:hover{color:#8A5226}
+.p-khatam{background:url(../../design/patterns/khatam-g.svg) 0 0/96px 96px}
+.p-sadaf{background:url(../../design/patterns/sadaf.svg) 0 0/40px 69.28px}
+.p-mashrabiya{background:url(../../design/patterns/mashrabiya.svg) 0 0/40px 40px}
+.p-brocade{background:url(../../design/patterns/brocade.svg) 0 0/64px 96px}
+.p-vine{background:url(../../design/patterns/vine.svg) 0 50%/120px 44px repeat-x}
+.p-aghabani{background:url(../../design/patterns/aghabani.svg) 0 0/72px 72px}
+.p-qishani{background:url(../../design/patterns/qishani.svg) 0 0/80px 80px}
+.p-muqarnas{background:url(../../design/patterns/muqarnas.svg) 0 100%/60px 44px repeat-x}
+.p-rosette{background:url(../../design/patterns/rosette-g.svg) center/contain no-repeat}
+.p-ablaq{background:repeating-linear-gradient(90deg,#2B2620 0 46px,#FBF8F2 46px 48px,#D9C8AC 48px 94px,#FBF8F2 94px 96px) 0 42%/100% 14px no-repeat,repeating-linear-gradient(90deg,#B5713A 0 22px,#FBF8F2 22px 24px,#D9C8AC 24px 70px,#FBF8F2 70px 72px,#B5713A 72px 96px) 0 58%/100% 14px no-repeat}
+</style>
+</helmet>
+<div style="width:1360px; height:900px; box-sizing:border-box; padding:48px 56px; background:#FBF8F2; display:flex; flex-direction:column; gap:28px">
+<div style="display:flex; align-items:baseline; justify-content:space-between; gap:24px">
+<h1 style="margin:0; font-size:40px; color:#0B4836">مكتبة النقوش السورية</h1>
+<p style="margin:0; font-size:17px; color:#3D3830">زخرفة فقط: شفافية 6–16% خلف النص، وكاملة في الأشرطة والإطارات.</p>
+</div>
+<div style="display:grid; grid-template-columns:repeat(5, minmax(0, 1fr)); gap:20px; flex:1">
+<sc-for list="{{items}}" as="p" hint-placeholder-count="10">
+<div style="display:flex; flex-direction:column; background:#FFFFFF; border:1px solid #D9C8AC; border-radius:12px; overflow:hidden">
+<div class="{{p.cls}}" aria-hidden="true" style="flex:1; min-height:180px; background-color:#F6EFE2"></div>
+<div style="padding:14px 16px 16px; display:flex; flex-direction:column; gap:4px; border-top:1px solid #D9C8AC">
+<span style="font-size:18px; font-weight:700; color:#0B4836">{{p.name}}</span>
+<span style="font-size:14px; line-height:1.7; color:#3D3830">{{p.where}}</span>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+return { items: [
+{ cls: 'p-khatam', name: 'نجمة الخاتم الدمشقية', where: 'خلفية الهيرو ورؤوس صفحات المدن' },
+{ cls: 'p-sadaf', name: 'تطعيم الصدف (الموزاييك)', where: 'لوح الخريطة، قسم الأماكن، رؤوس الصفحات الداخلية' },
+{ cls: 'p-brocade', name: 'البروكار الدمشقي', where: 'قسم الإقامة (أهلين) وصدر الحلويات' },
+{ cls: 'p-aghabani', name: 'تطريز الأغباني', where: 'تفصيلة اليوم وبطاقات الأدلاء' },
+{ cls: 'p-qishani', name: 'بلاط القيشاني', where: 'بلاطات حال البلد اليوم وجدار السيخ' },
+{ cls: 'p-mashrabiya', name: 'المشربية', where: 'التذييل وقسم المطاعم والمدونة' },
+{ cls: 'p-muqarnas', name: 'المقرنصات', where: 'شريط أسفل الهيرو ورؤوس الصفحات' },
+{ cls: 'p-vine', name: 'كرمة الأموي', where: 'فاصل زخرفي تحت العناوين' },
+{ cls: 'p-ablaq', name: 'الأبلق', where: 'شريط بين الأقسام، فوق التذييل، وأقواس الصور' },
+{ cls: 'p-rosette', name: 'الشمسة · حلقة العدسة', where: 'خلف الخريطة وبجانب اسم المدينة' }
+] };
+}
+}
+</script>
+</body>
+</html>

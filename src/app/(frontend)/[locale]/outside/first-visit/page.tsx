@@ -1,6 +1,6 @@
 import { pageMetadata } from '@/lib/seo'
 import { describe, SITE_LINE } from '@/lib/seoText'
-import { SyrianFill } from '@/components/Patterns'
+import { SyrianFill, MuqarnasEdge } from '@/components/Patterns'
 import { Page } from '@/components/Header'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -54,6 +54,7 @@ export default async function FirstVisitIndex({ params }: Props) {
             )}
           </p>
         </div>
+        <MuqarnasEdge />
       </section>
       <section className="s">
         <div className="wrap">

@@ -1,6 +1,6 @@
 import { mergeByName } from '@/lib/venueClass'
 import type { Metadata } from 'next'
-import { SyrianFill } from '@/components/Patterns'
+import { SyrianFill, MuqarnasEdge } from '@/components/Patterns'
 import Link from 'next/link'
 import { TabsRow } from '@/components/client/TabsRow'
 import { notFound } from 'next/navigation'
@@ -288,6 +288,7 @@ export default async function TripPage({ params }: Props) {
               </div>
             </div>
           </div>
+          <MuqarnasEdge />
         </section>
 
         <nav className="sticky-bar city-tabs" aria-label="أقسام المكان">

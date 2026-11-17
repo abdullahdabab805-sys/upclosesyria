@@ -8,10 +8,10 @@ import { JsonLd, Loc, Photo, ReportList, text } from '@/components/content'
 import { formatDate } from '@/components/Stamp'
 import { GUIDE, STORIES } from '@/content/guide'
 import { CityMap } from '@/components/client/CityMap'
-import { Shawarma } from '@/components/client/Shawarma'
+import { Shawarma3D } from '@/components/client/Shawarma3D'
 import Image from 'next/image'
 import { resizable } from '@/lib/guideImages'
-import { PatternDefs, PatternFill, PatternBand, SyrianFill, Ablaq } from '@/components/Patterns'
+import { PatternDefs, PatternFill, PatternBand, SyrianFill, Ablaq, PatternTile, MuqarnasEdge, Shamsa } from '@/components/Patterns'
 import { cityTheme } from '@/lib/cityTheme'
 import { staticPhoto } from '@/content/photos'
 import { Chip } from '@/components/ui'
@@ -87,6 +87,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="dark home-hero">
         <SyrianFill id="khatam" opacity={0.1} />
         <div className="wrap">
+          <Shamsa turning />
           <div className="intro">
             <p className="badge rise">{T('دليل مستقل · معلومات مؤرخة من ناس على الأرض', 'An independent guide · dated information from people on the ground')}</p>
             <h1 className="big rise2">
@@ -126,12 +127,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             note={T('مواقع الأسماء بإحداثيات المدن التقريبية · الحدود: Natural Earth', 'Names at approximate city locations · Borders: Natural Earth')}
           />
         </div>
+        <MuqarnasEdge />
       </section>
       <Ablaq />
 
-      <section className="sec top" aria-labelledby="detail-h">
+      <section className="sec top has-pat" aria-labelledby="detail-h">
+        <PatternTile id="aghabani" opacity={0.12} />
         <div className="wrap detail-row">
-          <div className="pic lift">
+          <div className="pic arch5">
             <Photo
               locale={locale}
               media={detail?.photo}
@@ -166,7 +169,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <section className="sec">
+      <section className="sec has-pat">
+        <PatternTile id="sadaf" opacity={0.06} />
         <div className="wrap">
           <div className="sec-head">
             <div>
@@ -250,6 +254,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="sec bottom">
         <div className="wrap">
           <div className="hungry2">
+            <PatternTile id="qishani" opacity={0.08} />
             <div className="txt">
               <span className="eyebrow">{T('جوعان؟', 'Hungry?')}</span>
               <h2 className="h-2xl">{T('شاورما عربي، والثومية جنبها.', 'Shawarma arabi, with the garlic sauce on the side.')}</h2>
@@ -263,12 +268,26 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 {T('مطاعم المدن ←', 'City restaurants →')}
               </Link>
             </div>
-            <Shawarma
-              make={T('اضغط لتحضير سندويشة شاورما', 'Press to make a shawarma wrap')}
-              again={T('رجّع السيخ', 'Back to the spit')}
-              hint={T('اضغط على السيخ وشوف شو بيطلع', 'Press the spit and see what comes out')}
-              hintDone={T('اضغط مرة ثانية لسندويشة جديدة', 'Press again for another one')}
-              said={T('صحتين وعافية!', 'Enjoy!')}
+            <Shawarma3D
+              labels={{
+                spit: T('سيخ شاورما: اسحبه لتدوّره، واضغط عليه لتقصّ منه', 'A shawarma spit: drag to turn it, press to carve'),
+                hint: T('اسحب السيخ لتدوّره · اضغط عليه لتقصّ · الأسهم تدوّره من لوحة المفاتيح', 'Drag the spit to turn it · press to carve · arrow keys turn it too'),
+                steps: [T('قصّ اللحم', 'Carve'), T('لفّها بالخبز', 'Wrap'), T('حمّصها وقطّعها', 'Toast and cut'), T('ثومية ومخلل وبطاطا', 'Garlic, pickles, fries')],
+                actions: [
+                  T('قصّ من السيخ', 'Carve the spit'),
+                  T('لفّها بالخبز', 'Wrap it in bread'),
+                  T('حمّصها وقطّعها', 'Toast it and cut it'),
+                  T('حطّ الثومية والمخلل والبطاطا', 'Add garlic, pickles and fries'),
+                  T('من أول وجديد', 'Start again'),
+                ],
+                notes: [
+                  T('الصحن فاضي… بلّش بالسيخ.', 'The plate is empty… start with the spit.'),
+                  T('اللحم بالصينية تحت السيخ.', 'The meat is in the tray under the spit.'),
+                  T('لفّة على خبز الصاج.', 'Wrapped in saj bread.'),
+                  T('تحمّصت وتقطّعت.', 'Toasted and cut.'),
+                  T('صحتين وعافية!', 'Enjoy!'),
+                ],
+              }}
             />
           </div>
         </div>
