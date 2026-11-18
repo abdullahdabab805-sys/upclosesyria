@@ -1,8 +1,9 @@
 import { cache } from 'react'
-import { getDayTrips, getFirstVisitPages, getLatestReports, getMainCities } from '@/data/queries'
+import { getDayTrips, getFirstVisitPages, getLatestReports, getMainCities, getNearbyHubs } from '@/data/queries'
 import { getSitemapSnapshot } from '@/data/sitemap'
 import { text } from '@/lib/localized'
 import type { LlmsInfo } from '@/lib/llms'
+import { cleanIntro, nearbyTopic } from '@/lib/nearby'
 import { tripPath } from '@/lib/rural'
 import { sectionPages, type SitemapPage, type SitemapSection } from '@/lib/sitemap'
 import { formatDate } from '@/components/Stamp'
@@ -19,7 +20,7 @@ export const reportNote = (fieldDate: string, authorName?: string | null) =>
   `تقرير ميداني بتاريخ ${formatDate(new Date(fieldDate), 'ar')}${authorName ? `، كتبه ${authorName}` : ''}`
 
 export const getGuideIndex = cache(async (): Promise<GuideIndex> => {
-  const [snap, cities, trips, firstVisit, reports] = await Promise.all([getSitemapSnapshot(), getMainCities(), getDayTrips(), getFirstVisitPages(), getLatestReports(200)])
+  const [snap, cities, trips, firstVisit, reports, hubs] = await Promise.all([getSitemapSnapshot(), getMainCities(), getDayTrips(), getFirstVisitPages(), getLatestReports(200), getNearbyHubs()])
   const byPath = <T,>(rows: T[], path: (r: T) => string, info: (r: T) => LlmsInfo) => {
     const m = new Map(rows.map((r) => [path(r), info(r)]))
     return (p: string) => m.get(p)
@@ -36,7 +37,21 @@ export const getGuideIndex = cache(async (): Promise<GuideIndex> => {
       pages: ordered('cities', cities, cityPath),
       info: byPath(cities, cityPath, (c) => ({ name: text(c.name, 'ar') ?? c.slug, en: text(c.name, 'en') ?? undefined, note: text(c.lede, 'ar') })),
     },
-    trips: { pages: ordered('countryside', trips, tripPath), info: byPath(trips, tripPath, (t) => ({ name: t.title, note: t.description })) },
+    // SEO day 18: the indexable "trips near a city" hubs share the countryside sitemap; name them too, or
+    // llms.txt skips them. Name and note are the hub's own topic and its editor-written intro.
+    trips: (() => {
+      const trip = byPath(trips, tripPath, (t) => ({ name: t.title, note: t.description }))
+      const cityById = new Map(cities.map((c) => [c.id, c]))
+      const hub = byPath(
+        hubs.filter((h) => h.indexable && cityById.has(h.cityId)),
+        (h) => h.path,
+        (h) => {
+          const c = cityById.get(h.cityId)!
+          return { name: nearbyTopic(text(c.name, 'ar') ?? c.slug), note: cleanIntro(c.nearbyIntro) }
+        },
+      )
+      return { pages: ordered('countryside', trips, tripPath), info: (p: string) => trip(p) ?? hub(p) }
+    })(),
     firstVisit: {
       pages: ordered('first-visit', firstVisit, fvPath),
       info: byPath(firstVisit, fvPath, (p) => ({ name: text(p.title, 'ar') ?? p.topic, en: text(p.title, 'en') ?? undefined, note: text(p.summary, 'ar') })),
