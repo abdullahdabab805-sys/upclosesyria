@@ -23,7 +23,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return pageMetadata({
     locale,
     path: '/outside/first-visit',
-    title: T('دليل أول زيارة لسوريا', 'First visit to Syria: a practical guide'),
+    // SEO day 21: lead with the search phrase ("السفر إلى سوريا", "travel to Syria"); the H1 stays.
+    title: T('السفر إلى سوريا: دليل أول زيارة', 'Travel to Syria: a first-visit guide'),
     description: describe([
       T('التأشيرة، الوصول، المال، الاتصالات، التنقل: كل صفحة تُنشر بعد التحقق منها مع مصدرها الرسمي', 'Visa, getting there, money, staying connected, getting around: each page is published once checked against its official source'),
       SITE_LINE[locale],

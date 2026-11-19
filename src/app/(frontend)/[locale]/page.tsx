@@ -35,7 +35,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return pageMetadata({
     locale,
     path: '/',
-    title: T('سوريا عن قرب: دليل مستقل لسوريا كما هي اليوم', 'Syria Up Close: an independent guide to Syria today'),
+    // SEO day 21: "travel guide" / "دليل سياحي" is what people search; same words as the official short description (day 9).
+    title: T('سوريا عن قرب: دليل سياحي مستقل لسوريا كما هي اليوم', 'Syria Up Close: an independent travel guide to Syria today'),
     description: describe([
       T('سوريا كما هي اليوم، عن قرب: معلومات مؤرخة، وناس على الأرض، وصور من المكان نفسه', 'Syria as it is today, up close: dated information, people on the ground, photos from the place itself'),
       T(`${cities} مدينة رئيسية، لكل مدينة: شو تشوف وشو تاكل ووين تنام`, `${cities} main cities: what to see, what to eat and where to stay`),

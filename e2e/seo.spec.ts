@@ -19,9 +19,9 @@ test('bilingual page: absolute canonical and hreflang ar/en/x-default', async ({
 
 test('home title: the site name first, then what it is (no "| site name" suffix)', async ({ page }) => {
   await page.goto('/')
-  await expect(page).toHaveTitle('سوريا عن قرب: دليل مستقل لسوريا كما هي اليوم')
+  await expect(page).toHaveTitle('سوريا عن قرب: دليل سياحي مستقل لسوريا كما هي اليوم')
   await page.goto('/en')
-  await expect(page).toHaveTitle('Syria Up Close: an independent guide to Syria today')
+  await expect(page).toHaveTitle('Syria Up Close: an independent travel guide to Syria today')
 })
 
 test('Arabic-only section: no English alternate; the /en copy is noindex and canonical to Arabic', async ({ page }) => {
