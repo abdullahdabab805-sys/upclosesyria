@@ -9,7 +9,7 @@ import { ArabicOnly } from '@/components/ArabicOnly'
 import { Filterable } from '@/components/client/Filterable'
 import { Photo, Stays, text } from '@/components/content'
 import { staticPhoto } from '@/content/photos'
-import { asDoc, getCity, getDayTrips, getMainCities, getNearbyHubs, getSettings, getStays, type DayTripDoc } from '@/data/queries'
+import { asDoc, getCity, getDayTrips, getMainCities, getNearbyHubs, getResortsHub, getSettings, getStays, type DayTripDoc } from '@/data/queries'
 import { tripPath } from '@/lib/rural'
 import { isLocale } from '@/lib/i18n'
 import { localePath } from '@/lib/routing'
@@ -55,6 +55,8 @@ export default async function InsidePage({ params }: { params: Promise<{ locale:
   const cities = await getMainCities()
   // SEO day 8: each city's "trips near" hub, linked only while it is indexable (lib/nearby).
   const hubBySlug = new Map((await getNearbyHubs()).filter((h) => h.indexable).map((h) => [h.slug, h.path]))
+  // SEO day 19: "أجمل مصايف سوريا", linked only while it is indexable (lib/resorts).
+  const resortsHub = await getResortsHub()
   let n = 0
   const num = () => String(++n).padStart(2, '0')
 
@@ -151,7 +153,15 @@ export default async function InsidePage({ params }: { params: Promise<{ locale:
                 <div>
                   <span className="eyebrow">بيوت ريفية</span>
                   <h2>مصايف وبيوت ريفية للعيلة</h2>
-                  <p>للتجمعات العائلية والإجازات القصيرة.</p>
+                  <p>
+                    للتجمعات العائلية والإجازات القصيرة.
+                    {resortsHub.indexable && (
+                      <>
+                        {' '}
+                        <Link href={resortsHub.path}>أجمل مصايف سوريا، كلها بصفحة وحدة ←</Link>
+                      </>
+                    )}
+                  </p>
                 </div>
                 <Link className="more" href="/inside/bloudan">
                   صفحة بلودان ←

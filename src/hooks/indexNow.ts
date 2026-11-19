@@ -3,6 +3,7 @@ import type { CollectionAfterChangeHook, CollectionAfterDeleteHook, CollectionCo
 import { indexNowEnabled, indexNowKey, runIndexNow, type PageRef, type Query } from '@/lib/indexnow'
 import { isTranslated } from '@/lib/localized'
 import { nearbyHubs, type NearbyCity, type NearbyTrip } from '@/lib/nearby'
+import { RESORT_TAG, resortsHub } from '@/lib/resorts'
 import { tripPath } from '@/lib/rural'
 import { siteUrl } from '@/lib/site-url'
 
@@ -49,6 +50,16 @@ async function nearbyPages(payload: Payload, id: Rel): Promise<PageRef[]> {
     .map((h) => ({ path: h.path }))
 }
 
+/** SEO day 19: the resorts hub, only while it is indexable (lib/resorts). */
+async function resortsPages(payload: Payload): Promise<PageRef[]> {
+  const [trips, settings] = await Promise.all([
+    payload.find({ collection: 'dayTrips', where: { tag: { equals: RESORT_TAG } }, pagination: false, ...visitor }),
+    payload.findGlobal({ slug: 'siteSettings', overrideAccess: false, depth: 0 }),
+  ])
+  const hub = resortsHub(trips.docs as unknown as { tag?: string | null }[], (settings as { resortsIntro?: unknown }).resortsIntro)
+  return hub.indexable ? [{ path: hub.path }] : []
+}
+
 type Resolver = (payload: Payload, doc: Doc) => Promise<PageRef[]>
 
 const byCity: Resolver = (payload, doc) => cityPages(payload, doc.city as Rel)
@@ -73,7 +84,10 @@ export const PAGES: Record<string, Resolver> = {
     // The city page lists its countryside, and so does the city's hub (SEO day 8).
     ...(await cityPages(payload, doc.fromCity as Rel)),
     ...(await nearbyPages(payload, doc.fromCity as Rel)),
+    ...(await resortsPages(payload)),
   ],
+  // The site settings hold the resorts hub's intro (sent by the global's hook in globals/SiteSettings).
+  siteSettings: async (payload) => [...(await resortsPages(payload)), { path: '/inside' }],
   seasonReports: async (_payload, doc) => [...(doc.slug ? [{ path: `/seasons/${String(doc.slug)}` }] : []), { path: '/seasons' }, { path: '/' }],
   firstVisitPages: async (payload, doc) => [
     { path: `/outside/first-visit/${String(doc.topic)}`, translated: await translatedNow(payload, 'firstVisitPages', doc.id) },

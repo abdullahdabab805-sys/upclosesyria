@@ -109,3 +109,15 @@ test('GEO files: llms.txt lists the guide, robots.txt welcomes AI search, the si
   expect(sitemap).toContain('/inside/bloudan')
   expect(await (await request.get('/sitemaps/cities.xml')).text()).not.toContain('/cities/bloudan<')
 })
+
+test('SEO day 19: the resorts hub lists the trips tagged مصيف, noindex and unlinked until an editor writes its intro', async ({ page }) => {
+  const res = await page.goto('/inside/resorts')
+  expect(res?.status()).toBe(200)
+  await expect(page.locator('h1')).toHaveText('أجمل مصايف سوريا')
+  await expect(page.locator('main a.pcard[href="/inside/bloudan"]')).toBeVisible()
+  await expect(page.locator('main a.pcard[href="/inside/saint-simeon"]')).toHaveCount(0)
+  // The e2e seed has no resorts intro: the page says only what it is and stays out of the index.
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/)
+  await page.goto('/inside')
+  await expect(page.locator('a[href="/inside/resorts"]')).toHaveCount(0)
+})

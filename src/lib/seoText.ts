@@ -187,3 +187,27 @@ export function nearbyMeta(f: NearbyFacts): Meta {
     ]),
   }
 }
+
+export type ResortsFacts = {
+  /** The editor's intro (lib/resorts): the page's only prose, so the description leads with it. */
+  intro?: string | null
+  /** Resort names in the editors' order (the title names as many as fit). */
+  names: readonly string[]
+  /** Cities the resorts are reached from, in the same order (mentioned when there are any). */
+  fromCities: readonly string[]
+}
+
+/** "Syria's summer resorts" hub (Arabic only, for people inside Syria). */
+export function resortsMeta(f: ResortsFacts): Meta {
+  const names = [...new Set(f.names.map((n) => n.trim()).filter(Boolean))]
+  const from = [...new Set(f.fromCities.map((n) => n.trim()).filter(Boolean))]
+  return {
+    title: fitTopic('أجمل مصايف سوريا', names, 'ar'),
+    description: describe([
+      f.intro,
+      names.length > 0 && `${names.length} مصايف، لكل مصيف صفحته: وين تنام ووين تاكل والطبيعة وخريطة`,
+      from.length > 0 && `مرتّبة حسب المدينة اللي بتطلع منها: ${listJoin(from, 'ar')}`,
+      SITE_LINE.ar,
+    ]),
+  }
+}

@@ -36,6 +36,8 @@ export type SnapGuide = { slug: string; at: When; translated: boolean; images: s
 export type SnapVideo = { at: When }
 /** SEO day 8: an indexable "trips near a city" hub (lib/nearby decides; non-indexable hubs never get here). */
 export type SnapNearby = { path: string; city: number }
+/** SEO day 19: the resorts hub while it is indexable (lib/resorts decides), with the trips it lists. */
+export type SnapResorts = { path: string; trips: string[]; at: When }
 
 export type SitemapSnapshot = {
   cities: SnapCity[]
@@ -47,6 +49,7 @@ export type SitemapSnapshot = {
   guides: SnapGuide[]
   videos: SnapVideo[]
   nearby: SnapNearby[]
+  resorts?: SnapResorts | null
 }
 
 /** A page before it is split into its indexable language URLs. */
@@ -104,6 +107,8 @@ export function sectionPages(section: SitemapSection, snap: SitemapSnapshot): Si
           const city = snap.cities.find((c) => c.id === h.city)
           return { path: h.path, lastmod: latest(city?.updatedAt, ...snap.trips.filter((t) => t.fromCity === h.city).map((t) => t.at)) }
         }),
+        // The resorts hub lists its trips: it changes when one of them (or the editor's intro) does.
+        ...(snap.resorts ? [{ path: snap.resorts.path, lastmod: latest(snap.resorts.at, ...snap.trips.filter((t) => snap.resorts!.trips.includes(t.path)).map((t) => t.at)) }] : []),
       ]
     case 'seasons':
       return snap.reports.map((r) => ({ path: `/seasons/${r.slug}`, lastmod: latest(r.at), images: r.images }))

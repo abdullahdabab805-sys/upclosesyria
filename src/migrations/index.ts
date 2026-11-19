@@ -21,6 +21,7 @@ import * as migration_20261031_090000_first_visit_refresh from './20261031_09000
 import * as migration_20261111_080439_trip_asked_questions from './20261111_080439_trip_asked_questions';
 import * as migration_20261112_064103_city_asked_questions from './20261112_064103_city_asked_questions';
 import * as migration_20261113_164417_video_creator_url from './20261113_164417_video_creator_url';
+import * as migration_20261119_081206_site_settings_resorts_intro from './20261119_081206_site_settings_resorts_intro';
 
 export const migrations = [
   {
@@ -136,6 +137,11 @@ export const migrations = [
   {
     up: migration_20261113_164417_video_creator_url.up,
     down: migration_20261113_164417_video_creator_url.down,
-    name: '20261113_164417_video_creator_url'
+    name: '20261113_164417_video_creator_url',
+  },
+  {
+    up: migration_20261119_081206_site_settings_resorts_intro.up,
+    down: migration_20261119_081206_site_settings_resorts_intro.down,
+    name: '20261119_081206_site_settings_resorts_intro'
   },
 ];

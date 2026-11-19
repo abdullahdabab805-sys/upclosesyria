@@ -24,6 +24,7 @@ const CITIES: Row[] = [
 ]
 const TRIPS: Row[] = [{ id: 9, slug: 'bloudan', place: 2 }]
 const STORIES: Row[] = [{ id: 5, title: { ar: 'ق', en: 'S' }, body: null }]
+const SETTINGS: Row = {}
 
 function fakePayload() {
   const sent = new Set<string>()
@@ -38,7 +39,8 @@ function fakePayload() {
     const [field, cond] = Object.entries(where)[0]!
     return { docs: table.filter((r) => r[field] === cond.equals) }
   })
-  return { payload: { find, db: { pool: { query } } } as unknown as Payload, find, query }
+  const findGlobal = vi.fn(async () => SETTINGS)
+  return { payload: { find, findGlobal, db: { pool: { query } } } as unknown as Payload, find, query }
 }
 
 let fetchMock: ReturnType<typeof vi.fn>
@@ -201,6 +203,27 @@ describe('SEO day 8: the "trips near" hub', () => {
     } finally {
       TRIPS.splice(TRIPS.length - extra.length, extra.length)
       delete CITIES[0]!.nearbyIntro
+    }
+  })
+})
+
+describe('SEO day 19: the resorts hub', () => {
+  const INTRO = 'نص تجريبي للاختبار فقط: مصايف الجبل والساحل للعيلة بالصيف، هوا بارد وينابيع وغابات، ولكل مصيف صفحته.'
+  it('is sent with a resort trip or the site settings only while indexable (3+ resorts and an intro)', async () => {
+    const extra = [{ id: 20, slug: 'r1', fromCity: 3, tag: 'مصيف' }, { id: 21, slug: 'r2', fromCity: 3, tag: 'مصيف' }, { id: 22, slug: 'r3', fromCity: 3, tag: 'مصيف' }]
+    TRIPS.push(...extra)
+    try {
+      expect((await pagesOf('dayTrips', extra[0]!)).map((p) => p.path)).not.toContain('/inside/resorts')
+      expect(await pagesOf('siteSettings', {})).toEqual([{ path: '/inside' }])
+      SETTINGS.resortsIntro = INTRO
+      expect((await pagesOf('dayTrips', extra[0]!)).map((p) => p.path)).toContain('/inside/resorts')
+      expect(await pagesOf('siteSettings', {})).toEqual([{ path: '/inside/resorts' }, { path: '/inside' }])
+      // Two resorts only: under the threshold again.
+      TRIPS.splice(TRIPS.length - 1, 1)
+      expect(await pagesOf('siteSettings', {})).toEqual([{ path: '/inside' }])
+    } finally {
+      TRIPS.splice(TRIPS.length - 2, 2)
+      delete SETTINGS.resortsIntro
     }
   })
 })

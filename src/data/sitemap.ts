@@ -5,6 +5,7 @@ import type { Media } from '@/payload-types'
 import { buildWithoutDatabase } from '@/lib/build-phase'
 import { isTranslated } from '@/lib/localized'
 import { nearbyHubs } from '@/lib/nearby'
+import { resortsHub, resortTrips } from '@/lib/resorts'
 import { tripPath, tripPhotoKeys } from '@/lib/rural'
 import { latest, type SitemapSnapshot, type SnapChild } from '@/lib/sitemap'
 import { payloadClient } from '@/data/queries'
@@ -23,7 +24,7 @@ export const isOwnImage = (src: string) => src.startsWith('/') || /^https:\/\/[a
 
 const guidePhotos = (keys: readonly string[]) => keys.flatMap((k) => staticPhoto(k)?.src ?? []).filter(isOwnImage)
 
-const EMPTY: SitemapSnapshot = { cities: [], children: [], trips: [], reports: [], firstVisit: [], stories: [], guides: [], videos: [], nearby: [] }
+const EMPTY: SitemapSnapshot = { cities: [], children: [], trips: [], reports: [], firstVisit: [], stories: [], guides: [], videos: [], nearby: [], resorts: null }
 
 type Collection = 'cities' | 'places' | 'stays' | 'venues' | 'cityLore' | 'cityPhotos' | 'statusItems' | 'dayTrips' | 'seasonReports' | 'firstVisitPages' | 'stories' | 'guides' | 'videos' | 'media'
 
@@ -50,9 +51,10 @@ export const getSitemapSnapshot = cache(async (): Promise<SitemapSnapshot> => {
     all<Row>('cityLore', { city: true, updatedAt: true }),
     all<Row>('cityPhotos', { city: true, updatedAt: true, photo: true }),
     all<Row>('statusItems', { city: true, updatedAt: true, verifiedAt: true }),
-    all<{ id: number; slug?: string | null; title: string; fromCity?: Rel; place?: Rel; updatedAt?: string; checkedAt?: string | null; spots?: { image?: Rel }[] | null }>('dayTrips', {
+    all<{ id: number; slug?: string | null; title: string; tag?: string | null; fromCity?: Rel; place?: Rel; updatedAt?: string; checkedAt?: string | null; spots?: { image?: Rel }[] | null }>('dayTrips', {
       slug: true,
       title: true,
+      tag: true,
       fromCity: true,
       place: true,
       updatedAt: true,
@@ -65,6 +67,9 @@ export const getSitemapSnapshot = cache(async (): Promise<SitemapSnapshot> => {
     all<{ slug: string; updatedAt?: string; bio?: unknown; photo?: Rel; city?: Rel }>('guides', { slug: true, updatedAt: true, bio: true, photo: true, city: true }),
     all<{ updatedAt?: string; city?: Rel }>('videos', { updatedAt: true, city: true }),
   ])
+  // SEO day 19: the resorts hub's intro lives in the site settings (read as a visitor, like the pages).
+  const settings = (await p.findGlobal({ slug: 'siteSettings', overrideAccess: false, depth: 0 } as never)) as { resortsIntro?: string | null; updatedAt?: string }
+  const resorts = resortsHub(trips, settings.resortsIntro)
 
   // One media query for every photo referenced above; the visitor only gets approved photos.
   const mediaIds = [
@@ -140,5 +145,6 @@ export const getSitemapSnapshot = cache(async (): Promise<SitemapSnapshot> => {
     nearby: nearbyHubs(cities, trips)
       .filter((h) => h.indexable)
       .map((h) => ({ path: h.path, city: h.cityId })),
+    resorts: resorts.indexable ? { path: resorts.path, trips: resortTrips(trips).map(tripPath), at: settings.updatedAt } : null,
   }
 })
