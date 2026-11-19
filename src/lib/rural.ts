@@ -12,6 +12,9 @@ export function tripPhotoKeys(trip: { slug?: string | null; title: string }): st
   return [...n.map((i) => `sv-${trip.slug}-${i}`), `trip-${trip.title}`, ...n.map((i) => `trip-${trip.slug}-${i}`)]
 }
 
+/** Slugs a trip may not take: /inside/<slug> is already a page of its own (SEO days 8 and 19). */
+export const RESERVED_TRIP_SLUGS: readonly string[] = ['near', 'resorts']
+
 /** The lookup key behind /inside/<key>: a slug, or the id of a trip without one. */
 export function parseTripKey(key: string): { slug: string } | { id: number } | null {
   const byId = /^trip-(\d+)$/.exec(key)

@@ -1,3 +1,4 @@
+import { RESERVED_TRIP_SLUGS } from '@/lib/rural'
 import type { CollectionConfig } from 'payload'
 import { editorOrAdmin } from '@/access'
 
@@ -20,7 +21,12 @@ export const DayTrips: CollectionConfig = {
       unique: true,
       index: true,
       label: { ar: 'المعرّف في الرابط', en: 'Slug' },
-      validate: (v: unknown) => v == null || v === '' || (typeof v === 'string' && /^[a-z0-9-]+$/.test(v)) || 'حروف لاتينية صغيرة وأرقام وشرطات فقط',
+      validate: (v: unknown) => {
+        if (v == null || v === '') return true
+        if (typeof v !== 'string' || !/^[a-z0-9-]+$/.test(v)) return 'حروف لاتينية صغيرة وأرقام وشرطات فقط'
+        // /inside/near/… and /inside/resorts are pages of their own (SEO days 8 and 19): a trip there would never show.
+        return !RESERVED_TRIP_SLUGS.includes(v) || 'هالمعرّف محجوز لصفحة ثانية بالموقع'
+      },
     },
     { name: 'tag', type: 'text', label: { ar: 'نوع المكان (مصيف، آثار، نبع…)', en: 'Kind of place' } },
     {

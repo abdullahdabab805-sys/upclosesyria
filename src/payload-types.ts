@@ -1268,6 +1268,10 @@ export interface SiteSetting {
     statusDays: number;
     firstVisitDays: number;
   };
+  /**
+   * A short paragraph written by a person (80+ characters). The page lists the trips tagged "مصيف". No prices or safety claims. Empty = the page is not indexed or linked.
+   */
+  resortsIntro?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1310,6 +1314,7 @@ export interface SiteSettingsSelect<T extends boolean = true> {
         statusDays?: T;
         firstVisitDays?: T;
       };
+  resortsIntro?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

@@ -5,6 +5,7 @@ import type { Media } from '@/payload-types'
 import type { Rel } from '@/lib/docs'
 import { buildWithoutDatabase } from '@/lib/build-phase'
 import { nearbyHubs } from '@/lib/nearby'
+import { resortsHub } from '@/lib/resorts'
 import { timed } from '@/lib/timing'
 import type { VenueCategory, VenueSubcategory } from '@/lib/venueClass'
 import type { AskedQuestion } from '@/lib/rural'
@@ -51,6 +52,8 @@ export type SettingsDoc = {
   disclosureText: L
   socialProfiles?: { url: string }[] | null
   staleness?: { statusDays?: number | null; firstVisitDays?: number | null } | null
+  /** SEO day 19: the editor's intro of /inside/resorts (lib/resorts). */
+  resortsIntro?: string | null
 }
 export type TripSpot = { id?: string | null; kind: 'stay' | 'food' | 'nature' | 'ruins' | 'picnic'; name: string; note?: string | null; lat?: number | null; lng?: number | null; image?: Rel<Media> }
 export type DayTripDoc = {
@@ -141,6 +144,12 @@ export const getNearbyHubs = cache(async () => {
 })
 
 /** The indexable hub of a city, or null (unlinked and noindex otherwise). */
+/** The "Syria's summer resorts" hub (SEO day 19), with whether it may be indexed and linked (lib/resorts). */
+export const getResortsHub = cache(async () => {
+  const [trips, settings] = await Promise.all([getDayTrips(), getSettings()])
+  return resortsHub(trips, settings.resortsIntro)
+})
+
 export const getIndexableNearbyHub = cache(async (cityId: number) => (await getNearbyHubs()).find((h) => h.cityId === cityId && h.indexable) ?? null)
 
 /** One trip page, by slug or (for a trip saved without one) by id. */
