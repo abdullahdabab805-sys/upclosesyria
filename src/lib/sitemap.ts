@@ -152,6 +152,17 @@ export function urlsetXml(urls: SitemapUrl[]): string {
 }
 
 /** The sitemap index served at /sitemap.xml: one entry per section, with its newest lastmod. */
+/**
+ * The sections the index lists, with their newest change. SEO day 22: a section with no pages yet (guides, until
+ * one is published) is left out; Search Console reports an empty urlset as an error ("Missing XML tag").
+ */
+export function indexSections(snap: SitemapSnapshot): { section: SitemapSection; lastmod?: string }[] {
+  return SITEMAP_SECTIONS.flatMap((section) => {
+    const pages = sectionPages(section, snap)
+    return pages.length ? [{ section, lastmod: latest(...pages.map((p) => p.lastmod)) }] : []
+  })
+}
+
 export function sitemapIndexXml(base: string, sections: { section: SitemapSection; lastmod?: string }[]): string {
   const rows = sections.map((s) => `<sitemap><loc>${esc(`${base}${sectionPath(s.section)}`)}</loc>${s.lastmod ? `<lastmod>${s.lastmod}</lastmod>` : ''}</sitemap>`)
   return `${XML}<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.join('\n')}\n</sitemapindex>\n`

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { isSitemapSection, latest, sectionPages, sectionPath, sitemapIndexXml, sitemapUrls, urlsetXml, type SitemapSnapshot } from '@/lib/sitemap'
+import { indexSections, isSitemapSection, latest, sectionPages, sectionPath, sitemapIndexXml, sitemapUrls, urlsetXml, type SitemapSnapshot } from '@/lib/sitemap'
 
 const base = 'https://www.upclosesyria.com'
 
@@ -161,5 +161,16 @@ describe('SEO day 8: "trips near a city" hubs', () => {
 
   it('no indexable hub: the section is exactly the trips', () => {
     expect(sectionPages('countryside', snap).map((p) => p.path)).toEqual(['/inside/bloudan', '/inside/maaloula'])
+  })
+})
+
+describe('SEO day 22: the index lists only sections with pages', () => {
+  it('a section with no pages yet (no guide published) is left out; the rest keep their newest lastmod', () => {
+    const all = indexSections(snap)
+    expect(all.map((s) => s.section)).toContain('guides')
+    expect(all.find((s) => s.section === 'guides')?.lastmod).toBe('2026-10-21T00:00:00.000Z')
+    const noGuides = indexSections({ ...snap, guides: [] })
+    expect(noGuides.map((s) => s.section)).not.toContain('guides')
+    expect(noGuides.map((s) => s.section)).toEqual(all.map((s) => s.section).filter((s) => s !== 'guides'))
   })
 })
