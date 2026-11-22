@@ -20,7 +20,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return pageMetadata({
     locale,
     path: '/cities',
-    title: T(`مدن سوريا: ${n} مدينة رئيسية`, `Syria’s ${n} main cities`),
+    // SEO day 24: keep "مدن سوريا" first (it ranks 1), and add the travel intent people search:
+    // "أماكن سياحية في سوريا" / "places to visit in Syria". The H1 stays.
+    title: T(`مدن سوريا وأماكنها السياحية: ${n} مدينة`, `Places to visit in Syria: ${n} main cities`),
     description: describe([
       T('مراكز المحافظات. لكل مدينة: حال البلد اليوم، المعالم، المطاعم والكافيهات، الحدائق، معرض صور، ومشاوير ريفها ومصايفه', 'The provincial capitals. For each: today’s status, sights, restaurants and cafes, parks, a photo gallery'),
       SITE_LINE[locale],
