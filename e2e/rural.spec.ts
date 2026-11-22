@@ -120,4 +120,7 @@ test('SEO day 19: the resorts hub lists the trips tagged مصيف, noindex and u
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/)
   await page.goto('/inside')
   await expect(page.locator('a[href="/inside/resorts"]')).toHaveCount(0)
+  // SEO day 23: nor from a resort's own page.
+  await page.goto('/inside/bloudan')
+  await expect(page.locator('a[href="/inside/resorts"]')).toHaveCount(0)
 })
