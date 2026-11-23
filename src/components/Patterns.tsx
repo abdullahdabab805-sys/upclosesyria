@@ -312,3 +312,17 @@ export function MuqarnasEdge() {
 export function Shamsa({ turning = false }: { turning?: boolean }) {
   return <span className={turning ? 'shamsa turning' : 'shamsa'} aria-hidden="true" />
 }
+
+/* ---------- 2026-11-23: animated edge bands (owner brief: "the same motion as Ahleen's about page, our own pattern") ----------
+   A strip of the khatam star and copper diamonds down each side of <main>. The left strip rises and the right one
+   falls, one tile per cycle so the loop never jumps. Styles in styles/edges.css; still under prefers-reduced-motion. */
+
+/** The two animated pattern strips at the edges of the page; rendered once, inside <main>. */
+export function EdgeBands() {
+  return (
+    <>
+      <span className="edge-band l" aria-hidden="true" />
+      <span className="edge-band r" aria-hidden="true" />
+    </>
+  )
+}

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { Brand } from '@/components/Logo'
+import { EdgeBands } from '@/components/Patterns'
 import type { Locale } from '@/lib/i18n'
 import { isArabicOnly, localePath, switchLocalePath } from '@/lib/routing'
 
@@ -81,7 +82,10 @@ export function Page({ locale, path, children }: { locale: Locale; path: string;
   return (
     <>
       <Header locale={locale} path={path} />
-      <main id="main">{children}</main>
+      <main id="main" className="edged">
+        <EdgeBands />
+        {children}
+      </main>
     </>
   )
 }

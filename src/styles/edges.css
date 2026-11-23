@@ -1,0 +1,35 @@
+/* Animated edge bands (2026-11-23). The motion follows Ahleen's about page (two pattern strips at the page
+   edges, the left one rising and the right one falling, one tile per cycle); the pattern is ours:
+   public/patterns/edge-band.svg, the khatam star and copper diamonds on the brand green.
+   Each strip clips a layer one tile taller at each end and moves it with transform, so the browser can run it on
+   the compositor instead of repainting the strip every frame. Loaded last. */
+
+:root { --edge-w: 44px; --edge-h: 88px; --edge-t: 12s; }
+/* Same speed at every size (7.33px a second): the tile shrinks and the cycle shortens with it. */
+@media (max-width: 900px) { :root { --edge-w: 22px; --edge-h: 44px; --edge-t: 6s; } }
+@media (max-width: 480px) { :root { --edge-w: 16px; --edge-h: 32px; --edge-t: 4.36s; } }
+
+main.edged { position: relative; padding-inline: var(--edge-w); }
+/* Inside the bands the content needs less side padding on small phones, so 360px keeps its width. */
+@media (max-width: 480px) {
+  main.edged .wrap { padding-left: max(14px, env(safe-area-inset-left, 0px)); padding-right: max(14px, env(safe-area-inset-right, 0px)); }
+}
+
+.edge-band { position: absolute; top: 0; bottom: 0; z-index: 2; width: var(--edge-w); overflow: hidden; pointer-events: none; contain: layout paint; }
+.edge-band.l { left: 0; }
+.edge-band.r { right: 0; }
+.edge-band::before {
+  content: ""; position: absolute; left: 0; right: 0;
+  top: calc(-1 * var(--edge-h)); bottom: calc(-1 * var(--edge-h));
+  background: url(/patterns/edge-band.svg) 0 0 / var(--edge-w) var(--edge-h) repeat-y;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .edge-band::before { will-change: transform; }
+  .edge-band.l::before { animation: edge-rise var(--edge-t) linear infinite; }
+  .edge-band.r::before { animation: edge-fall var(--edge-t) linear infinite; }
+}
+@keyframes edge-rise { to { transform: translateY(calc(-1 * var(--edge-h))); } }
+@keyframes edge-fall { to { transform: translateY(var(--edge-h)); } }
+
+@media print { main.edged { padding-inline: 0; } .edge-band { display: none; } }
